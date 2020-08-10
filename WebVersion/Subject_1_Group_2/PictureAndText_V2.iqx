@@ -1,0 +1,204 @@
+﻿<values>
+/present_image_size = 1px * display.getpixelsy(75, 1)
+
+/location_horizontal_1 = 1px * display.getpixelsx(33.3, 1)
+/location_horizontal_2 = 1px * display.getpixelsx(50, 1)
+/location_horizontal_3 = 1px * display.getpixelsx(66.7, 1)
+
+/location_vertical_1 = 1px * display.getpixelsy(25, 1)
+/location_vertical_2 = 1px * display.getpixelsy(50, 1)
+/location_vertical_3 = 1px * display.getpixelsy(75, 1)
+</values>
+
+
+<picture SquarePresent>
+	/ size=(values.present_image_size, values.present_image_size)
+	/ items = image_presentation
+	/ select = sequence 
+</picture>
+
+<picture SquarePresent_practice>
+	/ size=(values.present_image_size, values.present_image_size)
+	/ items = image_presentation_practice
+	/ select = sequence 
+</picture>
+
+<picture SquarePresent_present>
+	/ size=(values.present_image_size, values.present_image_size)
+	/ position = (50%,50%)
+	/ items = ()
+	/ select = sequence 
+</picture>
+
+<picture Present_image_patch_step>
+	/ size=(values.present_image_size, values.present_image_size)
+	/ position = (50%,50%)
+	/ items = ()
+	/ select = sequence
+</picture>
+
+***************************************************************************************************
+***************************************************************************************************
+2. Masking Pictures
+<picture Masking_picture_1>
+	/ size=(values.present_image_size, values.present_image_size)
+	/ position = (50%,50%)
+	/items = Masking_item_1
+	/ select = noreplace 
+</picture>
+<picture Masking_picture_2>
+	/ size=(values.present_image_size, values.present_image_size)
+	/ position = (50%,50%)
+	/ items = Masking_item_2
+	/ select = noreplace 
+</picture>
+<picture Masking_picture_3>
+	/ size=(values.present_image_size, values.present_image_size)
+	/ position = (50%,50%)
+	/ items = Masking_item_3
+	/ select = noreplace 
+</picture>
+<picture Masking_picture_4>
+	/ size=(values.present_image_size, values.present_image_size)
+	/ position = (50%,50%)
+	/ items = Masking_item_4
+	/ select = noreplace 
+</picture>
+<picture Masking_picture_5>
+	/ size=(values.present_image_size, values.present_image_size)
+	/ position = (50%,50%)
+	/ items = Masking_item_5
+	/ select = noreplace 
+</picture>
+
+<picture Masking_patch_1>
+	/ size = (values.present_image_size/3,values.present_image_size/3)
+	/ hposition = values.x_coordinate
+	/ vposition = values.y_coordinate
+	/ items = Masking_patch_item_1
+	/ select = noreplace 
+</picture>
+<picture Masking_patch_2>
+	/ size = (values.present_image_size/3,values.present_image_size/3)
+	/ hposition = values.x_coordinate
+	/ vposition = values.y_coordinate
+	/ items = Masking_patch_item_2
+	/ select = noreplace 
+</picture>
+<picture Masking_patch_3>
+	/ size = (values.present_image_size/3,values.present_image_size/3)
+	/ hposition = values.x_coordinate
+	/ vposition = values.y_coordinate
+	/ items = Masking_patch_item_3
+	/ select = noreplace 
+</picture>
+<picture Masking_patch_4>
+	/ size = (values.present_image_size/3,values.present_image_size/3)
+	/ hposition = values.x_coordinate
+	/ vposition = values.y_coordinate
+	/ items = Masking_patch_item_4
+	/ select = noreplace 
+</picture>
+<picture Masking_patch_5>
+	/ size = (values.present_image_size/3,values.present_image_size/3)
+	/ hposition = values.x_coordinate
+	/ vposition = values.y_coordinate
+	/ items = Masking_patch_item_5
+	/ select = noreplace 
+</picture>
+
+<picture CP_patch>
+	/ size = (values.present_image_size/3,values.present_image_size/3)
+	/ items = CP_patch
+	/ select = sequence
+</picture>
+
+<picture CP_patch_present>
+	/ size = (values.present_image_size/3,values.present_image_size/3)
+	/ hposition = text.x.item(values.order)
+	/ vposition = text.y.item(values.order)
+	/ items = ()
+	/ select = sequence
+</picture>
+
+<picture CP_patch_practice>
+	/ size = (values.present_image_size/3,values.present_image_size/3)
+	/ items = CP_patch_practice
+	/ select = sequence
+</picture>
+
+<picture CP_patch_present_practice>
+	/ size = (values.present_image_size/3,values.present_image_size/3)
+	/ hposition = values.x_coordinate
+	/ vposition = values.y_coordinate
+	/ items = ()
+	/ select = sequence
+</picture>
+
+<text process_notice>
+/ items = ("You have finished <%values.order_question%> of <%values.number_of_patch%> Questions")
+/ fontstyle = ("Arial", 2.8%, true)
+/ position = (50%,85%)
+/ txbgcolor = (127,127,127)
+</text>
+
+<text Practice_notice>
+	/ items = ("Practice trial <%values.Index_practice%>")
+	/ fontstyle = ("Arial", 3%, true)
+	/ position = (50%,5%)
+	/ txbgcolor = (127,127,127)
+	/ txcolor = red
+</text>
+
+***************************************************************************************************
+***************************************************************************************************
+***************************************************************************************************
+***************************************************************************************************
+<text cross>
+	/ items = ("+")
+	/ color = snow
+	/ txbgcolor = (127, 127, 127)
+	/ fontstyle = ("Arial",100pt)
+</text>
+
+<text x>
+	/ items = CP_x_coordinates
+	/ select = sequence
+</text>
+
+<text y>
+	/ items = CP_y_coordinates
+	/ select = sequence
+</text>
+***************************************************************************************************
+***************************************************************************************************
+<text p_response_instructions>
+/ items = ("Please click on the button that corresponds to whether the patch belongs to the image presented before, 
+and how confident you are.")
+/ fontstyle = ("Arial", 2.8%, true)
+/ txbgcolor = (127,127,127)
+/ position = (50,80)
+</text>
+
+<text notice_centre_mouse>
+/ items = ("Please click the green rectangle to continue")
+/ fontstyle = ("Arial", 3%, true)
+/ position = (50%,80%)
+/ txbgcolor = (127,127,127)
+</text>
+
+<shape centersquare>
+/ shape = rectangle
+/ size = (5%, 5%)
+/ position = (50%, 50%)
+/ color = (green)
+</shape>
+***************************************************************************************************
+***************************************************************************************************
+<text interval>
+/items = ("If you are ready, press SPACE BUTTON and move to next trial
+You have finished <%values.Index%> of <%values.num_trials%> trials")
+/ position = (50%,50%)
+/ fontstyle = ("Arial", 3%, true)
+/ txbgcolor = (127,127,127)
+</text>

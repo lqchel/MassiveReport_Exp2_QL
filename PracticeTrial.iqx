@@ -1,0 +1,305 @@
+﻿*********************************************************************************************************************************
+*********************************************************************************************************************************
+													Practice Experiment
+*********************************************************************************************************************************
+*********************************************************************************************************************************
+<values>
+/time_out_practice = 0
+/present_timeout_practice = 0
+/Index_practice = 0
+/order_practice = 0
+</values>
+
+<trial Fixation_practice>
+/ stimulusframes = [1 = cross]
+/ timeout = 500
+/ recorddata = false
+/ branch = [
+	trial.image_presentation_practice
+]
+</trial>
+
+<counter image_presentation_order_practice>
+/ select = noreplace(1-3)
+</counter>
+
+<trial image_presentation_practice>
+/ ontrialbegin = [
+values.order_practice = counter.image_presentation_order_practice.selectedvalue;
+picture.SquarePresent_present.insertitem(picture.SquarePresent_practice.item(values.order_practice),1);
+trial.image_presentation_practice.insertstimulusframe(picture.SquarePresent_present,1);
+trial.image_presentation_practice.insertstimulusframe(text.Practice_notice,1);
+
+values.Index_practice += 1;
+values.order_question = 0;
+
+if(values.Index_practice == 1){
+	values.present_timeout_practice = 500;
+}else if(values.Index_practice == 2){
+	values.present_timeout_practice = 250;
+}else{
+	values.present_timeout_practice = 133;
+}
+]
+/ stimulusframes = []
+/ timeout = values.present_timeout_practice
+/ recorddata = false
+/ ontrialend = [
+picture.SquarePresent_present.clearitems();
+trial.image_presentation_practice.clearstimulusframes();
+]
+/ branch = [
+trial.Masking_present;
+]
+</trial>
+
+*******************************
+**********************************
+
+<trial fixiation_2nd_practice>
+	/ stimulusframes = [1 = cross]
+	/ timeout = 500
+	/ recorddata = false
+	/ ontrialend = [
+	values.number_of_patch = 6;
+]
+	/ branch = [
+	trial.Patch_present_practice;
+]
+</trial>
+
+******************************************
+<trial Patch_present_practice>
+	/ ontrialbegin = [
+	if(values.Index_practice == 1){
+		values.time_out_practice = 500;
+	}else if(values.Index_practice == 2){
+		values.time_out_practice = 250;
+	}else{
+		values.time_out_practice = 133;
+	}
+	values.response = 0;
+	values.p_confidence = 0;
+	values.question_choose = counter.question_choose.selectedvalue;
+	if(values.question_choose >= 1 && values.question_choose <= 8){
+		if(counter.patch_of_original.selectedvalue == 1){
+		
+			picture.Present_image_patch_step.insertitem(picture.SquarePresent_practice.item(values.order_practice),1);
+			trial.Patch_present_practice.insertstimulusframe(picture.Present_image_patch_step,1);
+			trial.Patch_present_practice.insertstimulusframe(picture.Patch_locate_1_present,1);
+			trial.Patch_present_practice.insertstimulusframe(text.cross,1);
+			values.x_coordinate = values.location_horizontal_1;
+			values.y_coordinate = values.location_vertical_1;
+		}else if(counter.patch_of_original.selectedvalue == 2){
+			picture.Present_image_patch_step.insertitem(picture.SquarePresent_practice.item(values.order_practice),1);
+			trial.Patch_present_practice.insertstimulusframe(picture.Present_image_patch_step,1);
+			trial.Patch_present_practice.insertstimulusframe(picture.Patch_locate_2_present,1);
+			trial.Patch_present_practice.insertstimulusframe(text.cross,1);
+			values.x_coordinate = values.location_horizontal_2;
+			values.y_coordinate = values.location_vertical_1;			
+		}else if(counter.patch_of_original.selectedvalue == 3){
+			picture.Present_image_patch_step.insertitem(picture.SquarePresent_practice.item(values.order_practice),1);
+			trial.Patch_present_practice.insertstimulusframe(picture.Present_image_patch_step,1);
+			trial.Patch_present_practice.insertstimulusframe(picture.Patch_locate_3_present,1);
+			trial.Patch_present_practice.insertstimulusframe(text.cross,1);
+			values.x_coordinate = values.location_horizontal_3;
+			values.y_coordinate = values.location_vertical_1;	
+		}else if(counter.patch_of_original.selectedvalue == 4){
+			picture.Present_image_patch_step.insertitem(picture.SquarePresent_practice.item(values.order_practice),1);
+			trial.Patch_present_practice.insertstimulusframe(picture.Present_image_patch_step,1);
+			trial.Patch_present_practice.insertstimulusframe(picture.Patch_locate_4_present,1);
+			trial.Patch_present_practice.insertstimulusframe(text.cross,1);
+			values.x_coordinate = values.location_horizontal_1;
+			values.y_coordinate = values.location_vertical_2;					
+		}else if(counter.patch_of_original.selectedvalue == 5){
+			picture.Present_image_patch_step.insertitem(picture.SquarePresent_practice.item(values.order_practice),1);
+			trial.Patch_present_practice.insertstimulusframe(picture.Present_image_patch_step,1);
+			trial.Patch_present_practice.insertstimulusframe(picture.Patch_locate_5_present,1);
+			values.x_coordinate = values.location_horizontal_2;
+			values.y_coordinate = values.location_vertical_2;			
+		}else if(counter.patch_of_original.selectedvalue == 6){
+			picture.Present_image_patch_step.insertitem(picture.SquarePresent_practice.item(values.order_practice),1);
+			trial.Patch_present_practice.insertstimulusframe(picture.Present_image_patch_step,1);
+			trial.Patch_present_practice.insertstimulusframe(picture.Patch_locate_6_present,1);
+			trial.Patch_present_practice.insertstimulusframe(text.cross,1);
+			values.x_coordinate = values.location_horizontal_3;
+			values.y_coordinate = values.location_vertical_2;			
+		}else if(counter.patch_of_original.selectedvalue == 7){
+			picture.Present_image_patch_step.insertitem(picture.SquarePresent_practice.item(values.order_practice),1);
+			trial.Patch_present_practice.insertstimulusframe(picture.Present_image_patch_step,1);
+			trial.Patch_present_practice.insertstimulusframe(picture.Patch_locate_7_present,1);
+			trial.Patch_present_practice.insertstimulusframe(text.cross,1);
+			values.x_coordinate = values.location_horizontal_1;
+			values.y_coordinate = values.location_vertical_3;	
+		}else if(counter.patch_of_original.selectedvalue == 8){
+			picture.Present_image_patch_step.insertitem(picture.SquarePresent_practice.item(values.order_practice),1);
+			trial.Patch_present_practice.insertstimulusframe(picture.Present_image_patch_step,1);
+			trial.Patch_present_practice.insertstimulusframe(picture.Patch_locate_8_present,1);
+			trial.Patch_present_practice.insertstimulusframe(text.cross,1);
+			values.x_coordinate = values.location_horizontal_2;
+			values.y_coordinate = values.location_vertical_3;			
+		}else{
+			picture.Present_image_patch_step.insertitem(picture.SquarePresent_practice.item(values.order_practice),1);
+			trial.Patch_present_practice.insertstimulusframe(picture.Present_image_patch_step,1);
+			trial.Patch_present_practice.insertstimulusframe(picture.Patch_locate_9_present,1);
+			trial.Patch_present_practice.insertstimulusframe(text.cross,1);
+			values.x_coordinate = values.location_horizontal_3;
+			values.y_coordinate = values.location_vertical_3;				
+		}	
+	}else if(values.question_choose == 9){
+		values.x_coordinate = item.CP_x_coordinates_practice.item(values.order_practice);
+		values.y_coordinate = item.CP_y_coordinates_practice.item(values.order_practice);
+		picture.CP_patch_present_practice.insertitem(picture.CP_patch_practice.item(values.order_practice),1);
+		trial.Patch_present_practice.insertstimulusframe(text.cross, 1);
+		trial.Patch_present_practice.insertstimulusframe(picture.CP_patch_present_practice, 2);
+	}else if(values.question_choose == 10){
+		picture.Present_image_patch_step.insertitem(picture.SquarePresent_practice.item(values.order_practice),1);
+		trial.Patch_present_practice.insertstimulusframe(picture.Present_image_patch_step,1);
+		if(item.Object_Patch_practice.item(values.order_practice) == "1"){
+			trial.Patch_present_practice.insertstimulusframe(picture.Patch_locate_1_present,1);
+			trial.Patch_present_practice.insertstimulusframe(text.cross,1);
+			values.x_coordinate = values.location_horizontal_1;
+			values.y_coordinate = values.location_vertical_1;	
+		}else if (item.Object_Patch_practice.item(values.order_practice) == "2"){
+			trial.Patch_present_practice.insertstimulusframe(picture.Patch_locate_2_present,1);
+			trial.Patch_present_practice.insertstimulusframe(text.cross,1);
+			values.x_coordinate = values.location_horizontal_2;
+			values.y_coordinate = values.location_vertical_1;
+		}else if (item.Object_Patch_practice.item(values.order_practice) == "3"){
+			trial.Patch_present_practice.insertstimulusframe(picture.Patch_locate_3_present,1);
+			trial.Patch_present_practice.insertstimulusframe(text.cross,1);
+			values.x_coordinate = values.location_horizontal_3;
+			values.y_coordinate = values.location_vertical_1;
+		}else if (item.Object_Patch_practice.item(values.order_practice) == "4"){
+			trial.Patch_present_practice.insertstimulusframe(picture.Patch_locate_4_present,1);
+			trial.Patch_present_practice.insertstimulusframe(text.cross,1);
+			values.x_coordinate = values.location_horizontal_1;
+			values.y_coordinate = values.location_vertical_2;
+		}else if (item.Object_Patch_practice.item(values.order_practice) == "5"){
+			trial.Patch_present_practice.insertstimulusframe(picture.Patch_locate_5_present,1);
+			values.x_coordinate = values.location_horizontal_2;
+			values.y_coordinate = values.location_vertical_2;
+		}else if (item.Object_Patch_practice.item(values.order_practice) == "6"){
+			trial.Patch_present_practice.insertstimulusframe(picture.Patch_locate_6_present,1);
+			trial.Patch_present_practice.insertstimulusframe(text.cross,1);
+			values.x_coordinate = values.location_horizontal_3;
+			values.y_coordinate = values.location_vertical_2;
+		}else if (item.Object_Patch_practice.item(values.order_practice) == "7"){
+			trial.Patch_present_practice.insertstimulusframe(picture.Patch_locate_7_present,1);
+			trial.Patch_present_practice.insertstimulusframe(text.cross,1);
+			values.x_coordinate = values.location_horizontal_1;
+			values.y_coordinate = values.location_vertical_3;
+		}else if (item.Object_Patch_practice.item(values.order_practice) == "8"){
+			trial.Patch_present_practice.insertstimulusframe(picture.Patch_locate_8_present,1);
+			trial.Patch_present_practice.insertstimulusframe(text.cross,1);
+			values.x_coordinate = values.location_horizontal_2;
+			values.y_coordinate = values.location_vertical_3;	
+		}else{
+			trial.Patch_present_practice.insertstimulusframe(picture.Patch_locate_9_present,1);
+			trial.Patch_present_practice.insertstimulusframe(text.cross,1);
+			values.x_coordinate = values.location_horizontal_3;
+			values.y_coordinate = values.location_vertical_3;
+		}
+	}else{
+		if(counter.patch_of_random.selectedvalue == 1){
+			trial.Patch_present_practice.insertstimulusframe(text.cross, 1);
+			trial.Patch_present_practice.insertstimulusframe(picture.nPatch_locate_1_resource, 2);
+			values.x_coordinate = values.location_horizontal_1;
+			values.y_coordinate = values.location_vertical_1;	
+		}else if(counter.patch_of_random.selectedvalue == 2){
+			trial.Patch_present_practice.insertstimulusframe(text.cross, 1);
+			trial.Patch_present_practice.insertstimulusframe(picture.nPatch_locate_2_resource, 2);
+			values.x_coordinate = values.location_horizontal_2;
+			values.y_coordinate = values.location_vertical_1;			
+		}else if(counter.patch_of_random.selectedvalue == 3){
+			trial.Patch_present_practice.insertstimulusframe(text.cross, 1);
+			trial.Patch_present_practice.insertstimulusframe(picture.nPatch_locate_3_resource, 2);
+			values.x_coordinate = values.location_horizontal_3;
+			values.y_coordinate = values.location_vertical_1;			
+		}else if(counter.patch_of_random.selectedvalue == 4){
+			trial.Patch_present_practice.insertstimulusframe(text.cross, 1);
+			trial.Patch_present_practice.insertstimulusframe(picture.nPatch_locate_4_resource, 2);
+			values.x_coordinate = values.location_horizontal_1;
+			values.y_coordinate = values.location_vertical_2;			
+		}else if(counter.patch_of_random.selectedvalue == 5){
+			trial.Patch_present_practice.insertstimulusframe(text.cross, 1);
+			trial.Patch_present_practice.insertstimulusframe(picture.nPatch_locate_5_resource, 2);
+			values.x_coordinate = values.location_horizontal_2;
+			values.y_coordinate = values.location_vertical_2;		
+		}else if(counter.patch_of_random.selectedvalue == 6){
+			trial.Patch_present_practice.insertstimulusframe(text.cross, 1);
+			trial.Patch_present_practice.insertstimulusframe(picture.nPatch_locate_6_resource, 2);
+			values.x_coordinate = values.location_horizontal_3;
+			values.y_coordinate = values.location_vertical_2;			
+		}else if(counter.patch_of_random.selectedvalue == 7){
+			trial.Patch_present_practice.insertstimulusframe(text.cross, 1);
+			trial.Patch_present_practice.insertstimulusframe(picture.nPatch_locate_7_resource, 2);
+			values.x_coordinate = values.location_horizontal_1;
+			values.y_coordinate = values.location_vertical_3;			
+		}else if(counter.patch_of_random.selectedvalue == 8){
+			trial.Patch_present_practice.insertstimulusframe(text.cross, 1);
+			trial.Patch_present_practice.insertstimulusframe(picture.nPatch_locate_8_resource, 2);
+			values.x_coordinate = values.location_horizontal_2;
+			values.y_coordinate = values.location_vertical_3;			
+		}else{
+			trial.Patch_present_practice.insertstimulusframe(text.cross, 1);
+			trial.Patch_present_practice.insertstimulusframe(picture.nPatch_locate_9_resource, 2);
+			values.x_coordinate = values.location_horizontal_3;
+			values.y_coordinate = values.location_vertical_3;				
+		}
+	}	
+]
+
+	/ stimulusframes = []
+	/ timeout = values.time_out_practice
+	/ recorddata = false
+	/ ontrialend = [
+	trial.Patch_present_practice.clearstimulusframes();
+	picture.Present_image_patch_step.clearitems();
+	picture.CP_patch_present_practice.clearitems();
+]
+	/ branch = [
+		trial.mask_patch_practice
+]
+</trial>
+
+******************************************************************************************************************************************************************************************************
+******************************************************************************************************************************************************************************************************
+Trial for masking on the patches
+<trial mask_patch_practice>
+	/ stimulustimes = [0 = cross,Masking_patch_1;60 = cross,Masking_patch_2;120 = cross,Masking_patch_3;180 = cross,Masking_patch_4;240 = cross,Masking_patch_5]
+	/ timeout = 300
+	/ recorddata = false
+	/ branch = [
+	trial.peripheral_response_practice
+]
+</trial>
+******************************************************************************************************************************************************************************************************
+******************************************************************************************************************************************************************************************************
+
+******************************************************************************************************************************************************************************************************
+******************************************************************************************************************************************************************************************************
+
+<trial peripheral_response_practice>
+/ ontrialbegin = [
+	values.order_question += 1;
+]
+/ stimulusframes = [
+	1  = response1d, response2d, response3d, response4d, response5d, response6d, response7d, response8d, response_blank,
+lowC_instruction, highC_instruction,part_of_Image,Not_part_of_Image,p_response_instructions,Practice_notice
+]
+/ validresponse = (response_blank, response1d, response2d, response3d, response4d, response5d, response6d, response7d, response8d)
+/ inputdevice = mouse
+/ isvalidresponse = [if (trial.peripheral_response.response == "response_blank") false; else
+expressions.validresponse_disks
+]
+/ recorddata = false
+/ branch = [
+	trial.centermouse
+]
+</trial>
+
+
+<block test_prac>
+	/ trials = [1 = trial.Fixation_practice; 2-7 = trial.fixiation_2nd_practice]
+</block>

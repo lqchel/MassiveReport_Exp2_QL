@@ -1,0 +1,828 @@
+﻿
+<defaults >
+/ screencolor = (127,127,127) 
+</defaults>
+<values>
+	/num_trials = 14
+	/num_prac_trials = 3
+	/test = 0
+	/size = 20%
+	/Index = 0
+	/Index_practice = 0
+	/Index_odd_practice = 0
+	/Index_even_practice = 0
+	/x_coordinate = 0
+	/y_coordinate = 0
+	/patch_ID = 0
+	/probe_Image = 0
+	/CongOrIncong = 0
+	/Patch_Source = 0
+	/Exist_Object = 0
+	/Patch_Position = 0
+	/Image_ID = 0
+	/time_out_practice = 0
+	/present_timeout_practice = 0
+	/order_question = 0
+	/number_of_patch = 0
+</values>
+
+C:\INQUIST\NewProject\Project\SummerProject\ExpGroup\CommonProperty
+Start at Practice Step: Let participants do 3 trials first to practice and familiar with the operation of the experiment
+******************************************************************************************************************************
+******************************************************Step 1: Fixation********************************************************
+<trial Fixation_practice>
+	/ stimulusframes = [1 = cross]
+	/ timeout = 500
+	/ recorddata = false
+	/ branch = [
+		trial.image_presentation_practice
+	]
+</trial>
+**************************************************End of Fixation Step*********************************************************
+***************************************************Step 2: Presentation********************************************************
+
+<trial image_presentation_practice>
+	/ stimulusframes = [1 = Congruent_practice; 2 = Practice_notice]
+	/ timeout = values.present_timeout_practice
+	/ recorddata = false
+	/ branch = [
+	trial.Masking_present_practice;
+]
+	/ ontrialbegin = [
+	values.Index_practice += 1;
+	values.order_question = 0;
+	if(item.PresentationOrder_practice.item(values.Index_practice) == "Odd"){
+		values.Index_odd_practice += 1;
+	}else if(item.PresentationOrder_practice.item(values.Index_practice) == "Even"){
+		values.Index_even_practice += 1;
+	}
+	
+	if(values.Index_practice == 1){
+		values.present_timeout_practice = 500;
+	}else if(values.Index_practice == 2){
+		values.present_timeout_practice = 250;
+	}else{
+		values.present_timeout_practice = 133;
+	}
+]
+</trial>
+***************************************************End if Presentation Step*****************************************************
+
+Create counters for the random location and patch select
+For "mycounter_odd": 1,2,3,4,5 represent the patch on position 1,3,5,7,9; 6 => The patch with Object; 7~21 => Random select
+For "mycounter_even": 1,2,3,4 => patches on position 2,4,6,8; 5 => The patch with Object; 6~20 => Random select
+<counter mycounter_odd_practice>
+/ select = noreplace(1-10) 
+</counter>
+<counter mycounter_even_practice>
+/ select = noreplace(1-8)
+</counter>
+
+<counter mycounter_hposition_random_practice>
+/ select = replace
+/ items = (38.7%,50%,61.3%)
+</counter>
+<counter mycounter_vposition_random_practice>
+/ select = replace
+/ items = (30%,50%,70%)
+</counter>
+
+*********************************************************************************************************************************
+Masking step which come after the Image presentation: 5 masks in total and the segment between two masks is 60ms
+*********************************************************************************************************************************
+<trial Masking_present_practice>
+	/ stimulustimes = [0 = Masking_picture_1,Practice_notice; 60 = Masking_picture_2,Practice_notice; 120 = Masking_picture_3,Practice_notice;180 = Masking_picture_4,Practice_notice; 240 = Masking_picture_5,Practice_notice]
+	/ timeout = 300;
+	/ recorddata = false
+</trial>
+*********************************************************************************************************************************
+											End of Masking step
+*********************************************************************************************************************************
+
+*********************************************************************************************************************************
+Present patch on different positions
+Devided into 2 parts: Odd and Even situations
+*********************************************************************************************************************************
+1. Odd Situation
+<trial fixiation_odd_practice>
+	/ stimulusframes = [1 = cross]
+	/ timeout = 500
+	/ recorddata = false
+	/ ontrialbegin = [
+	values.number_of_patch = 5;
+]
+	/ branch = [
+	trial.Patch_present_odd_practice;
+]
+</trial>
+
+<trial Patch_present_odd_practice>
+	/ ontrialbegin = [
+	if(values.Index_practice == 1){
+		values.time_out_practice = 500;
+	}else if(values.Index_practice == 2){
+		values.time_out_practice = 250;
+	}else{
+		values.time_out_practice = 133;
+	}
+	
+	
+	trial.Patch_present_odd_practice.clearstimulusframes();
+	
+	if(counter.mycounter_odd_practice.selectedvalue == 1){
+		trial.Patch_present_odd_practice.insertstimulusframe(text.cross, 1);
+		trial.Patch_present_odd_practice.insertstimulusframe(picture.Patch_locate_1_practice, 2);
+		trial.Patch_present_odd_practice.insertstimulusframe(text.Practice_notice, 3);
+		values.x_coordinate = "38.7%";
+		values.y_coordinate = "30%";
+		}
+	else if (counter.mycounter_odd_practice.selectedvalue == 2){
+		trial.Patch_present_odd_practice.insertstimulusframe(text.cross, 1);
+		trial.Patch_present_odd_practice.insertstimulusframe(picture.Patch_locate_3_practice, 2);
+		trial.Patch_present_odd_practice.insertstimulusframe(text.Practice_notice, 3);
+		values.x_coordinate = "61.3%";
+		values.y_coordinate = "30%";
+		}
+	else if (counter.mycounter_odd_practice.selectedvalue == 3){
+		trial.Patch_present_odd_practice.insertstimulusframe(text.cross, 1);
+		trial.Patch_present_odd_practice.insertstimulusframe(picture.Patch_locate_5_practice, 2);
+		trial.Patch_present_odd_practice.insertstimulusframe(text.Practice_notice, 3);
+		values.x_coordinate = "50%";
+		values.y_coordinate = "50%";
+		}
+	else if (counter.mycounter_odd_practice.selectedvalue == 4){
+		trial.Patch_present_odd_practice.insertstimulusframe(text.cross, 1);
+		trial.Patch_present_odd_practice.insertstimulusframe(picture.Patch_locate_7_practice, 2);
+		trial.Patch_present_odd_practice.insertstimulusframe(text.Practice_notice, 3);
+		values.x_coordinate = "38.7%";
+		values.y_coordinate = "70%";
+		}
+	else if (counter.mycounter_odd_practice.selectedvalue == 5){
+		trial.Patch_present_odd_practice.insertstimulusframe(text.cross, 1);
+		trial.Patch_present_odd_practice.insertstimulusframe(picture.Patch_locate_9_practice, 2);
+		trial.Patch_present_odd_practice.insertstimulusframe(text.Practice_notice, 3);
+		values.x_coordinate = "61.3%";
+		values.y_coordinate = "70%";
+		}
+	else{
+		values.x_coordinate = counter.mycounter_hposition_random_practice.selectedvalue;
+		values.y_coordinate = counter.mycounter_vposition_random_practice.selectedvalue;
+		trial.Patch_present_odd_practice.insertstimulusframe(text.cross, 1);
+		trial.Patch_present_odd_practice.insertstimulusframe(picture.Patch_random_practice, 2);
+		trial.Patch_present_odd_practice.insertstimulusframe(text.Practice_notice, 3);
+	}
+]
+	/ stimulusframes = [1 = cross]
+	/ timeout = values.time_out_practice
+	/ recorddata = false
+	/ branch = [
+		trial.mask_patch_practice
+]
+</trial>
+
+2. Even Situation	
+<trial fixiation_even_practice>
+	/ stimulusframes = [1 = cross]
+	/ timeout = 500
+	/ recorddata = false
+	/ ontrialbegin = [
+	values.number_of_patch = 5;
+]
+	/ branch = [
+	trial.Patch_present_even_practice;
+]
+</trial>
+<trial Patch_present_even_practice>
+	/ ontrialbegin = [
+	if(values.Index_practice == 1){
+		values.time_out_practice = 500;
+	}else if(values.Index_practice == 2){
+		values.time_out_practice = 250;
+	}else{
+		values.time_out_practice = 133;
+	}
+	
+	trial.Patch_present_even_practice.clearstimulusframes();
+	if(counter.mycounter_even_practice.selectedvalue == 1){
+		trial.Patch_present_even_practice.insertstimulusframe(text.cross, 1);
+		trial.Patch_present_even_practice.insertstimulusframe(picture.Patch_locate_2_practice, 2);
+		trial.Patch_present_even_practice.insertstimulusframe(text.Practice_notice, 3);
+		values.x_coordinate = "50%";
+		values.y_coordinate = "30%";
+	}
+	else if (counter.mycounter_even_practice.selectedvalue == 2){
+		trial.Patch_present_even_practice.insertstimulusframe(text.cross, 1);
+		trial.Patch_present_even_practice.insertstimulusframe(picture.Patch_locate_4_practice, 2);
+		trial.Patch_present_even_practice.insertstimulusframe(text.Practice_notice, 3);
+		values.x_coordinate = "38.7%";
+		values.y_coordinate = "50%";
+	}
+	else if (counter.mycounter_even_practice.selectedvalue == 3){
+		trial.Patch_present_even_practice.insertstimulusframe(text.cross, 1);
+		trial.Patch_present_even_practice.insertstimulusframe(picture.Patch_locate_6_practice, 2);
+		trial.Patch_present_even_practice.insertstimulusframe(text.Practice_notice, 3);
+		values.x_coordinate = "61.3%";
+		values.y_coordinate = "50%";
+	}
+	else if (counter.mycounter_even_practice.selectedvalue == 4){
+		trial.Patch_present_even_practice.insertstimulusframe(text.cross, 1);
+		trial.Patch_present_even_practice.insertstimulusframe(picture.Patch_locate_8_practice, 2);
+		trial.Patch_present_even_practice.insertstimulusframe(text.Practice_notice, 3);
+		values.x_coordinate = "50%";
+		values.y_coordinate = "70%";
+	}
+	else{
+		values.x_coordinate = counter.mycounter_hposition_random_practice.selectedvalue;
+		values.y_coordinate = counter.mycounter_vposition_random_practice.selectedvalue;
+		trial.Patch_present_even_practice.insertstimulusframe(text.cross, 1);
+		trial.Patch_present_even_practice.insertstimulusframe(picture.Patch_random_practice, 2);
+		trial.Patch_present_even_practice.insertstimulusframe(text.Practice_notice, 3);
+	}
+]
+	/ stimulusframes = [1 = cross,Practice_notice]
+	/ timeout = values.time_out_practice
+	/ recorddata = false
+	/ branch = [
+		trial.mask_patch_practice
+]
+</trial> 
+
+*********************************************************************************************************************************
+								End of patch present
+*********************************************************************************************************************************
+
+*********************************************************************************************************************************
+The 2nd masking step which used to mask the patch out after the patch show up.
+*********************************************************************************************************************************
+<trial mask_patch_practice>
+	/ stimulustimes = [0 = cross,Masking_patch_1,Practice_notice;60 = cross,Masking_patch_2,Practice_notice;120 = cross,Masking_patch_3,Practice_notice;180 = cross,Masking_patch_4,Practice_notice;240 = cross,Masking_patch_5,Practice_notice]
+	/ timeout = 300
+	/ recorddata = false
+	/ branch = [
+	trial.peripheral_response_practice
+]
+</trial>
+
+
+<trial peripheral_response_practice>
+/ stimulusframes = [
+	1  = response1d, response2d, response3d, response4d, response5d, response6d, response7d, response8d, response_blank,
+lowC_instruction, highC_instruction, p_response_instructions,part_of_Image,Not_part_of_Image,Practice_notice
+]
+/ validresponse = (response_blank, response1d, response2d, response3d, response4d, response5d, response6d, response7d, response8d)
+/ inputdevice = mouse
+/ isvalidresponse = [if (trial.peripheral_response.response == "response_blank") false; else
+expressions.validresponse_disks
+]
+/ recorddata = false
+/ ontrialend = [
+	values.order_question += 1;
+]
+/ branch = [
+	trial.centermouse_practice;
+]
+</trial>
+
+<trial centermouse_practice>
+/ stimulusframes = [1  = response1d, response2d, response3d, response4d, response5d, response6d, response7d, response8d, response_blank,
+lowC_instruction, highC_instruction,part_of_Image,Not_part_of_Image,Practice_notice,centersquare,notice_centre_mouse,process_notice]
+/ inputdevice = mouse
+/ recorddata = false
+/ validresponse = (centersquare)
+</trial>
+
+
+
+
+*********************************************************************************************************************************
+End of 2nd masking step and jump to the response page.
+After 3 trials, move to the formal test.
+The structure will be same
+
+
+
+*********************************************************************************************************************************
+*********************************************************************************************************************************
+													Formal Experiment
+*********************************************************************************************************************************
+*********************************************************************************************************************************
+<trial Fixation>
+	/ stimulusframes = [1 = cross]
+	/ timeout = 500
+	/ recorddata = false
+	/ branch = [
+		trial.image_presentation
+	]
+</trial>
+
+<trial image_presentation>
+	/ stimulusframes = [1 = Congruent]
+	/ timeout = 133
+	/ recorddata = false
+	/ branch = [
+	trial.Masking_present
+]
+	/ ontrialend = [
+	values.order_question = 0;
+	values.response = 0;
+	values.p_confidence = 0;
+	values.patch_ID = 0;
+	values.Index += 1; 
+	if (item.CongOrIncong.item(values.Index) == "Cong"){
+		values.CongOrIncong = 0;
+	}else if (item.CongOrIncong.item(values.Index) == "Incong"){
+		values.CongOrIncong = 1;
+	}
+	values.Image_ID = item.Image_ID.item(values.Index);
+]
+</trial>
+
+<trial Masking_present>
+	/ stimulustimes = [0 = Masking_picture_1; 60 = Masking_picture_2; 120 = Masking_picture_3;180 = Masking_picture_4; 240 = Masking_picture_5]
+	/ timeout = 300;
+	/ recorddata = false
+</trial>
+
+
+**********************************************Step 4: Patch Present Step********************************************************
+1. Prepapera the random data for the patches, such as positions and which type of the image
+<counter mycounter_odd>
+/ select = noreplace(1-21)
+</counter>
+<counter mycounter_even>
+/ select = noreplace(1-21)
+</counter>
+
+<counter mycounter_hposition_random>
+/ select = replace
+/ items = (38.7%,50%,61.3%)
+</counter>
+<counter mycounter_vposition_random>
+/ select = replace
+/ items = (30%,50%,70%)
+</counter>
+
+
+2. Trials for the image with CP on odd positions
+<trial fixiation_odd>
+	/ stimulusframes = [1 = cross]
+	/ timeout = 500
+	/ recorddata = false
+	/ ontrialend = [
+	values.number_of_patch = 21;
+]
+	/ branch = [
+	trial.Patch_present_odd;
+]
+</trial>
+
+<trial Patch_present_odd>
+	/ ontrialbegin = [
+	values.response = 0;
+	values.p_confidence = 0;
+	
+	trial.Patch_present_odd.clearstimulusframes();
+	
+	if(counter.mycounter_odd.selectedvalue == 1){
+		trial.Patch_present_odd.insertstimulusframe(text.cross, 1);
+		trial.Patch_present_odd.insertstimulusframe(picture.Patch_locate_1, 2);
+		values.patch_ID += 1;
+		values.x_coordinate = "38.7%";
+		values.y_coordinate = "30%";
+		if(item.CongOrIncong.item(values.Index) == "Cong"){
+			values.Patch_Source = 2;
+		}else if(item.CongOrIncong.item(values.Index) == "Incong"){
+			values.Patch_Source = 3;
+		}
+		
+		if(item.Object_Patch.item(values.Index) == "1"){
+			values.Exist_Object = 1;
+		}else{
+			values.Exist_Object = 0;
+		}
+		
+		values.Patch_Position = 1;
+	}
+	else if (counter.mycounter_odd.selectedvalue == 2){
+		trial.Patch_present_odd.insertstimulusframe(text.cross, 1);
+		trial.Patch_present_odd.insertstimulusframe(picture.Patch_locate_3, 2);
+		values.patch_ID += 1;
+		values.x_coordinate = "61.3%";
+		values.y_coordinate = "30%";
+		if(item.CongOrIncong.item(values.Index) == "Cong"){
+			values.Patch_Source = 2;
+		}else if(item.CongOrIncong.item(values.Index) == "Incong"){
+			values.Patch_Source = 3;
+		}
+		
+		if(item.Object_Patch.item(values.Index) == "3"){
+			values.Exist_Object = 1;
+		}else{
+			values.Exist_Object = 0;
+		}
+		
+		values.Patch_Position = 3;
+	}
+	else if (counter.mycounter_odd.selectedvalue == 3){
+		trial.Patch_present_odd.insertstimulusframe(text.cross, 1);
+		trial.Patch_present_odd.insertstimulusframe(picture.Patch_locate_5, 2);
+		values.patch_ID += 1;
+		values.x_coordinate = "50%";
+		values.y_coordinate = "50%";
+		if(item.CongOrIncong.item(values.Index) == "Cong"){
+			values.Patch_Source = 2;
+		}else if(item.CongOrIncong.item(values.Index) == "Incong"){
+			values.Patch_Source = 3;
+		}
+		
+		if(item.Object_Patch.item(values.Index) == "5"){
+			values.Exist_Object = 1;
+		}else{
+			values.Exist_Object = 0;
+		}
+		
+		values.Patch_Position = 5;
+	}
+	else if (counter.mycounter_odd.selectedvalue == 4){
+		trial.Patch_present_odd.insertstimulusframe(text.cross, 1);
+		trial.Patch_present_odd.insertstimulusframe(picture.Patch_locate_7, 2);
+		values.patch_ID += 1;
+		values.x_coordinate = "38.7%";
+		values.y_coordinate = "70%";
+		if(item.CongOrIncong.item(values.Index) == "Cong"){
+			values.Patch_Source = 2;
+		}else if(item.CongOrIncong.item(values.Index) == "Incong"){
+			values.Patch_Source = 3;
+		}
+		
+		if(item.Object_Patch.item(values.Index) == "7"){
+			values.Exist_Object = 1;
+		}else{
+			values.Exist_Object = 0;
+		}
+		
+		values.Patch_Position = 7;
+	}
+	else if (counter.mycounter_odd.selectedvalue == 5){
+		trial.Patch_present_odd.insertstimulusframe(text.cross, 1);
+		trial.Patch_present_odd.insertstimulusframe(picture.Patch_locate_9, 2);
+		values.patch_ID += 1;
+		values.x_coordinate = "61.3%";
+		values.y_coordinate = "70%";
+		if(item.CongOrIncong.item(values.Index) == "Cong"){
+			values.Patch_Source = 2;
+		}else if(item.CongOrIncong.item(values.Index) == "Incong"){
+			values.Patch_Source = 3;
+		}
+		
+		if(item.Object_Patch.item(values.Index) == "9"){
+			values.Exist_Object = 1;
+		}else{
+			values.Exist_Object = 0;
+		}
+		
+		values.Patch_Position = 9;
+	}
+	else if (counter.mycounter_odd.selectedvalue == 6){
+		trial.Patch_present_odd.insertstimulusframe(text.cross, 1);
+		trial.Patch_present_odd.insertstimulusframe(picture.CP_patch, 2);
+		values.x_coordinate = item.CP_x_coordinates.item(values.Index);
+		values.y_coordinate = item.CP_y_coordinates.item(values.Index);
+		values.patch_ID += 1;
+		if(item.CongOrIncong.item(values.Index) == "Cong"){
+			values.Patch_Source = 3;
+		}else if(item.CongOrIncong.item(values.Index) == "Incong"){
+			values.Patch_Source = 2;
+		}
+		
+		values.Exist_Object = 1;
+		
+		if(item.CP_x_coordinates.item(values.Index) == "38.7%" && item.CP_y_coordinates.item(values.Index) == "30%"){
+			values.Patch_Position = 1;
+		}else if(item.CP_x_coordinates.item(values.Index) == "50%" && item.CP_y_coordinates.item(values.Index) == "30%"){
+			values.Patch_Position = 2;
+		}else if(item.CP_x_coordinates.item(values.Index) == "61.3%" && item.CP_y_coordinates.item(values.Index) == "30%"){
+			values.Patch_Position = 3;
+		}else if(item.CP_x_coordinates.item(values.Index) == "38.7%" && item.CP_y_coordinates.item(values.Index) == "50%"){
+			values.Patch_Position = 4;
+		}else if(item.CP_x_coordinates.item(values.Index) == "50%" && item.CP_y_coordinates.item(values.Index) == "50%"){
+			values.Patch_Position = 5;
+		}else if(item.CP_x_coordinates.item(values.Index) == "61.3%" && item.CP_y_coordinates.item(values.Index) == "50%"){
+			values.Patch_Position = 6;
+		}else if(item.CP_x_coordinates.item(values.Index) == "38.7%" && item.CP_y_coordinates.item(values.Index) == "70%"){
+			values.Patch_Position = 7;
+		}else if(item.CP_x_coordinates.item(values.Index) == "50%" && item.CP_y_coordinates.item(values.Index) == "70%"){
+			values.Patch_Position = 8;
+		}else if(item.CP_x_coordinates.item(values.Index) == "61.3%" && item.CP_y_coordinates.item(values.Index) == "70%"){
+			values.Patch_Position = 9;
+		}
+	}
+	else{
+		values.x_coordinate = counter.mycounter_hposition_random.selectedvalue;
+		values.y_coordinate = counter.mycounter_vposition_random.selectedvalue;
+		trial.Patch_present_odd.insertstimulusframe(text.cross, 1);
+		trial.Patch_present_odd.insertstimulusframe(picture.Patch_random, 2);
+		values.patch_ID += 1;
+		values.Patch_Source = 1;
+		values.Exist_Object = 0;
+		
+		if(values.x_coordinate == 38.7% && values.y_coordinate == 30%){
+			values.Patch_Position = 1;
+		}else if(values.x_coordinate == 50% && values.y_coordinate == 30%){
+			values.Patch_Position = 2;
+		}else if(values.x_coordinate == 61.3% && values.y_coordinate == 30%){
+			values.Patch_Position = 3;
+		}else if(values.x_coordinate == 38.7% && values.y_coordinate == 50%){
+			values.Patch_Position = 4;
+		}else if(values.x_coordinate == 50% && values.y_coordinate == 50%){
+			values.Patch_Position = 5;
+		}else if(values.x_coordinate == 61.3% && values.y_coordinate == 50%){
+			values.Patch_Position = 6;
+		}else if(values.x_coordinate == 38.7% && values.y_coordinate == 70%){
+			values.Patch_Position = 7;
+		}else if(values.x_coordinate == 50% && values.y_coordinate == 70%){
+			values.Patch_Position = 8;
+		}else if(values.x_coordinate == 61.3% && values.y_coordinate == 70%){
+			values.Patch_Position = 9;
+		}
+	}
+]
+	/ stimulusframes = [1 = cross]
+	/ timeout = 133
+	/ recorddata = false
+	/ branch = [
+		trial.mask_patch
+]
+</trial>
+
+
+
+
+3. 2. Trials for the image with CP on even positions 
+<trial fixiation_even>
+	/ stimulusframes = [1 = cross]
+	/ timeout = 500
+	/ recorddata = false
+	/ ontrialend = [
+	values.number_of_patch = 21
+]
+	/ branch = [
+	trial.Patch_present_even;
+]
+</trial>
+
+<trial Patch_present_even>
+	/ ontrialbegin = [
+	values.response = 0;
+	values.p_confidence = 0;
+	trial.Patch_present_even.clearstimulusframes();
+	if(counter.mycounter_even.selectedvalue == 1){
+		trial.Patch_present_even.insertstimulusframe(text.cross, 1);
+		trial.Patch_present_even.insertstimulusframe(picture.Patch_locate_2, 2);
+		values.patch_ID += 1;
+		values.x_coordinate = "50%";
+		values.y_coordinate = "30%";
+		if(item.CongOrIncong.item(values.Index) == "Cong"){
+			values.Patch_Source = 2;
+		}else if(item.CongOrIncong.item(values.Index) == "Incong"){
+			values.Patch_Source = 3;
+		}
+		
+		if(item.Object_Patch.item(values.Index) == "2"){
+			values.Exist_Object = 1;
+		}else{
+			values.Exist_Object = 0;
+		}
+		
+		values.Patch_Position = 2;
+	}
+	else if (counter.mycounter_even.selectedvalue == 2){
+		trial.Patch_present_even.insertstimulusframe(text.cross, 1);
+		trial.Patch_present_even.insertstimulusframe(picture.Patch_locate_4, 2);
+		values.patch_ID += 1;
+		values.x_coordinate = "38.7%";
+		values.y_coordinate = "50%";
+		if(item.CongOrIncong.item(values.Index) == "Cong"){
+			values.Patch_Source = 2;
+		}else if(item.CongOrIncong.item(values.Index) == "Incong"){
+			values.Patch_Source = 3;
+		}
+		
+		if(item.Object_Patch.item(values.Index) == "4"){
+			values.Exist_Object = 1;
+		}else{
+			values.Exist_Object = 0;
+		}
+		
+		values.Patch_Position = 4;
+	}
+	else if (counter.mycounter_even.selectedvalue == 3){
+		trial.Patch_present_even.insertstimulusframe(text.cross, 1);
+		trial.Patch_present_even.insertstimulusframe(picture.Patch_locate_6, 2);
+		values.patch_ID += 1;
+		values.x_coordinate = "61.3%";
+		values.y_coordinate = "50%";
+		if(item.CongOrIncong.item(values.Index) == "Cong"){
+			values.Patch_Source = 2;
+		}else if(item.CongOrIncong.item(values.Index) == "Incong"){
+			values.Patch_Source = 3;
+		}
+		
+		if(item.Object_Patch.item(values.Index) == "6"){
+			values.Exist_Object = 1;
+		}else{
+			values.Exist_Object = 0;
+		}
+		
+		values.Patch_Position = 6;
+	}
+	else if (counter.mycounter_even.selectedvalue == 4){
+		trial.Patch_present_even.insertstimulusframe(text.cross, 1);
+		trial.Patch_present_even.insertstimulusframe(picture.Patch_locate_8, 2);
+		values.patch_ID += 1;
+		values.x_coordinate = "50%";
+		values.y_coordinate = "70%";
+		if(item.CongOrIncong.item(values.Index) == "Cong"){
+			values.Patch_Source = 2;
+		}else if(item.CongOrIncong.item(values.Index) == "Incong"){
+			values.Patch_Source = 3;
+		}
+		
+		if(item.Object_Patch.item(values.Index) == "8"){
+			values.Exist_Object = 1;
+		}else{
+			values.Exist_Object = 0;
+		}
+		
+		values.Patch_Position = 8;
+	}
+	else if (counter.mycounter_even.selectedvalue == 5){
+		trial.Patch_present_even.insertstimulusframe(text.cross, 1);
+		trial.Patch_present_even.insertstimulusframe(picture.CP_patch, 2);
+		values.patch_ID += 1;
+		values.x_coordinate = item.CP_x_coordinates.item(values.Index);
+		values.y_coordinate = item.CP_y_coordinates.item(values.Index);
+		if(item.CongOrIncong.item(values.Index) == "Cong"){
+			values.Patch_Source = 3;
+		}else if(item.CongOrIncong.item(values.Index) == "Incong"){
+			values.Patch_Source = 2;
+		}
+		
+		values.Exist_Object = 1;
+		
+		if(item.CP_x_coordinates.item(values.Index) == "38.7%" && item.CP_y_coordinates.item(values.Index) == "30%"){
+			values.Patch_Position = 1;
+		}else if(item.CP_x_coordinates.item(values.Index) == "50%" && item.CP_y_coordinates.item(values.Index) == "30%"){
+			values.Patch_Position = 2;
+		}else if(item.CP_x_coordinates.item(values.Index) == "61.3%" && item.CP_y_coordinates.item(values.Index) == "30%"){
+			values.Patch_Position = 3;
+		}else if(item.CP_x_coordinates.item(values.Index) == "38.7%" && item.CP_y_coordinates.item(values.Index) == "50%"){
+			values.Patch_Position = 4;
+		}else if(item.CP_x_coordinates.item(values.Index) == "50%" && item.CP_y_coordinates.item(values.Index) == "50%"){
+			values.Patch_Position = 5;
+		}else if(item.CP_x_coordinates.item(values.Index) == "61.3%" && item.CP_y_coordinates.item(values.Index) == "50%"){
+			values.Patch_Position = 6;
+		}else if(item.CP_x_coordinates.item(values.Index) == "38.7%" && item.CP_y_coordinates.item(values.Index) == "70%"){
+			values.Patch_Position = 7;
+		}else if(item.CP_x_coordinates.item(values.Index) == "50%" && item.CP_y_coordinates.item(values.Index) == "70%"){
+			values.Patch_Position = 8;
+		}else if(item.CP_x_coordinates.item(values.Index) == "61.3%" && item.CP_y_coordinates.item(values.Index) == "70%"){
+			values.Patch_Position = 9;
+		}
+	}
+	else{
+		values.x_coordinate = counter.mycounter_hposition_random.selectedvalue;
+		values.y_coordinate = counter.mycounter_vposition_random.selectedvalue;
+		trial.Patch_present_even.insertstimulusframe(text.cross, 1);
+		trial.Patch_present_even.insertstimulusframe(picture.Patch_random, 2);
+		values.patch_ID += 1;
+		values.Patch_Source = 1;
+		values.Exist_Object = 0;
+		
+		if(values.x_coordinate == 38.7% && values.y_coordinate == 30%){
+			values.Patch_Position = 1;
+		}else if(values.x_coordinate == 50% && values.y_coordinate == 30%){
+			values.Patch_Position = 2;
+		}else if(values.x_coordinate == 61.3% && values.y_coordinate == 30%){
+			values.Patch_Position = 3;
+		}else if(values.x_coordinate == 38.7% && values.y_coordinate == 50%){
+			values.Patch_Position = 4;
+		}else if(values.x_coordinate == 50% && values.y_coordinate == 50%){
+			values.Patch_Position = 5;
+		}else if(values.x_coordinate == 61.3% && values.y_coordinate == 50%){
+			values.Patch_Position = 6;
+		}else if(values.x_coordinate == 38.7% && values.y_coordinate == 70%){
+			values.Patch_Position = 7;
+		}else if(values.x_coordinate == 50% && values.y_coordinate == 70%){
+			values.Patch_Position = 8;
+		}else if(values.x_coordinate == 61.3% && values.y_coordinate == 70%){
+			values.Patch_Position = 9;
+		}
+	}
+]
+	/ stimulusframes = [1 = cross]
+	/ timeout = 133
+	/ recorddata = false
+	/ branch = [
+		trial.mask_patch
+]
+</trial> 
+
+******************************************************************************************************************************************************************************************************
+******************************************************************************************************************************************************************************************************
+Trial for masking on the patches
+<trial mask_patch>
+	/ stimulustimes = [0 = cross,Masking_patch_1;60 = cross,Masking_patch_2;120 = cross,Masking_patch_3;180 = cross,Masking_patch_4;240 = cross,Masking_patch_5]
+	/ timeout = 300
+	/ recorddata = false
+	/ branch = [
+	trial.peripheral_response
+]
+</trial>
+******************************************************************************************************************************************************************************************************
+******************************************************************************************************************************************************************************************************
+
+
+******************************************************************************************************************************************************************************************************
+******************************************************************************************************************************************************************************************************
+
+<trial peripheral_response>
+/ stimulusframes = [
+	1  = response1d, response2d, response3d, response4d, response5d, response6d, response7d, response8d, response_blank,
+lowC_instruction, highC_instruction, p_response_instructions,part_of_Image,Not_part_of_Image
+]
+/ validresponse = (response_blank, response1d, response2d, response3d, response4d, response5d, response6d, response7d, response8d)
+/ inputdevice = mouse
+/ isvalidresponse = [if (trial.peripheral_response.response == "response_blank") false; else
+expressions.validresponse_disks
+]
+/ recorddata = true
+/ ontrialend = [
+	values.order_question += 1;
+]
+/ branch = [
+	trial.centermouse
+]
+</trial>
+
+<trial centermouse>
+/ stimulusframes = [1  = response1d, response2d, response3d, response4d, response5d, response6d, response7d, response8d, response_blank,
+lowC_instruction, highC_instruction,part_of_Image,Not_part_of_Image,centersquare,notice_centre_mouse,process_notice]
+/ inputdevice = mouse
+/ recorddata = false
+/ validresponse = (centersquare)
+</trial>
+
+
+******************************************************************************************************************************************************************************************************
+******************************************************************************************************************************************************************************************************
+<monkey>
+ / latencydistribution = normal(1126, 1789)
+ / percentcorrect = 80
+</monkey>
+
+<block instruction_step>
+	/ trials = [1 = instruction_page_1;2 = instruction_page_2; 3 = instruction_page_3; 4= instruction_page_4; 5 = instruction_page_5]
+</block>
+
+
+<block test_odd>
+	/ trials = [1 = trial.Fixation; 2-22 = trial.fixiation_odd; 23 = trial.interval]
+</block>
+
+<block test_odd_practice>
+	/ trials = [1 = trial.Fixation_practice; 2-6 = trial.fixiation_odd_practice; 7 = trial.interval_practice]
+</block>
+
+
+<block test_even>
+	/ trials = [1 = trial.Fixation; 2-22 = trial.fixiation_even; 23 = trial.interval]
+</block>
+
+<block test_even_practice>
+	/ trials = [1 = trial.Fixation_practice; 2-6 = trial.fixiation_even_practice; 7 = trial.interval_practice]
+</block>
+
+<block start_test>
+	/ trials = [1 = trial.Start_test]
+</block>
+
+<block start_attention>
+	/ trials = [1 = trial.Start_attention]
+</block>
+
+<block Instruction_stage>
+</block>
+
+
+
+
+
+<data>
+/ columns=[subject,values.Image_ID,values.patch_ID,values.CongOrIncong,values.Patch_Source,values.Exist_Object,values.Patch_Position,
+			values.response,values.p_confidence,latency]
+/ separatefiles = true
+</data>
+
+
+

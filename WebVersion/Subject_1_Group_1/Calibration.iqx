@@ -1,0 +1,149 @@
+﻿<values>
+/ Image_size = 1px * display.getpixelsy(75, 1)
+/ line_size = values.Image_size * (2/19.44)
+</values>
+
+***********************************************************************************************************
+***********************************************************************************************************
+Calibration Operation
+<shape calibration_image>
+/ position = (50%,50%)
+/ shape = rectangle
+/ color = white
+/ height = values.Image_size
+/ width = values.Image_size
+</shape>
+
+<shape calibration_line>
+/ position = (50%,50%)
+/ shape = rectangle
+/ color = black
+/ width = values.line_size 
+/ height = 20px
+</shape>
+
+<picture calibration_line_pic>
+/ position = (50%,53%)
+/ items = ("CalibrationLine.png")
+/ width = values.line_size
+/ height = values.line_size * 3
+</picture>
+
+<text calibration_title>
+/ items = ("Calibration Step")
+/ fontstyle = ("Arial", 3%, true)
+/ position = (50%,5%)
+/ txbgcolor = (127,127,127)
+/ txcolor = yellow
+</text>
+
+<text calibration_explaination>
+/ items = ("Adjust your head position until you see your thumb has 
+a similar width with the black line at the center of the screen 
+Press SPACE button to continue when you finish")
+/ fontstyle = ("Arial", 3%, true)
+/ position = (50%,93%)
+/ txbgcolor = (127,127,127)
+/ txcolor = yellow
+</text>
+
+
+<trial calibration_operate>
+/ stimulusframes = [1 = calibration_image,calibration_line,calibration_title,calibration_explaination,calibration_line_pic]
+/ validresponse = (57)
+/ branch = [
+	trial.instruction_page_5
+]
+</trial>
+
+***********************************************************************************************************
+***********************************************************************************************************
+Calibration Instruction Pages
+
+<video Calibration_Instruction_Page1_gif>
+/ items = ("CalibrationInstruction.gif")
+/ hposition = 50%
+/ vposition = 30%
+/ loop = true
+/ size = (40%,40%)
+</video>
+
+<picture Calibration_Instruction_Page2_pic1>
+/ items = ("CalibrationPage4.png")
+/ hposition = 20%
+/ vposition = 30%
+/ size = (40%,40%)
+</picture>
+
+<picture Calibration_Instruction_Page2_pic2>
+/ items = ("CalibrationPage5.png")
+/ hposition = 50%
+/ vposition = 30%
+/ size = (40%,40%)
+</picture>
+
+<picture Calibration_Instruction_Page2_pic3>
+/ items = ("CalibrationPage6.png")
+/ hposition = 80%
+/ vposition = 30%
+/ size = (40%,40%)
+</picture>
+
+<text Calibration_Instruction_txt>
+/ items = ("Keep your arm straight and make your eyes have the same level of your thumb
+Adjust the distance between your body and the screen until the 
+width of thumb in your sight has the same size of the line on the screen
+After calibration, please keep your distance between the screen throughout the test.")
+/ hposition = 50%
+/ vposition = 70%
+/ fontstyle = ("Arial", 3%, true)
+/ txcolor = yellow
+/ txbgcolor = (127,127,127)
+</text>
+
+<text Next_key>
+/ items = ("Press SPACE to continue")
+/ position = (80%,85%)
+/ fontstyle = ("Arial", 2.8%, true)
+/ txcolor = yellow
+/ txbgcolor = (127,127,127)
+</text>
+
+<trial calibration_instruction_page1>
+/ stimulusframes = [1 = Calibration_Instruction_Page1_gif,Calibration_Instruction_txt,Next_key,calibration_title]
+/ validresponse = (57)
+/ branch = [
+	trial.calibration_instruction_page2
+]
+</trial>
+
+<trial calibration_instruction_page2>
+/ stimulusframes = [1 = Calibration_Instruction_Page2_pic1,Calibration_Instruction_Page2_pic2,Calibration_Instruction_Page2_pic3,Calibration_Instruction_txt,Next_key,calibration_title]
+/ validresponse = (57)
+/ branch = [
+	trial.calibration_operate
+]
+</trial>
+
+
+<trial instruction_page_5>
+/ stimulusframes = [1 = start_practice,Next_button,quit_notice]
+/ validresponse = (57)
+/ recorddata = false
+</trial>
+
+
+<block calibration>
+/ trials = [1 = calibration_instruction_page1]
+</block>
+
+
+
+
+
+
+
+
+
+
+

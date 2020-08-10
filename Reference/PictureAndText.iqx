@@ -1,0 +1,192 @@
+﻿
+1. Cross throughout the whole project
+
+<picture Congruent>
+	/ size=(60%, 60%)
+	/ position = (50%,50%)
+	/ items = image_presentation_Congruent
+	/ select = sequence 
+</picture>
+
+<picture Congruent_practice>
+	/ size=(60%, 60%)
+	/ position = (50%,50%)
+	/ items = image_presentation_Congruent_practice
+	/ select = sequence 
+</picture>
+***************************************************************************************************
+***************************************************************************************************
+2. Masking Pictures
+<picture Masking_picture_1>
+	/ size=(60%, 60%)
+	/ position = (50%,50%)
+	/items = Masking_item_1
+	/ select = noreplace 
+</picture>
+<picture Masking_picture_2>
+	/ size=(60%, 60%)
+	/ position = (50%,50%)
+	/ items = Masking_item_2
+	/ select = noreplace 
+</picture>
+<picture Masking_picture_3>
+	/ size=(60%, 60%)
+	/ position = (50%,50%)
+	/ items = Masking_item_3
+	/ select = noreplace 
+</picture>
+<picture Masking_picture_4>
+	/ size=(60%, 60%)
+	/ position = (50%,50%)
+	/ items = Masking_item_4
+	/ select = noreplace 
+</picture>
+<picture Masking_picture_5>
+	/ size=(60%, 60%)
+	/ position = (50%,50%)
+	/ items = Masking_item_5
+	/ select = noreplace 
+</picture>
+
+<picture Masking_patch_1>
+	/ size = (20%,20%)
+	/ hposition = values.x_coordinate
+	/ vposition = values.y_coordinate
+	/ items = Masking_patch_item_1
+	/ select = noreplace 
+</picture>
+<picture Masking_patch_2>
+	/ size = (20%,20%)
+	/ hposition = values.x_coordinate
+	/ vposition = values.y_coordinate
+	/ items = Masking_patch_item_2
+	/ select = noreplace 
+</picture>
+<picture Masking_patch_3>
+	/ size = (20%,20%)
+	/ hposition = values.x_coordinate
+	/ vposition = values.y_coordinate
+	/ items = Masking_patch_item_3
+	/ select = noreplace 
+</picture>
+<picture Masking_patch_4>
+	/ size = (20%,20%)
+	/ hposition = values.x_coordinate
+	/ vposition = values.y_coordinate
+	/ items = Masking_patch_item_4
+	/ select = noreplace 
+</picture>
+<picture Masking_patch_5>
+	/ size = (20%,20%)
+	/ hposition = values.x_coordinate
+	/ vposition = values.y_coordinate
+	/ items = Masking_patch_item_5
+	/ select = noreplace 
+</picture>
+
+<picture CP_patch>
+	/ size = (20%,20%)
+	/ hposition = text.x.item(values.Index)
+	/ vposition = text.y.item(values.Index)
+	/ items = CP_patch
+	/ select = sequence
+</picture>
+
+<picture CP_patch_practice>
+	/ size = (20%,20%)
+	/ hposition = text.x_practice.item(values.Index_practice)
+	/ vposition = text.y_practice.item(values.Index_practice)
+	/ items = CP_patch_practice
+	/ select = sequence
+</picture>
+
+
+***************************************************************************************************
+***************************************************************************************************
+***************************************************************************************************
+***************************************************************************************************
+<text cross>
+	/ items = ("+")
+	/ color = snow
+	/ txbgcolor = (127, 127, 127)
+	/ fontstyle = ("Arial",100pt)
+</text>
+
+<text Practice_notice>
+	/ items = ("Practice trial <%values.Index_practice%>")
+	/ fontstyle = ("Arial", 3%, true)
+	/ position = (50%,5%)
+	/ txbgcolor = (127,127,127)
+	/ txcolor = red
+</text>
+
+<text x>
+	/ items = CP_x_coordinates
+	/ select = sequence
+</text>
+
+<text x_practice>
+	/ items = CP_x_coordinates_practice
+	/ select = sequence
+</text>
+
+<text y>
+	/ items = CP_y_coordinates
+	/ select = sequence
+</text>
+
+<text y_practice>
+	/ items = CP_y_coordinates_practice
+	/ select = sequence
+</text>
+
+<text notice_centre_mouse>
+/ items = ("Please click the green rectangle to continue")
+/ fontstyle = ("Arial", 3%, true)
+/ position = (50%,80%)
+/ txbgcolor = (127,127,127)
+</text>
+
+<text process_notice>
+/ items = ("You have finished <%values.order_question%> of <%values.number_of_patch%> Questions")
+/ fontstyle = ("Arial", 2.8%, true)
+/ position = (50%,85%)
+/ txbgcolor = (127,127,127)
+</text>
+
+
+<text p_response_instructions>
+/ items = ("Please click on the button that corresponds to whether the patch belongs to the image presented before, 
+and how confident you are.")
+/ fontstyle = ("Arial", 2.8%, true)
+/ txbgcolor = (127,127,127)
+/ position = (50,80)
+</text>
+
+<text quit_notice>
+/ items = ("Press Ctrl + Q to quit the experiment")
+/ fontstyle = ("Arial", 2.8%, true)
+/ txbgcolor = (127,127,127)
+/ position = (80,90)
+</text>
+***************************************************************************************************
+***************************************************************************************************
+***************************************************************************************************
+***************************************************************************************************
+
+<shape centersquare>
+/ shape = rectangle
+/ size = (5%, 5%)
+/ position = (50%, 50%)
+/ color = (green)
+</shape>
+
+***************************************************************************************************
+***************************************************************************************************
+<htmlpage consent>
+/ file = "consent_form.html"
+</htmlpage>
+
+<block consent>
+/ preinstructions = (consent)
+</block>

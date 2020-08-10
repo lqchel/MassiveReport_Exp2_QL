@@ -1,0 +1,258 @@
+﻿8CR equidistant response page
+
+Each of the 8 response triangles are numbered in clockwise order from the 12 o'clock position.
+
+Furthermore, the jth vertex of the ith triangle is defined (xij,yij) in clockwise order from the topmost left vertex (arbitrarily leftness take priority over topness).
+
+ai, bi and ci are the barycentric coordinates of the ith triangle, which lets us perform a 2D triangle test (the cursor is in the ith triangle iff 0 <= ai,bi,ci <= 1) 
+
+Remove the 'response/...' to make this script run on its own (if it is not an inclusion). At the moment this DOES NOT WORK with a fixed aspect ratio.
+
+
+
+
+Here is an example of a working response trial:
+
+response_blank in /isvalidresponse is used to cut out a square in the middle that can't be clicked through. 
+Define iscorrectresponse as you like.
+
+trial AL_response>
+/ stimulusframes = [1 = response1, response2, response3, response4, response5, response6, response7, response8, response_blank,
+4L_instruction, 4T_instruction, 3L1T_instruction, 3T1L_instruction]
+/ validresponse = (response_blank, response1, response2, response3, response4, response5, response6, response7, response8)
+/ inputdevice = mouse
+/ isvalidresponse = [if (trial.AL_response.response == "response_blank") false; else
+expressions.validresponse
+]
+/ iscorrectresponse = [
+	if (trial.AL_response.response == "response1" || trial.AL_response.response == "response2") {
+		
+	true;} else false;
+]
+</trial>
+
+*************************************************************************************************************************************************************************
+
+
+<values>
+/responseY = 9
+/responseX = values.responseY*(display.canvasheight / display.canvaswidth)
+</values>
+
+<picture reveal>
+/ items = ("centre_reveal_hollow.png")
+/ position = (50,50)
+/ size = (4.5%, 4.5%)
+</picture>
+
+<picture 4T_instruction>
+/ items = ("4T.png")
+/ size = (7.8%,7.8%)
+/ position = (38,30)
+</picture>
+
+<picture 3T1L_instruction>
+/ items = ("3T1L.png")
+/ size = (11.4%, 6.8%)
+/ position = (38,70)
+</picture>
+
+<picture 4L_instruction>
+/ items = ("4L.png")
+/ size = (7.8%,7.8%)
+/ position = (62,30)
+</picture>
+
+<picture 3L1T_instruction>
+/ items = ("3L1T.png")
+/ position = (62,70)
+/ size = (11.4%, 6.8%)
+</picture>
+
+
+<picture response_blank>
+/ items = ("response_blank.png")
+/ position = (50,50)
+/ size = (8%,8%)
+</picture>
+
+<picture response1>
+/ items = ("response1w.png")
+/ position = ( 50+values.responseX,50 - values.responseY )
+/ size = (15.8%,15.8%)
+</picture>
+
+<picture response2>
+/ items = ("response2w.png")
+/ position = (50+values.responseX,50 - values.responseY)
+/ size = (15.8%,15.8%)
+</picture>
+
+<picture response3>
+/ items = ("response3w.png")
+/ position = (50+values.responseX,50 + values.responseY)
+/ size = (15.8%,15.8%)
+</picture>
+
+<picture response4>
+/ items = ("response4w.png")
+/ position = (50+values.responseX,50 + values.responseY)
+/ size = (15.8%,15.8%)
+</picture>
+
+<picture response5>
+/ items = ("response5w.png")
+/ position = (50-values.responseX,50 + values.responseY)
+/ size = (15.8%,15.8%)
+</picture>
+
+<picture response6>
+/ items = ("response6w.png")
+/ position = (50-values.responseX,50 + values.responseY)
+/ size = (15.8%,15.8%)
+</picture>
+
+<picture response7>
+/ items = ("response7w.png")
+/ position = (50-values.responseX,50 - values.responseY)
+/ size = (15.8%,15.8%)
+</picture>
+
+<picture response8>
+/ items = ("response8w.png")
+/ position = (50-values.responseX,50 - values.responseY)
+/ size = (15.8%,15.8%)
+</picture>
+
+
+<expressions 1_5L_sure>
+/ x11 = picture.response1.left
+/ y11 = picture.response1.top
+/ x12 = picture.response1.right
+/ y12 = picture.response1.top
+/ x13 = picture.response1.left
+/ y13 = picture.response1.bottom
+/ a1 = ((expressions.y12 - expressions.y13)*(mouse.x - expressions.x13) + (expressions.x13 - expressions.x12)*(mouse.y - expressions.y13)) / ((expressions.y12 - expressions.y13)*(expressions.x11 - expressions.x13)+(expressions.x13 - expressions.x12)*(expressions.y11 - expressions.y13))
+/ b1 = ((expressions.y13 - expressions.y11)*(mouse.x - expressions.x13) + (expressions.x11 - expressions.x13)*(mouse.y - expressions.y13)) / ((expressions.y12 - expressions.y13)*(expressions.x11 - expressions.x13)+(expressions.x13 - expressions.x12)*(expressions.y11 - expressions.y13))
+/ c1 = 1 - expressions.a1 - expressions.b1
+</expressions>
+
+<expressions 2_5L_unsure>
+/ x21 = picture.response2.left
+/ y21 = picture.response2.bottom
+/ x22 = picture.response2.right
+/ y22 = picture.response2.top
+/ x23 = picture.response2.right
+/ y23 = picture.response2.bottom
+/ a2 = ((expressions.y22 - expressions.y23)*(mouse.x - expressions.x23) + (expressions.x23 - expressions.x22)*(mouse.y - expressions.y23)) / ((expressions.y22 - expressions.y23)*(expressions.x21 - expressions.x23)+(expressions.x23 - expressions.x22)*(expressions.y21 - expressions.y23))
+/ b2 = ((expressions.y23 - expressions.y21)*(mouse.x - expressions.x23) + (expressions.x21 - expressions.x23)*(mouse.y - expressions.y23)) / ((expressions.y22 - expressions.y23)*(expressions.x21 - expressions.x23)+(expressions.x23 - expressions.x22)*(expressions.y21 - expressions.y23))
+/ c2 = 1 - expressions.a2 - expressions.b2
+</expressions>
+
+<expressions 3_4L_1T_unsure>
+/ x31 = picture.response3.left
+/ y31 = picture.response3.top
+/ x32 = picture.response3.right
+/ y32 = picture.response3.top
+/ x33 = picture.response3.right
+/ y33 = picture.response3.bottom
+/ a3 = ((expressions.y32 - expressions.y33)*(mouse.x - expressions.x33) + (expressions.x33 - expressions.x32)*(mouse.y - expressions.y33)) / ((expressions.y32 - expressions.y33)*(expressions.x31 - expressions.x33)+(expressions.x33 - expressions.x32)*(expressions.y31 - expressions.y33))
+/ b3 = ((expressions.y33 - expressions.y31)*(mouse.x - expressions.x33) + (expressions.x31 - expressions.x33)*(mouse.y - expressions.y33)) / ((expressions.y32 - expressions.y33)*(expressions.x31 - expressions.x33)+(expressions.x33 - expressions.x32)*(expressions.y31 - expressions.y33))
+/ c3 = 1 - expressions.a3 - expressions.b3
+</expressions>
+
+<expressions 4_4L_1T_sure>
+/ x41 = picture.response4.left
+/ y41 = picture.response4.top
+/ x42 = picture.response4.right
+/ y42 = picture.response4.bottom
+/ x43 = picture.response4.left
+/ y43 = picture.response4.bottom
+/ a4 = ((expressions.y42 - expressions.y43)*(mouse.x - expressions.x43) + (expressions.x43 - expressions.x42)*(mouse.y - expressions.y43)) / ((expressions.y42 - expressions.y43)*(expressions.x41 - expressions.x43)+(expressions.x43 - expressions.x42)*(expressions.y41 - expressions.y43))
+/ b4 = ((expressions.y43 - expressions.y41)*(mouse.x - expressions.x43) + (expressions.x41 - expressions.x43)*(mouse.y - expressions.y43)) / ((expressions.y42 - expressions.y43)*(expressions.x41 - expressions.x43)+(expressions.x43 - expressions.x42)*(expressions.y41 - expressions.y43))
+/ c4 = 1 - expressions.a4 - expressions.b4
+</expressions>
+
+<expressions 5_4T_1L_sure>
+/ x51 = picture.response5.left
+/ y51 = picture.response5.bottom
+/ x52 = picture.response5.right
+/ y52 = picture.response5.top
+/ x53 = picture.response5.right
+/ y53 = picture.response5.bottom
+/ a5 = ((expressions.y52 - expressions.y53)*(mouse.x - expressions.x53) + (expressions.x53 - expressions.x52)*(mouse.y - expressions.y53)) / ((expressions.y52 - expressions.y53)*(expressions.x51 - expressions.x53)+(expressions.x53 - expressions.x52)*(expressions.y51 - expressions.y53))
+/ b5 = ((expressions.y53 - expressions.y51)*(mouse.x - expressions.x53) + (expressions.x51 - expressions.x53)*(mouse.y - expressions.y53)) / ((expressions.y52 - expressions.y53)*(expressions.x51 - expressions.x53)+(expressions.x53 - expressions.x52)*(expressions.y51 - expressions.y53))
+/ c5 = 1 - expressions.a5 - expressions.b5
+</expressions>
+
+<expressions 6_4T_1L_unsure>
+/ x61 = picture.response6.left
+/ y61 = picture.response6.top
+/ x62 = picture.response6.right
+/ y62 = picture.response6.top
+/ x63 = picture.response6.left
+/ y63 = picture.response6.bottom
+/ a6 = ((expressions.y62 - expressions.y63)*(mouse.x - expressions.x63) + (expressions.x63 - expressions.x62)*(mouse.y - expressions.y63)) / ((expressions.y62 - expressions.y63)*(expressions.x61 - expressions.x63)+(expressions.x63 - expressions.x62)*(expressions.y61 - expressions.y63))
+/ b6 = ((expressions.y63 - expressions.y61)*(mouse.x - expressions.x63) + (expressions.x61 - expressions.x63)*(mouse.y - expressions.y63)) / ((expressions.y62 - expressions.y63)*(expressions.x61 - expressions.x63)+(expressions.x63 - expressions.x62)*(expressions.y61 - expressions.y63))
+/ c6 = 1 - expressions.a6 - expressions.b6
+</expressions>
+
+<expressions 7_5T_unsure>
+/ x71 = picture.response7.left
+/ y71 = picture.response7.top
+/ x72 = picture.response7.right
+/ y72 = picture.response7.bottom
+/ x73 = picture.response7.left
+/ y73 = picture.response7.bottom
+/ a7 = ((expressions.y72 - expressions.y73)*(mouse.x - expressions.x73) + (expressions.x73 - expressions.x72)*(mouse.y - expressions.y73)) / ((expressions.y72 - expressions.y73)*(expressions.x71 - expressions.x73)+(expressions.x73 - expressions.x72)*(expressions.y71 - expressions.y73))
+/ b7 = ((expressions.y73 - expressions.y71)*(mouse.x - expressions.x73) + (expressions.x71 - expressions.x73)*(mouse.y - expressions.y73)) / ((expressions.y72 - expressions.y73)*(expressions.x71 - expressions.x73)+(expressions.x73 - expressions.x72)*(expressions.y71 - expressions.y73))
+/ c7 = 1 - expressions.a7 - expressions.b7
+</expressions>
+
+<expressions 8_5T_sure>
+/ x81 = picture.response8.left
+/ y81 = picture.response8.top
+/ x82 = picture.response8.right
+/ y82 = picture.response8.top
+/ x83 = picture.response8.right
+/ y83 = picture.response8.bottom
+/ a8 = ((expressions.y82 - expressions.y83)*(mouse.x - expressions.x83) + (expressions.x83 - expressions.x82)*(mouse.y - expressions.y83)) / ((expressions.y82 - expressions.y83)*(expressions.x81 - expressions.x83)+(expressions.x83 - expressions.x82)*(expressions.y81 - expressions.y83))
+/ b8 = ((expressions.y83 - expressions.y81)*(mouse.x - expressions.x83) + (expressions.x81 - expressions.x83)*(mouse.y - expressions.y83)) / ((expressions.y82 - expressions.y83)*(expressions.x81 - expressions.x83)+(expressions.x83 - expressions.x82)*(expressions.y81 - expressions.y83))
+/ c8 = 1 - expressions.a8 - expressions.b8
+</expressions>
+
+
+<expressions validresponse>
+/ validresponse =
+if (0<=expressions.a1 && expressions.a1 <= 1 && 0 <= expressions.b1 && expressions.b1 <= 1 && 0 <= expressions.c1 && expressions.c1 <= 1){
+values.response = "AL_high"; true; values.c_confidence = 2
+}
+else if(0<=expressions.a2 && expressions.a2 <= 1 && 0 <= expressions.b2 && expressions.b2 <= 1 && 0 <= expressions.c2 && expressions.c2 <= 1){
+values.response = "AL_low"; true; values.c_confidence = 1
+}
+else if(0<=expressions.a3 && expressions.a3 <= 1 && 0 <= expressions.b3 && expressions.b3 <= 1 && 0 <= expressions.c3 && expressions.c3 <= 1){
+values.response = "PL_low"; true; values.c_confidence = 1
+}
+else if(0<=expressions.a4 && expressions.a4 <= 1 && 0 <= expressions.b4 && expressions.b4 <= 1 && 0 <= expressions.c4 && expressions.c4 <= 1){
+values.response = "PL_high"; true; values.c_confidence = 2
+}
+else if(0<=expressions.a5 && expressions.a5 <= 1 && 0 <= expressions.b5 && expressions.b5 <= 1 && 0 <= expressions.c5 && expressions.c5 <= 1){
+values.response = "PT_high"; true; values.c_confidence = 2
+}
+else if(0<=expressions.a6 && expressions.a6 <= 1 && 0 <= expressions.b6 && expressions.b6 <= 1 && 0 <= expressions.c6 && expressions.c6 <= 1){
+values.response = "PT_low"; true; values.c_confidence = 1
+}
+else if(0<=expressions.a7 && expressions.a7 <= 1 && 0 <= expressions.b7 && expressions.b7 <= 1 && 0 <= expressions.c7 && expressions.c7 <= 1){
+values.response = "AT_low"; true; values.c_confidence = 1
+}
+else if(0<=expressions.a8 && expressions.a8 <= 1 && 0 <= expressions.b8 && expressions.b8 <= 1 && 0 <= expressions.c8 && expressions.c8 <= 1){
+values.response = "AT_high"; true; values.c_confidence = 2
+}
+</expressions>
+
+<values>
+/ response = ""
+/ c_confidence = 0
+</values>
+
+

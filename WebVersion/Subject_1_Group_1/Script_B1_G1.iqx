@@ -1,0 +1,9 @@
+<include>
+/ file = "Calibration.iqx"
+/ file = "PictureAndText_V2.iqx"
+/ file = "Instruction.iqx"
+/ file = "MainStructure_V2.iqx"
+/ file = "8CR_4page.iqx"
+/ file = "8CR_disks.iqx"
+/ file = "PracticeTrial.iqx"/ file = "BaseScript_B1_G1.iqx"
+</include>

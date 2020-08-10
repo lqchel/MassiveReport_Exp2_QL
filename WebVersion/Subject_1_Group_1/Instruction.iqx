@@ -1,0 +1,257 @@
+﻿<page start>
+^^ Welcome to the experiment !!
+</page>
+
+<page end>
+^^Thank you for your participant !!
+</page>
+
+<values>
+/Instruction_page = 0
+/total_Instruction_page = 4
+</values>
+
+<instruct>
+/ nextkey = (57)
+/ fontstyle = ("Arial", 10%, true)
+/ screencolor = (127,127,127)
+/ txcolor = yellow
+</instruct>
+
+<text quit_notice>
+/ items = ("Press Ctrl + Q to quit the experiment")
+/ fontstyle = ("Arial", 2.8%, true)
+/ txcolor = yellow
+/ txbgcolor = (127,127,127)
+/ position = (80,90)
+</text>
+
+********************************************************************
+********************************************************************
+
+Next Button: Space Button
+<text Next_button>
+/ items = ("Press SPACE BUTTON to continue")
+/ position = (80%,85%)
+/ fontstyle = ("Arial", 2.8%, true)
+/ txbgcolor = (127,127,127)
+/ txcolor = yellow
+</text>
+
+********************************************************************
+********************************************************************
+Operation Instruction Page 1:
+<text Instruction_Page_1>
+/ items = ("In each trial of this experiment, you are first asked to fixate on the cross 
+located at the centre of the screen.       
+You will then see a big image flash briefly on the screen, which will be quickly masked.")
+/ hposition = 50%
+/ vposition = 70%
+/ fontstyle = ("Arial", 3%, true)
+/ txbgcolor = (127,127,127)
+/ txcolor = yellow
+</text>
+
+<video Instruction_Page_1_gif>
+/ items = ("FixAndPresent.gif")
+/ hposition = 50%
+/ vposition = 30%
+/ loop = true
+/ size = (40%,40%)
+</video>
+
+<text Instruction_Page_2>
+/ items = ("After masking, you are asked to fixate on the centre cross again. 
+A small image patch will then be flashed on the screen briefly, followed by masking.")
+/ hposition = 50%
+/ vposition = 70%
+/ fontstyle = ("Arial", 3%, true)
+/ txbgcolor = (127,127,127)
+/ txcolor = yellow
+</text>
+
+<video Instruction_Page_2_gif>
+/ items = ("patchPresentation.gif")
+/ hposition = 50%
+/ vposition = 30%
+/ loop = true
+/ size = (40%,40%)
+</video>
+
+<text Instruction_Page_3>
+/ items = ("You are then asked to decide whether the small patch was a part of the presented image or not, 
+and indicate how confident you are about your decision.
+Use a scale of 1-4 to describe your confidence (1 => not confident at all; 4 => highly confident).
+After selecting your response, click on the centre green button to move on to the next patch.")
+/ hposition = 50%
+/ vposition = 70%
+/ fontstyle = ("Arial", 3%, true)
+/ txbgcolor = (127,127,127)
+/ txcolor = yellow
+</text>
+
+<picture Instruction_Page_3_pic>
+/ items = ("responsePage.jpg")
+/ hposition = 50%
+/ vposition = 30%
+/ size = (40%,40%)
+</picture>
+
+
+<text Instruction_Page_4>
+/ items = ("For each presented larger image, you will see a series of 6 small patches 
+followed by the confidence ratings. 
+The experiment will take approximately 30 mins(Including download time) to complete.")
+/ hposition = 50%
+/ vposition = 70%
+/ fontstyle = ("Arial", 3%, true)
+/ txbgcolor = (127,127,127)
+/ txcolor = yellow
+</text>
+
+<video Instruction_Page_4_gif>
+/ items = ("seriesPatch.gif")
+/ hposition = 50%
+/ vposition = 30%
+/ loop = true
+/ size = (40%,40%)
+</video>
+
+<text continue>
+/ items = ("Press 'SPACEBAR' to continue (<%values.Instruction_page%>/<%values.total_Instruction_page%>)")
+/ position = (80%,85%)
+/ fontstyle = ("Arial", 3%, true)
+/ txcolor = yellow
+/ txbgcolor = (127,127,127)
+</text>
+
+***********************************************************************************************
+***********************************************************************************************
+<text start_practice>
+	/ items = ("If you are ready, please press 'SPACEBAR' to begin the practice trials.
+	
+In the following 3 practice trials, each trial is accompanied by 6 questions.")
+	/ fontstyle = ("Arial", 3%, true)
+	/ txcolor = yellow
+	/ txbgcolor = (127,127,127)
+	/ position = (50%,50%)
+</text>
+
+***********************************************************************************************
+***********************************************************************************************
+Messages after each practice trial:
+<text message_after_prac_1and2>
+	/items = ("If you are ready, press 'SPACEBAR' to go to the next trial.
+(The next trial is faster and more difficult than the previous one!)
+You have finished <%values.index_practice%> of <%values.num_prac_trials%> trials")
+	/ position = (50%,50%)
+	/ fontstyle = ("Arial", 3%, true)
+	/ txcolor = yellow
+	/ txbgcolor = (127,127,127)
+</text>
+
+<text message_after_prac_3>
+	/items = ("You have finished all 3 practice trials.
+(The speed of this last trial will be similar to the real trials. Pay attention!)
+Next trial will be the formal test.
+You have finished <%values.index_practice%> of <%values.num_prac_trials%> trials")
+	/ position = (50%,50%)
+	/ fontstyle = ("Arial", 3%, true)
+	/ txcolor = yellow
+	/ txbgcolor = (127,127,127)
+</text>
+
+***********************************************************************************************
+***********************************************************************************************
+<text attention>
+	/ items = ("Please pay attention!! The REAL TEST will start on the next page.
+
+When you are ready, press the 'SPACEBAR' to start. GOOD LUCK!")
+    / position = (50%,50%)
+	/ fontstyle = ("Arial", 3%, true)
+	/ txcolor = yellow
+	/ txbgcolor = (127,127,127)
+</text>
+
+***********************************************************************************************
+***********************************************************************************************
+<trial instruction_page_1>
+/ ontrialbegin = [
+	values.Instruction_page += 1;
+]
+/ stimulusframes = [1 = Instruction_Page_1,Instruction_Page_1_gif,Next_button,quit_notice,continue]
+/ validresponse = (57)
+/ recorddata = false
+/ branch = [
+	trial.instruction_page_2
+]
+</trial>
+
+<trial instruction_page_2>
+/ ontrialbegin = [
+	values.Instruction_page += 1;
+]
+/ stimulusframes = [1 = Instruction_Page_2,Instruction_Page_2_gif,Next_button,quit_notice,continue]
+/ validresponse = (57)
+/ recorddata = false
+/ branch = [
+	trial.instruction_page_3
+]
+</trial>
+
+<trial instruction_page_3>
+/ ontrialbegin = [
+	values.Instruction_page += 1;
+]
+/ stimulusframes = [1 = Instruction_Page_3,Instruction_Page_3_pic,Next_button,quit_notice,continue]
+/ validresponse = (57)
+/ recorddata = false
+/ branch = [
+	trial.instruction_page_4
+]
+</trial>
+
+<trial instruction_page_4>
+/ ontrialbegin = [
+	values.Instruction_page += 1;
+]
+/ stimulusframes = [1 = Instruction_Page_4,Instruction_Page_4_gif,Next_button,quit_notice,continue]
+/ validresponse = (57)
+/ recorddata = false
+</trial>
+
+
+***********************************************************************************************
+***********************************************************************************************
+<trial attention_after_prac1and2>
+/ stimulusframes = [1 = message_after_prac_1and2,Next_button,quit_notice]
+/ validresponse = (57)
+/ recorddata = false
+</trial>
+
+<trial attention_after_prac3>
+/ stimulusframes = [1 = message_after_prac_3,Next_button,quit_notice]
+/ validresponse = (57)
+/ recorddata = false
+/ branch = [
+	trial.real_test_attention
+]
+</trial>
+
+<trial real_test_attention>
+/ stimulusframes = [1 = attention,Next_button,quit_notice]
+/ validresponse = (57)
+/ recorddata = false
+</trial>
+
+<block Instruction>
+/ trials = [1 = instruction_page_1]
+</block>
+<block attention1>
+/ trials = [1 = attention_after_prac1and2]
+</block>
+<block attention2>
+/ trials = [1 = attention_after_prac3]
+</block>
+
+

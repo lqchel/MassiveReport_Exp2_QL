@@ -1,0 +1,247 @@
+﻿<text instruction_fixation>
+	/ items = ("In each trial of this experiment, you are asked to fixate the cross located at the centre of the screen 
+Then, you will see an Image flashed briefly on the screen, which will be quickly masked")
+	/ hposition = 50%
+	/ vposition = 70%
+	/ fontstyle = ("Arial", 3%, true)
+	/ txbgcolor = (127,127,127)
+</text>
+
+<video instruction_fixAndPresent>
+	/ items = ("FixAndPresent.gif")
+	/ hposition = 50%
+	/ vposition = 30%
+	/ loop = true
+	/ size = (40%,40%)
+</video>
+
+***********************************************************************************************************
+***********************************************************************************************************
+***********************************************************************************************************
+
+<text instruction_patch>
+	/ items = ("After masking, you are asked to fixate on the centre cross again. 
+And then, a small image patch will be flashed on the screen shortly, after which the patch will be masked.")
+	/ hposition = 50%
+	/ vposition = 70%
+	/ fontstyle = ("Arial", 2.8%, true)
+	/ txbgcolor = (127,127,127)
+</text>
+
+<video instruction_patchAndmask>
+	/ items = ("patchPresentation.gif")
+	/ hposition = 50%
+	/ vposition = 30%
+	/ loop = true
+	/ size = (40%,40%)
+</video>
+
+***********************************************************************************************************
+***********************************************************************************************************
+***********************************************************************************************************
+<text instruction_response>
+	/ items = ("You are asked to decide whether the small patch is a part of the presented image, 
+and indicate how confident you are about your decision.
+Use a scale of 1-4 to describe your confidence(1 => Not confident at all; 4 => Highly confident)")
+	/ hposition = 50%
+	/ vposition = 70%
+	/ fontstyle = ("Arial", 3%, true)
+	/ txbgcolor = (127,127,127)
+</text>
+
+<picture instruction_response_page>
+	/ items = ("responsePage.jpg")
+	/ hposition = 50%
+	/ vposition = 30%
+	/ size = (40%,40%)
+</picture>
+
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+***********************************************************************************************************
+<text instruction_series>
+	/ items = ("For each presented image, you will see series small patches
+The session will take approximately 20 mins to complete
+")
+	/ fontstyle = ("Arial", 2.8%, true)
+	/ txbgcolor = (127,127,127)
+	/ position = (50%,70%)
+</text>
+
+<video instruction_seriesPatch>
+	/ items = ("seriesPatch.gif")
+	/ hposition = 50%
+	/ vposition = 30%
+	/ loop = true
+	/ size = (40%,40%)
+</video>
+
+***********************************************************************************************************
+***********************************************************************************************************
+***********************************************************************************************************
+
+<text start_practice>
+	/ items = ("If you are ready, please press 'SPACE Button' to begin the practice trials
+In the following 3 practice trials, each trial is accompanied by 5 questions")
+	/ fontstyle = ("Arial", 2.8%, true)
+	/ txcolor = red
+	/ txbgcolor = (127,127,127)
+	/ position = (50%,50%)
+</text>
+
+***********************************************************************************************************
+***********************************************************************************************************
+***********************************************************************************************************
+<text continue_1>
+	/ items = ("Press SPACE to continue (1/4)")
+	/ position = (80%,85%)
+	/ fontstyle = ("Arial", 2.8%, true)
+	/ txbgcolor = (127,127,127)
+</text>
+
+<text continue_2>
+	/ items = ("Press SPACE to continue (2/4)")
+	/ position = (80%,85%)
+	/ fontstyle = ("Arial", 2.8%, true)
+	/ txbgcolor = (127,127,127)
+</text>
+
+<text continue_3>
+	/ items = ("Press SPACE to continue (3/4)")
+	/ position = (80%,85%)
+	/ fontstyle = ("Arial", 2.8%, true)
+	/ txbgcolor = (127,127,127)
+</text>
+
+<text continue_4>
+	/ items = ("Press SPACE to continue (4/4)")
+	/ position = (80%,85%)
+	/ fontstyle = ("Arial", 2.8%, true)
+	/ txbgcolor = (127,127,127)
+</text>
+
+<text stat_practice_button>
+	/ items = ("Press SPACE start PRACTICE TRIAL")
+	/ position = (80%,85%)
+	/ fontstyle = ("Arial", 2.8%, true)
+	/ txbgcolor = (127,127,127)
+</text>
+
+<text interval_practice>
+	/items = ("If you are ready, press SPACE BUTTON and move to next trial
+You have finished <%values.Index_practice%> of <%values.num_prac_trials%> trials")
+	/ position = (50%,50%)
+	/ fontstyle = ("Arial", 3%, true)
+	/ txbgcolor = (127,127,127)
+</text>
+
+<text speed_notice_Prac1and2>
+	/ items = ("Which is faster and more difficult than the last one")
+	/ position = (50%,60%)
+	/ fontstyle = ("Arial", 3%, true)
+	/ txbgcolor = (127,127,127)
+</text>
+
+<text speed_notice_Prac3>
+	/ items = ("This the speed of the following 14 trials, each trial will be accompanied by 21 questions")
+	/ position = (50%,60%)
+	/ fontstyle = ("Arial", 3%, true)
+	/ txbgcolor = (127,127,127)
+</text>
+
+<text interval>
+	/items = ("If you are ready, press SPACE BUTTON and move to next trial
+You have finished <%values.Index%> of <%values.num_trials%> trials")
+	/ position = (50%,50%)
+	/ fontstyle = ("Arial", 3%, true)
+	/ txbgcolor = (127,127,127)
+</text>
+
+
+<text start>
+	/items = ("You have done the practice stage, when you ready, press SPACE Button to start the experiment")
+	/ position = (50%,50%)
+	/ fontstyle = ("Arial", 3%, true)
+	/ txbgcolor = (127,127,127)
+</text>
+
+<text attention>
+	/ items = ("Please pay attention!! The REAL test will start on next page
+
+When you ready, press SPACE BUTTON to start.")
+    / position = (50%,50%)
+	/ fontstyle = ("Arial", 3%, true)
+	/ txcolor = red
+	/ txbgcolor = (127,127,127)
+</text>
+
+
+
+<trial instruction_page_1>
+	/ stimulusframes = [1 = instruction_fixation;2 = instruction_fixAndPresent;3 = continue_1;4 = quit_notice]
+	/ validresponse = (57)
+	/ recorddata = false
+</trial>
+
+<trial instruction_page_2>
+	/ stimulusframes = [1 = instruction_patch;2 = instruction_patchAndmask; 3 = continue_2;4 = quit_notice]
+	/ validresponse = (57)
+	/ recorddata = false
+</trial>
+
+<trial instruction_page_3>
+	/ stimulusframes = [1 = instruction_response;2 = instruction_response_page; 3 = continue_3;4 = quit_notice]
+	/ validresponse = (57)
+	/ recorddata = false
+</trial>
+
+<trial instruction_page_4>
+	/ stimulusframes = [1 = instruction_series;2 = instruction_seriesPatch; 3 = continue_4;4 = quit_notice]
+	/ validresponse = (57)
+	/ recorddata = false
+</trial>
+
+<trial instruction_page_5>
+	/ stimulusframes = [1 = start_practice;2 = stat_practice_button;3 = quit_notice]
+	/ validresponse = (57)
+	/ recorddata = false
+</trial>
+
+<trial interval_practice>
+/ ontrialbegin = [
+	if (values.Index_practice == 1 || values.Index_practice == 2){
+		trial.interval_practice.insertstimulusframe(text.speed_notice_Prac1and2, 2);
+	}else if (values.Index_practice == 3){
+	trial.interval_practice.insertstimulusframe(text.interval_practice, 1);
+		trial.interval_practice.insertstimulusframe(text.speed_notice_Prac3, 2);
+	}
+	trial.interval_practice.insertstimulusframe(text.quit_notice, 3);
+]
+	/ stimulusframes = [1 = interval_practice]
+	/ validresponse = (57)
+	/ recorddata = false
+	/ ontrialend = [
+	trial.interval_practice.removestimulusframe(2);
+]
+</trial>
+
+<trial interval>
+	/ stimulusframes = [1 = interval; 2 = quit_notice]
+	/ validresponse = (57)
+	/ recorddata = false
+</trial>
+
+
+<trial Start_test>
+	/ stimulusframes = [1 = start]
+	/ validresponse = (57)
+	/ recorddata = false
+</trial>
+
+<trial Start_attention>
+	/ stimulusframes = [1 = attention]
+	/ validresponse = (57)
+	/ recorddata = false
+</trial>

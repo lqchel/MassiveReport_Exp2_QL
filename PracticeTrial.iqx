@@ -6,8 +6,29 @@
 <values>
 /time_out_practice = 0
 /present_timeout_practice = 0
+/Index = 0
 /Index_practice = 0
 /order_practice = 0
+/patch_ID = 0
+/probe_Image = 0
+/CongOrIncong = 0
+/Patch_Source = 0
+/Exist_Object = 0
+/Patch_Position = 0
+/Image_ID = 0
+/order_question = 0
+/number_of_patch = 0
+/question_choose = 0
+/null_index = 0 
+/null_loc_1 = 0
+/null_loc_2 = 0
+/null_loc_3 = 0
+/null_loc_4 = 0
+/null_loc_5 = 0
+/null_loc_6 = 0
+/null_loc_7 = 0
+/null_loc_8 = 0
+/null_loc_9 = 0
 </values>
 
 <trial Fixation_practice>
@@ -293,7 +314,7 @@ lowC_instruction, highC_instruction,part_of_Image,Not_part_of_Image,p_response_i
 / isvalidresponse = [if (trial.peripheral_response.response == "response_blank") false; else
 expressions.validresponse_disks
 ]
-/ recorddata = false
+/ recorddata = true;
 / branch = [
 	trial.centermouse
 ]

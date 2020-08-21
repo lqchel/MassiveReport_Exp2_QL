@@ -1,8 +1,8 @@
 clc
 clear
 for subject = 1:1
-    for group = 1:3
-        filename = sprintf('Script_S%d.iqx',subject);
+    for group = 1:1
+        filename = sprintf('Script_B%d_G%d.iqx',subject,group);
         fid = fopen(filename,'w');
         fprintf(fid,'<include>\n');
 %         fprintf(fid,'/ file = "ConcentrationResponse.iqx"\n');
@@ -12,8 +12,7 @@ for subject = 1:1
         fprintf(fid,'/ file = "MainStructure_V2.iqx"\n');
         fprintf(fid,'/ file = "8CR_4page.iqx"\n');
         fprintf(fid,'/ file = "8CR_disks.iqx"\n');
-        fprintf(fid,'/ file = "PracticeTrial.iqx"\n')
-        fprintf(fid,'/ file = "BaseScript_S%d.iqx"\n',subject);
+        fprintf(fid,'/ file = "BaseScript_B%d_G%d.iqx"\n',subject,group);
         fprintf(fid,'</include>');
     end
 end

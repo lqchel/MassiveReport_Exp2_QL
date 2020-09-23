@@ -1,5 +1,6 @@
 ﻿<defaults >
 / screencolor = (127,127,127) 
+/ canvasaspectratio = (16,9)
 </defaults>
 
 <values>
@@ -41,7 +42,12 @@
 	/catch_trial_4 = 14
 	/catch_trial_5 = 20
 	/catch_trial_6 = 23
+	/question = 0
 	/catch_question = 0
+	/OLIFE_subscale_1_score = 0
+	/OLIFE_subscale_2_score = 0
+	/OLIFE_subscale_3_score = 0
+	/OLIFE_subscale_4_score = 0
 </values>
 
 
@@ -778,6 +784,19 @@ expressions.validresponse_disks
 </block>
 
 
+<block schizotypy_survey>
+/ trials = [1=schizotypy_Q1; 2=schizotypy_Q2; 3=schizotypy_Q3; 4=schizotypy_Q4; 5=schizotypy_Q5; 6=schizotypy_Q6; 7=schizotypy_Q7; 8=schizotypy_Q8; 9=schizotypy_Q9;
+10=schizotypy_Q10; 11=schizotypy_Q11; 12=schizotypy_Q12; 13=schizotypy_Q13; 14=schizotypy_Q14; 15=schizotypy_Q15; 16=schizotypy_Q16; 17=schizotypy_Q17; 18=schizotypy_Q18; 
+19=schizotypy_Q19; 20=schizotypy_Q20; 21=schizotypy_Q21; 22=schizotypy_Q22; 23=schizotypy_Q23; 24=schizotypy_Q24; 25=schizotypy_Q25; 26=schizotypy_Q26; 27=schizotypy_Q27; 
+28=schizotypy_Q28; 29=schizotypy_Q29; 30=schizotypy_Q30; 31=schizotypy_Q31; 32=schizotypy_Q32; 33=schizotypy_Q33; 34=schizotypy_Q34; 35=schizotypy_Q35; 36=schizotypy_Q36; 
+37=schizotypy_Q37; 38=schizotypy_Q38; 39=schizotypy_Q39; 40=schizotypy_Q40; 41=schizotypy_Q41; 42=schizotypy_Q42; 43=schizotypy_Q43]
+</block>
+
+<block demographics>
+/trials = [1 = demographics_page]
+</block>
+
+
 // Used to determine which type of test block will be shown throughout the experiment, depending on the assigned catch_trial number and current Index.
 <list test_select>
 / items = (block.test, block.catch)
@@ -793,26 +812,32 @@ expressions.validresponse_disks
 	}
 </list>
 
-
 <expt Throughout>
 / preinstructions = (start)
 / postinstructions = (end)
 / blocks = [1 = Instruction;
 2 = calibration;
-3 = test_prac;
-4 = attention1;
-5 = test_prac;
-6 = attention1;
-7 = test_prac;
-8 = attention2;
-9 = catch;
-10 = attention3;
-11-36 = list.test_select]
+3 = squarepresentation;
+4 = test_prac;
+5 = attention1;
+6 = test_prac;
+7 = attention1;
+8 = test_prac;
+9 = attention2;
+10 = catch;
+11 = attention3;
+12-37 = list.test_select;
+38 = schizotypy_survey;
+39 = demographics;]
 </expt>
 
 <data>
 / columns=[subject,values.Index,values.patch_ID,values.CongOrIncong,values.Patch_Source,values.Exist_Object,values.Patch_Position,
-			values.response,values.p_confidence,latency,values.Image_ID,values.null_index]
+			values.response,values.p_confidence,latency,values.Image_ID,values.null_index, values.OLIFE_subscale_1_score,
+			values.OLIFE_subscale_2_score,values.OLIFE_subscale_3_score,values.OLIFE_subscale_4_score, response,
+			 expressions.ratio_pxpermm, values.screen_size_x, values.screen_size_y, values.viewer_distance,
+			values.line_size,values.calibration_image_size,list.viewing_distance.currentvalue,
+			values.screen_x_threshold,values.distance_threshold]
 / separatefiles = true
 </data>
 

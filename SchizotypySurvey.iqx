@@ -438,7 +438,7 @@
 / questions = [1=OLIFE1]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 1 of 43"
 / ontrialend = [values.OLIFE_subscale_1_score = values.OLIFE_subscale_1_score + radiobuttons.OLIFE1.selectedvalue]
@@ -452,7 +452,7 @@
 / questions = [1=OLIFE2]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 2 of 43"
 / ontrialend = [values.OLIFE_subscale_1_score = values.OLIFE_subscale_1_score + radiobuttons.OLIFE2.selectedvalue]
@@ -466,7 +466,7 @@
 / questions = [1=OLIFE3]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 3 of 43"
 / ontrialend = [values.OLIFE_subscale_1_score = values.OLIFE_subscale_1_score + radiobuttons.OLIFE3.selectedvalue]
@@ -480,7 +480,7 @@
 / questions = [1=OLIFE4]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 4 of 43"
 / ontrialend = [values.OLIFE_subscale_1_score = values.OLIFE_subscale_1_score + radiobuttons.OLIFE4.selectedvalue]
@@ -494,7 +494,7 @@
 / questions = [1=OLIFE5]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 5 of 43"
 / ontrialend = [values.OLIFE_subscale_1_score = values.OLIFE_subscale_1_score + radiobuttons.OLIFE5.selectedvalue]
@@ -508,7 +508,7 @@
 / questions = [1=OLIFE6]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 6 of 43"
 / ontrialend = [values.OLIFE_subscale_1_score = values.OLIFE_subscale_1_score + radiobuttons.OLIFE6.selectedvalue]
@@ -522,7 +522,7 @@
 / questions = [1=OLIFE7]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 7 of 43"
 / ontrialend = [values.OLIFE_subscale_1_score = values.OLIFE_subscale_1_score + radiobuttons.OLIFE7.selectedvalue]
@@ -536,7 +536,7 @@
 / questions = [1=OLIFE8]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 8 of 43"
 / ontrialend = [values.OLIFE_subscale_1_score = values.OLIFE_subscale_1_score + radiobuttons.OLIFE8.selectedvalue]
@@ -550,7 +550,7 @@
 / questions = [1=OLIFE9]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 9 of 43"
 / ontrialend = [values.OLIFE_subscale_1_score = values.OLIFE_subscale_1_score + radiobuttons.OLIFE9.selectedvalue]
@@ -564,7 +564,7 @@
 / questions = [1=OLIFE10]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 10 of 43"
 / ontrialend = [values.OLIFE_subscale_1_score = values.OLIFE_subscale_1_score + radiobuttons.OLIFE10.selectedvalue]
@@ -578,7 +578,7 @@
 / questions = [1=OLIFE11]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 11 of 43"
 / ontrialend = [values.OLIFE_subscale_1_score = values.OLIFE_subscale_1_score + radiobuttons.OLIFE11.selectedvalue]
@@ -592,7 +592,7 @@
 / questions = [1=OLIFE12]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 12 of 43"
 / ontrialend = [values.OLIFE_subscale_1_score = values.OLIFE_subscale_1_score + radiobuttons.OLIFE12.selectedvalue]
@@ -606,7 +606,7 @@
 / questions = [1=OLIFE13]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 13 of 43"
 / ontrialend = [values.OLIFE_subscale_2_score = values.OLIFE_subscale_2_score + radiobuttons.OLIFE13.selectedvalue]
@@ -620,7 +620,7 @@
 / questions = [1=OLIFE14]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 14 of 43"
 / ontrialend = [values.OLIFE_subscale_2_score = values.OLIFE_subscale_2_score + radiobuttons.OLIFE14.selectedvalue]
@@ -634,7 +634,7 @@
 / questions = [1=OLIFE15]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 15 of 43"
 / ontrialend = [values.OLIFE_subscale_2_score = values.OLIFE_subscale_2_score + radiobuttons.OLIFE15.selectedvalue]
@@ -648,7 +648,7 @@
 / questions = [1=OLIFE16]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 16 of 43"
 / ontrialend = [values.OLIFE_subscale_2_score = values.OLIFE_subscale_2_score + radiobuttons.OLIFE16.selectedvalue]
@@ -662,7 +662,7 @@
 / questions = [1=OLIFE17]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 17 of 43"
 / ontrialend = [values.OLIFE_subscale_2_score = values.OLIFE_subscale_2_score + radiobuttons.OLIFE17.selectedvalue]
@@ -676,7 +676,7 @@
 / questions = [1=OLIFE18]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 18 of 43"
 / ontrialend = [values.OLIFE_subscale_2_score = values.OLIFE_subscale_2_score + radiobuttons.OLIFE18.selectedvalue]
@@ -690,7 +690,7 @@
 / questions = [1=OLIFE19]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 19 of 43"
 / ontrialend = [values.OLIFE_subscale_2_score = values.OLIFE_subscale_2_score + radiobuttons.OLIFE19.selectedvalue]
@@ -704,7 +704,7 @@
 / questions = [1=OLIFE20]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 20 of 43"
 / ontrialend = [values.OLIFE_subscale_2_score = values.OLIFE_subscale_2_score + radiobuttons.OLIFE20.selectedvalue]
@@ -718,7 +718,7 @@
 / questions = [1=OLIFE21]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 21 of 43"
 / ontrialend = [values.OLIFE_subscale_2_score = values.OLIFE_subscale_2_score + radiobuttons.OLIFE21.selectedvalue]
@@ -732,7 +732,7 @@
 / questions = [1=OLIFE22]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 22 of 43"
 / ontrialend = [values.OLIFE_subscale_2_score = values.OLIFE_subscale_2_score + radiobuttons.OLIFE22.selectedvalue]
@@ -746,7 +746,7 @@
 / questions = [1=OLIFE23]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 23 of 43"
 / ontrialend = [values.OLIFE_subscale_2_score = values.OLIFE_subscale_2_score + radiobuttons.OLIFE23.selectedvalue]
@@ -760,7 +760,7 @@
 / questions = [1=OLIFE24]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 24 of 43"
 / ontrialend = [values.OLIFE_subscale_3_score = values.OLIFE_subscale_3_score + radiobuttons.OLIFE24.selectedvalue]
@@ -774,7 +774,7 @@
 / questions = [1=OLIFE25]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 25 of 43"
 / ontrialend = [values.OLIFE_subscale_3_score = values.OLIFE_subscale_3_score + radiobuttons.OLIFE25.selectedvalue]
@@ -788,7 +788,7 @@
 / questions = [1=OLIFE26]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 26 of 43"
 / ontrialend = [values.OLIFE_subscale_3_score = values.OLIFE_subscale_3_score + radiobuttons.OLIFE26.selectedvalue]
@@ -802,7 +802,7 @@
 / questions = [1=OLIFE27]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 27 of 43"
 / ontrialend = [values.OLIFE_subscale_3_score = values.OLIFE_subscale_3_score + radiobuttons.OLIFE27.selectedvalue]
@@ -816,7 +816,7 @@
 / questions = [1=OLIFE28]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 28 of 43"
 / ontrialend = [values.OLIFE_subscale_3_score = values.OLIFE_subscale_3_score + radiobuttons.OLIFE28.selectedvalue]
@@ -830,7 +830,7 @@
 / questions = [1=OLIFE29]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 29 of 43"
 / ontrialend = [values.OLIFE_subscale_3_score = values.OLIFE_subscale_3_score + radiobuttons.OLIFE29.selectedvalue]
@@ -844,7 +844,7 @@
 / questions = [1=OLIFE30]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 30 of 43"
 / ontrialend = [values.OLIFE_subscale_3_score = values.OLIFE_subscale_3_score + radiobuttons.OLIFE30.selectedvalue]
@@ -858,7 +858,7 @@
 / questions = [1=OLIFE31]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 31 of 43"
 / ontrialend = [values.OLIFE_subscale_3_score = values.OLIFE_subscale_3_score + radiobuttons.OLIFE31.selectedvalue]
@@ -872,7 +872,7 @@
 / questions = [1=OLIFE32]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 32 of 43"
 / ontrialend = [values.OLIFE_subscale_3_score = values.OLIFE_subscale_3_score + radiobuttons.OLIFE32.selectedvalue]
@@ -886,7 +886,7 @@
 / questions = [1=OLIFE33]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 33 of 43"
 / ontrialend = [values.OLIFE_subscale_3_score = values.OLIFE_subscale_3_score + radiobuttons.OLIFE33.selectedvalue]
@@ -900,7 +900,7 @@
 / questions = [1=OLIFE34]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 34 of 43"
 / ontrialend = [values.OLIFE_subscale_4_score = values.OLIFE_subscale_4_score + radiobuttons.OLIFE34.selectedvalue]
@@ -914,7 +914,7 @@
 / questions = [1=OLIFE35]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 35 of 43"
 / ontrialend = [values.OLIFE_subscale_4_score = values.OLIFE_subscale_4_score + radiobuttons.OLIFE35.selectedvalue]
@@ -928,7 +928,7 @@
 / questions = [1=OLIFE36]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 36 of 43"
 / ontrialend = [values.OLIFE_subscale_4_score = values.OLIFE_subscale_4_score + radiobuttons.OLIFE36.selectedvalue]
@@ -942,7 +942,7 @@
 / questions = [1=OLIFE37]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 37 of 43"
 / ontrialend = [values.OLIFE_subscale_4_score = values.OLIFE_subscale_4_score + radiobuttons.OLIFE37.selectedvalue]
@@ -956,7 +956,7 @@
 / questions = [1=OLIFE38]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 38 of 43"
 / ontrialend = [values.OLIFE_subscale_4_score = values.OLIFE_subscale_4_score + radiobuttons.OLIFE38.selectedvalue]
@@ -970,7 +970,7 @@
 / questions = [1=OLIFE39]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 39 of 43"
 / ontrialend = [values.OLIFE_subscale_4_score = values.OLIFE_subscale_4_score + radiobuttons.OLIFE39.selectedvalue]
@@ -984,7 +984,7 @@
 / questions = [1=OLIFE40]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 40 of 43"
 / ontrialend = [values.OLIFE_subscale_4_score = values.OLIFE_subscale_4_score + radiobuttons.OLIFE40.selectedvalue]
@@ -998,7 +998,7 @@
 / questions = [1=OLIFE41]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 41 of 43"
 / ontrialend = [values.OLIFE_subscale_4_score = values.OLIFE_subscale_4_score + radiobuttons.OLIFE41.selectedvalue]
@@ -1012,7 +1012,7 @@
 / questions = [1=OLIFE42]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 42 of 43"
 / ontrialend = [values.OLIFE_subscale_4_score = values.OLIFE_subscale_4_score + radiobuttons.OLIFE42.selectedvalue]
@@ -1026,7 +1026,7 @@
 / questions = [1=OLIFE43]
 / navigationbuttonsize = (20, 4)
 / navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (85%, 83%)
+/ nextbuttonposition = (75%, 83%)
 / response = correct
 / finishlabel = "Finish question 43 of 43"
 / ontrialend = [values.OLIFE_subscale_4_score = values.OLIFE_subscale_4_score + radiobuttons.OLIFE43.selectedvalue]

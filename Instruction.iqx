@@ -120,12 +120,12 @@ followed by the confidence ratings. ")
 / items = ("In between experiment trials, there will be catch trials testing your attention to the task. 
 In a catch trial, instead of an image, you will see the word 'catch' flashed briefly on the screen. 
 
-Then, a response screen appears, and you are asked to give the same response as the expected 
-response shown in the middle of the response screen (e.g. YES 4).
+Then, a response screen appears, and you are asked to give the same response as the instruction
+ shown in the middle of the screen (e.g. YES 4).
 
 The experiment will take approximately 30 mins(Including download time) to complete.")
 / hposition = 50%
-/ vposition = 70%
+/ vposition = 50%
 / fontstyle = ("Arial", 3%, true)
 / txbgcolor = (127,127,127)
 / txcolor = yellow

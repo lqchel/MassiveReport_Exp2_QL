@@ -815,8 +815,8 @@ expressions.validresponse_disks
 <expt Throughout>
 / preinstructions = (start)
 / postinstructions = (end)
-/ blocks = [1 = Instruction;
-2 = calibration;
+/ blocks = [1 = calibration;
+2 = Instruction;
 3 = squarepresentation;
 4 = test_prac;
 5 = attention1;

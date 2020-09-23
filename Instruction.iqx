@@ -3,7 +3,7 @@
 </page>
 
 <page end>
-^^Thank you for your participant !!
+^^ You have completed the experiment. Thank you very much for your participantion!
 </page>
 
 <values>
@@ -12,7 +12,7 @@
 </values>
 
 <instruct>
-/ nextkey = (36)
+/ nextkey = (57)
 / fontstyle = ("Arial", 10%, true)
 / screencolor = (127,127,127)
 / txcolor = yellow
@@ -132,6 +132,18 @@ The experiment will take approximately 30 mins(Including download time) to compl
 
 </text>
 
+<text Instruction_Page_6>
+/ items = ("After finishing all the image-patch trials, you are asked to complete a short survey
+ about your everyday visual experience.
+ 
+The experiment will take approximately 30 mins(Including download time) to complete.")
+/ hposition = 50%
+/ vposition = 75%
+/ fontstyle = ("Arial", 3%, true)
+/ txbgcolor = (127,127,127)
+/ txcolor = yellow
+
+</text>
 
 <text continue>
 / items = ("Press 'SPACEBAR' to continue (<%values.Instruction_page%>/<%values.total_Instruction_page%>)")
@@ -242,6 +254,18 @@ When you are ready, press 'SPACEBAR' to begin the actual experiment.")
 	values.Instruction_page += 1;
 ]
 / stimulusframes = [1 = Instruction_Page_5,Next_button,quit_notice,continue]
+/ validresponse = (57)
+/ recorddata = false
+/ branch = [
+	trial.instruction_page_6
+	]
+</trial>
+
+<trial instruction_page_6>
+/ ontrialbegin = [
+	values.Instruction_page += 1;
+]
+/ stimulusframes = [1 = Instruction_Page_6,Next_button,quit_notice,continue]
 / validresponse = (57)
 / recorddata = false
 </trial>

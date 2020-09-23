@@ -184,7 +184,7 @@ and how confident you are.")
 ***************************************************************************************************
 <text interval>
 /items = ("If you are ready, press SPACE BUTTON and move to next trial
-You have finished <%values.Index - values.num_prac_trials%> of <%values.num_trials%> experiment trials")
+You have finished <%values.Index - values.num_prac_trials%> of 26 trials")
 / position = (50%,50%)
 / fontstyle = ("Arial", 3%, true)
 / txbgcolor = (127,127,127)

@@ -8,11 +8,12 @@
 
 <values>
 /Instruction_page = 0
-/total_Instruction_page = 5
+/total_Instruction_page = 6
 </values>
 
 <instruct>
 / nextkey = (57)
+/ prevkey = (48)
 / fontstyle = ("Arial", 10%, true)
 / screencolor = (127,127,127)
 / txcolor = yellow
@@ -33,6 +34,18 @@ Next Button: Space Button
 <text Next_button>
 / items = ("Press SPACE BUTTON to continue")
 / position = (80%,85%)
+/ fontstyle = ("Arial", 2.8%, true)
+/ txbgcolor = (127,127,127)
+/ txcolor = yellow
+</text>
+
+********************************************************************
+********************************************************************
+
+Back Button: B
+<text Back_button>
+/ items = ("Press B to go back to the previous page")
+/ position = (80%,90%)
 / fontstyle = ("Arial", 2.8%, true)
 / txbgcolor = (127,127,127)
 / txcolor = yellow
@@ -121,9 +134,7 @@ followed by the confidence ratings. ")
 In a catch trial, instead of an image, you will see the word 'catch' flashed briefly on the screen. 
 
 Then, a response screen appears, and you are asked to give the same response as the instruction
- shown in the middle of the screen (e.g. YES 4).
-
-The experiment will take approximately 30 mins(Including download time) to complete.")
+ shown in the middle of the screen (e.g. YES 4).")
 / hposition = 50%
 / vposition = 50%
 / fontstyle = ("Arial", 3%, true)
@@ -138,7 +149,7 @@ The experiment will take approximately 30 mins(Including download time) to compl
  
 The experiment will take approximately 30 mins(Including download time) to complete.")
 / hposition = 50%
-/ vposition = 75%
+/ vposition = 50%
 / fontstyle = ("Arial", 3%, true)
 / txbgcolor = (127,127,127)
 / txcolor = yellow
@@ -208,71 +219,66 @@ When you are ready, press 'SPACEBAR' to begin the actual experiment.")
 / stimulusframes = [1 = Instruction_Page_1,Instruction_Page_1_gif,Next_button,quit_notice,continue]
 / validresponse = (57)
 / recorddata = false
-/ branch = [
-	trial.instruction_page_2
-]
+/ branch = [trial.instruction_page_2]
 </trial>
 
 <trial instruction_page_2>
 / ontrialbegin = [
 	values.Instruction_page += 1;
 ]
-/ stimulusframes = [1 = Instruction_Page_2,Instruction_Page_2_gif,Next_button,quit_notice,continue]
-/ validresponse = (57)
+/ stimulusframes = [1 = Instruction_Page_2,Instruction_Page_2_gif,Next_button,Back_button,quit_notice,continue]
+/ validresponse = (57,48)
 / recorddata = false
-/ branch = [
-	trial.instruction_page_3
-]
+/ branch = [if (trial.instruction_page_2.response == 57) trial.instruction_page_3]
+/ branch = [if (trial.instruction_page_2.response == 48) trial.instruction_page_1]
 </trial>
 
 <trial instruction_page_3>
 / ontrialbegin = [
 	values.Instruction_page += 1;
 ]
-/ stimulusframes = [1 = Instruction_Page_3,Instruction_Page_3_pic,Next_button,quit_notice,continue]
-/ validresponse = (57)
+/ stimulusframes = [1 = Instruction_Page_3,Instruction_Page_3_pic,Next_button,Back_button,quit_notice,continue]
+/ validresponse = (57,48)
 / recorddata = false
-/ branch = [
-	trial.instruction_page_4
-]
+/ branch = [if (trial.instruction_page_3.response == 57) trial.instruction_page_4]
+/ branch = [if (trial.instruction_page_3.response == 48) trial.instruction_page_2]
 </trial>
 
 <trial instruction_page_4>
 / ontrialbegin = [
 	values.Instruction_page += 1;
 ]
-/ stimulusframes = [1 = Instruction_Page_4,Instruction_Page_4_gif,Next_button,quit_notice,continue]
-/ validresponse = (57)
+/ stimulusframes = [1 = Instruction_Page_4,Instruction_Page_4_gif,Next_button,Back_button,quit_notice,continue]
+/ validresponse = (57,48)
 / recorddata = false
-/ branch = [
-	trial.instruction_page_5
-	]
+/ branch = [if (trial.instruction_page_4.response == 57) trial.instruction_page_5]
+/ branch = [if (trial.instruction_page_4.response == 48) trial.instruction_page_3]
 </trial>
 
 <trial instruction_page_5>
 / ontrialbegin = [
 	values.Instruction_page += 1;
 ]
-/ stimulusframes = [1 = Instruction_Page_5,Next_button,quit_notice,continue]
-/ validresponse = (57)
+/ stimulusframes = [1 = Instruction_Page_5,Next_button,Back_button,quit_notice,continue]
+/ validresponse = (57,48)
 / recorddata = false
-/ branch = [
-	trial.instruction_page_6
-	]
+/ branch = [if (trial.instruction_page_5.response == 57) trial.instruction_page_6]
+/ branch = [if (trial.instruction_page_5.response == 48) trial.instruction_page_4]
 </trial>
 
 <trial instruction_page_6>
 / ontrialbegin = [
 	values.Instruction_page += 1;
 ]
-/ stimulusframes = [1 = Instruction_Page_6,Next_button,quit_notice,continue]
-/ validresponse = (57)
+/ stimulusframes = [1 = Instruction_Page_6,Next_button,Back_button,quit_notice,continue]
+/ validresponse = (57,48)
 / recorddata = false
+/ branch = [if (trial.instruction_page_6.response == 48) trial.instruction_page_5]
 </trial>
 
 // Catch response instructions for catch trials
 <text catch_response_instructions>
-/ items = ("ATTENTION: Please click on the specified response shown.")
+/ items = ("ATTENTION: Please click on the response as specified at the center of the screen.")
 / fontstyle = ("Arial", 4%, true)
 / txbgcolor = (127,127,127)
 / position = (50,80)

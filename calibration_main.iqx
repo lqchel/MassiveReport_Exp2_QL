@@ -180,9 +180,7 @@ This will ensure future images are the right size for your screen. On the next s
 
 1. Keeping your arm straight, please touch your thumb to the centre of the screen in the oval
 2. While keeping your head in the same position, lower your arm.
-3. Please keep your head in this position for the remainder of the experiment.
-
-Press SPACE to continue.")
+3. Please keep your head in this position for the remainder of the experiment.")
 / hposition = 50%
 / vposition = 70%
 / fontstyle = ("Arial", 3%, true)
@@ -214,8 +212,7 @@ Press SPACE to continue.")
 / items = ("
 1. While keeping your arm straight touch your thumb to the centre of the screen in the oval
 2. Keep your head in the same position, but lower and relax your arm.
-3. Please keep your head in this position for the remainder of the experiment.
-4. Press SPACE button to continue when you finish")
+3. Please keep your head in this position for the remainder of the experiment.")
 / fontstyle = ("Arial", 3%, true)
 / position = (50%,15%)
 / txbgcolor = (127,127,127)
@@ -507,16 +504,16 @@ Trials
 / stimulusframes = [1 = card, instructions_size, size_title]
 /validresponse = (52,51,28)
 /ontrialend = [if (trial.changesizes.response == 51) {values.imagewidth_px -= values.increment_px};
-	values.screen_size_x = (1 / expressions.ratio_pxpermm) * display.canvaswidth;
-	values.screen_size_y = (1 / expressions.ratio_pxpermm) * display.canvasheight;
+	values.screen_size_x = (1 / expressions.ratio_pxpermm) * display.screenwidth;
+	values.screen_size_y = (1 / expressions.ratio_pxpermm) * display.screenheight;
 	values.line_size = values.thumb_size * expressions.ratio_pxpermm; clearscreen]
 /ontrialend = [if (trial.changesizes.response == 52) {values.imagewidth_px += values.increment_px};
-	values.screen_size_x = (1 / expressions.ratio_pxpermm) * display.canvaswidth;
-	values.screen_size_y = (1 / expressions.ratio_pxpermm) * display.canvasheight; 
+	values.screen_size_x = (1 / expressions.ratio_pxpermm) * display.screenwidth;
+	values.screen_size_y = (1 / expressions.ratio_pxpermm) * display.screenheight; 
 	values.line_size = values.thumb_size * expressions.ratio_pxpermm; clearscreen]
 /branch = [if (trial.changesizes.response != 28) {
-	values.screen_size_x = (1 / expressions.ratio_pxpermm) * display.canvaswidth;
-	values.screen_size_y = (1 / expressions.ratio_pxpermm) * display.canvasheight;
+	values.screen_size_x = (1 / expressions.ratio_pxpermm) * display.screenwidth;
+	values.screen_size_y = (1 / expressions.ratio_pxpermm) * display.screenheight;
 	values.line_size = values.thumb_size * expressions.ratio_pxpermm;
 	trial.changesizes;
 }]
@@ -529,56 +526,63 @@ Trials
 </trial>
 
 <trial initial_positioning2>
-/ stimulusframes = [1 = calibration_position_instructions, calibration_line_pic]
-/ validresponse = (57)
+/ stimulusframes = [1 = calibration_position_instructions, calibration_line_pic,Back_button, Next_key]
+/ validresponse = (57,48)
+/ branch = [if (trial.initial_positioning2.response == 48) trial.initial_positioning1]
 </trial>
 
 <trial instructions_blindspot_initiate>
 / stimulusframes = [1 = instructions_blindspot_initiate, Next_key]
-/branch = [trial.instructions_keyboard_1]
 / validresponse = (57)
+/branch = [if(trial.instructions_blindspot_initiate.response == 57) trial.instructions_keyboard_1]
 </trial>
 
 <trial instructions_keyboard_1>
-/ stimulusframes = [1 = keyboard, Next_key,instructions_only]
-/branch = [trial.instructions_close_eye_2]
-/ validresponse = (57)
+/ stimulusframes = [1 = keyboard, Next_key,instructions_only,Back_button]
+/ validresponse = (57,48)
+/branch = [if(trial.instructions_keyboard_1.response == 57) trial.instructions_close_eye_2]
+/ branch = [if (trial.instructions_keyboard_1.response == 48) trial.instructions_blindspot_initiate]
 </trial>
 
 <trial instructions_close_eye_2>
-/ stimulusframes = [1 = close_eye, Next_key,instructions_only]
-/branch = [trial.instructions_fixation_3]
-/ validresponse = (57)
+/ stimulusframes = [1 = close_eye, Next_key,instructions_only,Back_button]
+/branch = [if(trial.instructions_close_eye_2.response == 57) trial.instructions_fixation_3]
+/branch = [if(trial.instructions_close_eye_2.response == 48) trial.instructions_keyboard_1]
+/ validresponse = (57,48)
 </trial>
 
 <trial instructions_fixation_3>
-/ stimulusframes = [1 = fixation, Next_key, fixation_centre,instructions_only]
-/branch = [trial.instructions_square_focus_4]
-/ validresponse = (57)
+/ stimulusframes = [1 = fixation, Next_key, fixation_centre,instructions_only,Back_button]
+/branch = [if(trial.instructions_fixation_3.response == 57) trial.instructions_square_focus_4]
+/branch = [if(trial.instructions_fixation_3.response == 48) trial.instructions_close_eye_2]
+/ validresponse = (57,48)
 </trial>
 
 <trial instructions_square_focus_4>
-/ stimulusframes = [1 = square_focus, square, Next_key, fixation_centre, stare_square,instructions_only]
-/branch = [trial.instructions_moving_ball_5]
-/ validresponse = (57)
+/ stimulusframes = [1 = square_focus, square, Next_key, fixation_centre, stare_square,instructions_only,Back_button]
+/branch = [if(trial.instructions_square_focus_4.response == 57) trial.instructions_moving_ball_5]
+/branch = [if(trial.instructions_square_focus_4.response == 48) trial.instructions_fixation_3]
+/ validresponse = (57,48)
 </trial>
 
 <trial instructions_moving_ball_5>
-/ stimulusframes = [1 = moving_ball, circle, Next_key, fixation_centre, square, ball_arrow,instructions_only]
-/branch = [trial.instructions_disappear_6]
-/ validresponse = (57)
+/ stimulusframes = [1 = moving_ball, circle, Next_key, fixation_centre, square, ball_arrow,instructions_only,Back_button]
+/branch = [if(trial.instructions_moving_ball_5.response == 57) trial.instructions_disappear_6]
+/branch = [if(trial.instructions_moving_ball_5.response == 48) trial.instructions_square_focus_4]
+/ validresponse = (57,48)
 </trial>
 
 <trial instructions_disappear_6>
-/ stimulusframes = [1 = disappear, Next_key, fixation_centre, square,instructions_only]
-/branch = [trial.instructions_repeat_7]
-/ validresponse = (57)
+/ stimulusframes = [1 = disappear, Next_key, fixation_centre, square,instructions_only,Back_button]
+/branch = [if(trial.instructions_disappear_6.response == 57) trial.instructions_repeat_7]
+/branch = [if(trial.instructions_disappear_6.response == 48) trial.instructions_moving_ball_5]
+/ validresponse = (57,48)
 </trial>
 
 <trial instructions_repeat_7>
-/ stimulusframes = [1 = repeat, Next_key,instructions_only]
-/branch = [trial.findblindspot_demo]
-/ validresponse = (57)
+/ stimulusframes = [1 = repeat, Next_key,instructions_only,Back_button]
+/branch = [if(trial.instructions_repeat_7.response == 48) trial.instructions_disappear_6]
+/ validresponse = (57,48)
 </trial>
 
 <trial findblindspot_demo>
@@ -642,7 +646,7 @@ Trials
 /branch = [if (trial.findblindspot.response != 28) {
 	trial.findblindspot;
 	} else {
-		values.viewer_distance = (((values.square_x - values.circle_x)*display.canvaswidth/100) / 
+		values.viewer_distance = (((values.square_x - values.circle_x)*display.screenwidth/100) / 
 			expressions.ratio_pxpermm) / 
 			tan(values.blindspot_angle/values.radians_to_degrees);
 		list.viewing_distance.appenditem(values.viewer_distance);

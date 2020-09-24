@@ -36,7 +36,7 @@ expressions.validresponse
 
 <values>
 /responseY = 9
-/responseX = values.responseY*(values.screen_size_y / values.screen_size_x)
+/responseX = values.responseY*(display.screenheight / display.screenwidth)
 </values>
 
 <picture reveal>

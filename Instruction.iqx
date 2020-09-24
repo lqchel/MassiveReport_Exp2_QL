@@ -24,7 +24,7 @@
 / fontstyle = ("Arial", 2.8%, true)
 / txcolor = yellow
 / txbgcolor = (127,127,127)
-/ position = (80,90)
+/ position = (80,95)
 </text>
 
 ********************************************************************
@@ -92,9 +92,9 @@ A small image patch will then be flashed on the screen briefly, followed by mask
 </video>
 
 <text Instruction_Page_3>
-/ items = ("You are then asked to decide whether the small patch was a part of the presented image or not, 
-and indicate how confident you are about your decision.
-Use a scale of 1-4 to describe your confidence (1 => not confident at all; 4 => highly confident).
+/ items = ("Then, you are asked to decide whether the small patch was a part of the presented image or not, 
+and indicate how confident you are about your decision on a scale of 1-4 (1 => not confident at all; 4 => highly confident).
+
 After selecting your response, click on the centre green button to move on to the next patch.")
 / hposition = 50%
 / vposition = 70%

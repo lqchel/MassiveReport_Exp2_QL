@@ -1,0 +1,37 @@
+﻿<include>
+/ file = "8CR_4page.iqx"
+/ file = "8CR_disks.iqx"
+</include>
+
+<values>
+
+</values>
+
+
+<trial script_test>
+/ stimulusframes = [
+	1  = response1d, response2d, response3d, response4d, response5d, response6d, response7d, response8d, response_blank,
+lowC_instruction, highC_instruction,part_of_Image,Not_part_of_Image
+]
+/ validresponse = (response_blank, response1d, response2d, response3d, response4d, response5d, response6d, response7d, response8d)
+/ inputdevice = mouse
+/ isvalidresponse = [if (trial.script_test.response == "response_blank") false; else
+expressions.validresponse_disks
+]
+/ recorddata = true
+</trial>
+
+<block script_test>
+/trials = [1 = script_test]
+</block>
+
+
+
+<expt script_test_throughout>
+/blocks = [ 1 = script_test]
+</expt>
+
+//data>
+/columns = [values.OLIFE_subscale_1_score, values.OLIFE_subscale_2_score,
+			values.OLIFE_subscale_3_score, values.OLIFE_subscale_4_score]
+</data>

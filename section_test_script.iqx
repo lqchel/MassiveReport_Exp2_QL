@@ -1,19 +1,30 @@
-﻿
+﻿<include>
+/file = "SchizotypySurvey.iqx"
+</include>
 
-
-
-
+<values>
+/OLIFE_subscale_1_score = 0
+/OLIFE_subscale_2_score = 0
+/OLIFE_subscale_3_score = 0
+/OLIFE_subscale_4_score = 0
+</values>
 
 
 <block script_test>
-/trials = 
+/trials = [1=schizotypy_Q1; 2=schizotypy_Q2; 3=schizotypy_Q3; 4=schizotypy_Q4; 5=schizotypy_Q5; 6=schizotypy_Q6; 7=schizotypy_Q7; 8=schizotypy_Q8; 9=schizotypy_Q9;
+10=schizotypy_Q10; 11=schizotypy_Q11; 12=schizotypy_Q12; 13=schizotypy_Q13; 14=schizotypy_Q14; 15=schizotypy_Q15; 16=schizotypy_Q16; 17=schizotypy_Q17; 18=schizotypy_Q18; 
+19=schizotypy_Q19; 20=schizotypy_Q20; 21=schizotypy_Q21; 22=schizotypy_Q22; 23=schizotypy_Q23; 24=schizotypy_Q24; 25=schizotypy_Q25; 26=schizotypy_Q26; 27=schizotypy_Q27; 
+28=schizotypy_Q28; 29=schizotypy_Q29; 30=schizotypy_Q30; 31=schizotypy_Q31; 32=schizotypy_Q32; 33=schizotypy_Q33; 34=schizotypy_Q34; 35=schizotypy_Q35; 36=schizotypy_Q36; 
+37=schizotypy_Q37; 38=schizotypy_Q38; 39=schizotypy_Q39; 40=schizotypy_Q40; 41=schizotypy_Q41; 42=schizotypy_Q42; 43=schizotypy_Q43]
 </block>
 
 
+
 <expt script_test_throughout>
-/blocks = 
+/blocks = [ 1 = script_test]
 </expt>
 
 <data>
-/columns = 
+/columns = [values.OLIFE_subscale_1_score, values.OLIFE_subscale_2_score,
+			values.OLIFE_subscale_3_score, values.OLIFE_subscale_4_score]
 </data>

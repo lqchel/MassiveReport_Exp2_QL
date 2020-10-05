@@ -1,0 +1,287 @@
+﻿<values>
+/demo_first_col = 10
+/demo_second_col = 55
+/demo_starting_y_offset = 20
+/demo_gap = 5
+</values>
+
+<radiobuttons sex>
+/ caption = "Sex"
+/ options = ("Male", "Female", "Other", "Prefer Not to Answer")
+/ orientation = horizontal
+/ position = (values.demo_first_col, values.demo_starting_y_offset)
+/ responsefontstyle = ("Arial", 2.5%, false, false, false, false, 5, 0)
+/ required = true
+</radiobuttons>
+
+<dropdown age>
+/ caption = "Age"
+/ options = ("Under 18", "18-24 years old", "25-34 years old", "35-44 years old", "45-54 years old", 
+			"Over 55", "Prefer Not to Answer")
+/ position = (values.demo_first_col, values.demo_starting_y_offset + 2*values.demo_gap)		
+/ required = true
+/ size = (20%, 10)
+</dropdown>
+
+<dropdown nationality>
+/ caption = "Nationality"
+/ options = ("Afghan",
+"Albanian",
+"Algerian",
+"American",
+"Andorran",
+"Angolan",
+"Antiguans",
+"Argentinean",
+"Armenian",
+"Australian",
+"Austrian",
+"Azerbaijani",
+"Bahamian",
+"Bahraini",
+"Bangladeshi",
+"Barbadian",
+"Barbudans",
+"Batswana",
+"Belarusian",
+"Belgian",
+"Belizean",
+"Beninese",
+"Bhutanese",
+"Bolivian",
+"Bosnian",
+"Brazilian",
+"British",
+"Bruneian",
+"Bulgarian",
+"Burkinabe",
+"Burmese",
+"Burundian",
+"Cambodian",
+"Cameroonian",
+"Canadian",
+"Cape Verdean",
+"Central African",
+"Chadian",
+"Chilean",
+"Chinese",
+"Colombian",
+"Comoran",
+"Congolese",
+"Congolese",
+"Costa Rican",
+"Croatian",
+"Cuban",
+"Cypriot",
+"Czech",
+"Danish",
+"Djibouti",
+"Dominican",
+"Dominican",
+"Dutch",
+"Dutchman",
+"Dutchwoman",
+"East Timorese",
+"Ecuadorean",
+"Egyptian",
+"Emirian",
+"Equatorial Guinean",
+"Eritrean",
+"Estonian",
+"Ethiopian",
+"Fijian",
+"Filipino",
+"Finnish",
+"French",
+"Gabonese",
+"Gambian",
+"Georgian",
+"German",
+"Ghanaian",
+"Greek",
+"Grenadian",
+"Guatemalan",
+"Guinea-Bissauan",
+"Guinean",
+"Guyanese",
+"Haitian",
+"Herzegovinian",
+"Honduran",
+"Hungarian",
+"I-Kiribati",
+"Icelander",
+"Indian",
+"Indonesian",
+"Iranian",
+"Iraqi",
+"Irish",
+"Irish",
+"Israeli",
+"Italian",
+"Ivorian",
+"Jamaican",
+"Japanese",
+"Jordanian",
+"Kazakhstani",
+"Kenyan",
+"Kittian and Nevisian",
+"Kuwaiti",
+"Kyrgyz",
+"Laotian",
+"Latvian",
+"Lebanese",
+"Liberian",
+"Libyan",
+"Liechtensteiner",
+"Lithuanian",
+"Luxembourger",
+"Macedonian",
+"Malagasy",
+"Malawian",
+"Malaysian",
+"Maldivan",
+"Malian",
+"Maltese",
+"Marshallese",
+"Mauritanian",
+"Mauritian",
+"Mexican",
+"Micronesian",
+"Moldovan",
+"Monacan",
+"Mongolian",
+"Moroccan",
+"Mosotho",
+"Motswana",
+"Mozambican",
+"Namibian",
+"Nauruan",
+"Nepalese",
+"Netherlander",
+"New Zealander",
+"Ni-Vanuatu",
+"Nicaraguan",
+"Nigerian",
+"Nigerien",
+"North Korean",
+"Northern Irish",
+"Norwegian",
+"Omani",
+"Pakistani",
+"Palauan",
+"Panamanian",
+"Papua New Guinean",
+"Paraguayan",
+"Peruvian",
+"Prefer Not to Say",
+"Polish",
+"Portuguese",
+"Qatari",
+"Romanian",
+"Russian",
+"Rwandan",
+"Saint Lucian",
+"Salvadoran",
+"Samoan",
+"San Marinese",
+"Sao Tomean",
+"Saudi",
+"Scottish",
+"Senegalese",
+"Serbian",
+"Seychellois",
+"Sierra Leonean",
+"Singaporean",
+"Slovakian",
+"Slovenian",
+"Solomon Islander",
+"Somali",
+"South African",
+"South Korean",
+"Spanish",
+"Sri Lankan",
+"Sudanese",
+"Surinamer",
+"Swazi",
+"Swedish",
+"Swiss",
+"Syrian",
+"Taiwanese",
+"Tajik",
+"Tanzanian",
+"Thai",
+"Togolese",
+"Tongan",
+"Trinidadian or Tobagonian",
+"Tunisian",
+"Turkish",
+"Tuvaluan",
+"Ugandan",
+"Ukrainian",
+"Uruguayan",
+"Uzbekistani",
+"Venezuelan",
+"Vietnamese",
+"Welsh",
+"Welsh",
+"Yemenite",
+"Zambian",
+"Zimbabwean"
+)
+/ position = (values.demo_first_col, values.demo_starting_y_offset + 4*values.demo_gap)
+/ required = true
+</dropdown>
+
+<dropdown education>
+/ caption = "Education (Highest qualification)"
+/ options = ("Less than a high school diploma", "High school degree or equivalent", "Bachelor's degree (e.g. BA, BS)", "Master's degree (e.g. MA, MS, MEd)", "Doctorate (e.g. PhD, EdD)", "Other", "Prefer Not to Answer")
+/ position = (values.demo_first_col, values.demo_starting_y_offset + 6*values.demo_gap)
+/ required = true
+</dropdown>
+
+<radiobuttons handedness>
+/ caption = "Handedness"
+/ options = ("Left-handed", "Right-handed","Prefer Not to Answer")
+/ orientation = horizontal
+/ position = (values.demo_second_col, values.demo_starting_y_offset)
+/ responsefontstyle = ("Arial", 2.5%, false, false, false, false, 5, 0)
+/ required = true
+</radiobuttons>
+
+<dropdown first_language>
+/ caption = "First Language"
+/ options = ("Chinese", "Danish", "Dutch", "English", "French", "Greek", "Hebrew", "Italian", "Japanese", "Korean", "Norwegian", "Portuguese", "Russian", "Spanish", "Swedish", "Other", "Prefer Not to Answer")
+/ required = true
+/ position = (values.demo_second_col, values.demo_starting_y_offset + 2*values.demo_gap)
+</dropdown>
+
+<dropdown second_language>
+/ caption = "Second Language"
+/ options = ("Chinese", "Danish", "Dutch", "English", "French", "Greek", "Hebrew", "Italian", "Japanese", 
+"Korean", "Norwegian", "Portuguese", "Russian", "Spanish", "Swedish", "Other", "Prefer Not to Answer")
+/ required = false
+/ position = (values.demo_second_col, values.demo_starting_y_offset + 4*values.demo_gap)
+</dropdown>
+
+<textbox number_of_years_english_speaking>
+/ caption = "Number of years speaking English"
+/ maxchars = 3
+/ textboxsize = (5, 3)
+/ required = true
+/ mask = positiveintegerorzero
+/ position = (values.demo_second_col, values.demo_starting_y_offset + 6*values.demo_gap)
+</textbox>
+
+<surveypage demographics_page>
+/ caption = "You have now finished the survey. Before you complete the experiment, we would like you to complete the following questions please."
+/ fontstyle =  ("Arial", 3%)
+/ showquestionnumbers = false
+/ showpagenumbers = false
+/ questions = [1=sex; 2=age; 3=nationality; 4=education; 5=first_language; 6=second_language; 7=number_of_years_english_speaking]
+/ navigationbuttonsize = (20, 4)
+/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (35%,  values.demo_starting_y_offset + 10*values.demo_gap)
+/ response = correct
+/ finishlabel = "Complete"
+
+</surveypage>

@@ -3,16 +3,17 @@
 </page>
 
 <page end>
-^^Thank you for your participant !!
+^^ You have completed the experiment. Thank you very much for your participantion!
 </page>
 
 <values>
 /Instruction_page = 0
-/total_Instruction_page = 4
+/total_Instruction_page = 6
 </values>
 
 <instruct>
 / nextkey = (57)
+/ prevkey = (48)
 / fontstyle = ("Arial", 10%, true)
 / screencolor = (127,127,127)
 / txcolor = yellow
@@ -21,9 +22,9 @@
 <text quit_notice>
 / items = ("Press Ctrl + Q to quit the experiment")
 / fontstyle = ("Arial", 2.8%, true)
-/ txcolor = yellow
+/ txcolor = snow
 / txbgcolor = (127,127,127)
-/ position = (80,90)
+/ position = (80,95)
 </text>
 
 ********************************************************************
@@ -35,7 +36,19 @@ Next Button: Space Button
 / position = (80%,85%)
 / fontstyle = ("Arial", 2.8%, true)
 / txbgcolor = (127,127,127)
-/ txcolor = yellow
+/ txcolor = snow
+</text>
+
+********************************************************************
+********************************************************************
+
+Back Button: B
+<text Back_button>
+/ items = ("Press B to go back to the previous page")
+/ position = (80%,90%)
+/ fontstyle = ("Arial", 2.8%, true)
+/ txbgcolor = (127,127,127)
+/ txcolor = snow
 </text>
 
 ********************************************************************
@@ -79,9 +92,9 @@ A small image patch will then be flashed on the screen briefly, followed by mask
 </video>
 
 <text Instruction_Page_3>
-/ items = ("You are then asked to decide whether the small patch was a part of the presented image or not, 
-and indicate how confident you are about your decision.
-Use a scale of 1-4 to describe your confidence (1 => not confident at all; 4 => highly confident).
+/ items = ("Then, you are asked to decide whether the small patch was a part of the presented image or not, 
+and indicate how confident you are about your decision on a scale of 1-4 (1 => not confident at all; 4 => highly confident).
+
 After selecting your response, click on the centre green button to move on to the next patch.")
 / hposition = 50%
 / vposition = 70%
@@ -100,8 +113,7 @@ After selecting your response, click on the centre green button to move on to th
 
 <text Instruction_Page_4>
 / items = ("For each presented larger image, you will see a series of 6 small patches 
-followed by the confidence ratings. 
-The experiment will take approximately 30 mins(Including download time) to complete.")
+followed by the confidence ratings. ")
 / hposition = 50%
 / vposition = 70%
 / fontstyle = ("Arial", 3%, true)
@@ -117,6 +129,33 @@ The experiment will take approximately 30 mins(Including download time) to compl
 / size = (40%,40%)
 </video>
 
+<text Instruction_Page_5>
+/ items = ("In between experiment trials, there will be catch trials testing your attention to the task. 
+In a catch trial, instead of an image, you will see the word 'catch' flashed briefly on the screen. 
+
+Then, a response screen appears, and you are asked to give the same response as the instruction
+ shown in the middle of the screen (e.g. YES 4).")
+/ hposition = 50%
+/ vposition = 50%
+/ fontstyle = ("Arial", 3%, true)
+/ txbgcolor = (127,127,127)
+/ txcolor = yellow
+
+</text>
+
+<text Instruction_Page_6>
+/ items = ("After finishing all the image-patch trials, you are asked to complete a short survey
+ about your everyday visual experience.
+ 
+The experiment will take approximately 30 mins(Including download time) to complete.")
+/ hposition = 50%
+/ vposition = 50%
+/ fontstyle = ("Arial", 3%, true)
+/ txbgcolor = (127,127,127)
+/ txcolor = yellow
+
+</text>
+
 <text continue>
 / items = ("Press 'SPACEBAR' to continue (<%values.Instruction_page%>/<%values.total_Instruction_page%>)")
 / position = (80%,85%)
@@ -130,7 +169,8 @@ The experiment will take approximately 30 mins(Including download time) to compl
 <text start_practice>
 	/ items = ("If you are ready, please press 'SPACEBAR' to begin the practice trials.
 	
-In the following 3 practice trials, each trial is accompanied by 6 questions.")
+In the practice session, you will complete 3 experiment trials (each with 6 questions),
+and 1 catch trial.")
 	/ fontstyle = ("Arial", 3%, true)
 	/ txcolor = yellow
 	/ txbgcolor = (127,127,127)
@@ -143,7 +183,7 @@ Messages after each practice trial:
 <text message_after_prac_1and2>
 	/items = ("If you are ready, press 'SPACEBAR' to go to the next trial.
 (The next trial is faster and more difficult than the previous one!)
-You have finished <%values.index_practice%> of <%values.num_prac_trials%> trials")
+You have finished <%values.Index%> of <%values.num_prac_trials%> trials")
 	/ position = (50%,50%)
 	/ fontstyle = ("Arial", 3%, true)
 	/ txcolor = yellow
@@ -151,23 +191,20 @@ You have finished <%values.index_practice%> of <%values.num_prac_trials%> trials
 </text>
 
 <text message_after_prac_3>
-	/items = ("You have finished all 3 practice trials.
-(The speed of this last trial will be similar to the real trials. Pay attention!)
-Next trial will be the formal test.
-You have finished <%values.index_practice%> of <%values.num_prac_trials%> trials")
+	/items = ("You have finished <%values.Index%> of <%values.num_prac_trials%> trials.
+(The speed of the last trial was similar to the actual experiment. Pay attention!)
+
+The next practice trial will be a catch trial. If you are ready, press 'SPACEBAR' to go to the next trial.")
 	/ position = (50%,50%)
 	/ fontstyle = ("Arial", 3%, true)
 	/ txcolor = yellow
 	/ txbgcolor = (127,127,127)
 </text>
 
-***********************************************************************************************
-***********************************************************************************************
-<text attention>
-	/ items = ("Please pay attention!! The REAL TEST will start on the next page.
-
-When you are ready, press the 'SPACEBAR' to start. GOOD LUCK!")
-    / position = (50%,50%)
+<text message_after_prac_4>
+	/items = ("ATTENTION: You have finished all practice trials.
+When you are ready, press 'SPACEBAR' to begin the actual experiment.")
+	/ position = (50%,50%)
 	/ fontstyle = ("Arial", 3%, true)
 	/ txcolor = yellow
 	/ txbgcolor = (127,127,127)
@@ -182,48 +219,74 @@ When you are ready, press the 'SPACEBAR' to start. GOOD LUCK!")
 / stimulusframes = [1 = Instruction_Page_1,Instruction_Page_1_gif,Next_button,quit_notice,continue]
 / validresponse = (57)
 / recorddata = false
-/ branch = [
-	trial.instruction_page_2
-]
+/ branch = [trial.instruction_page_2]
 </trial>
 
 <trial instruction_page_2>
 / ontrialbegin = [
 	values.Instruction_page += 1;
 ]
-/ stimulusframes = [1 = Instruction_Page_2,Instruction_Page_2_gif,Next_button,quit_notice,continue]
-/ validresponse = (57)
+/ stimulusframes = [1 = Instruction_Page_2,Instruction_Page_2_gif,Next_button,Back_button,quit_notice,continue]
+/ validresponse = (57,48)
 / recorddata = false
-/ branch = [
-	trial.instruction_page_3
-]
+/ branch = [if (trial.instruction_page_2.response == 57) trial.instruction_page_3]
+/ branch = [if (trial.instruction_page_2.response == 48) trial.instruction_page_1]
 </trial>
 
 <trial instruction_page_3>
 / ontrialbegin = [
 	values.Instruction_page += 1;
 ]
-/ stimulusframes = [1 = Instruction_Page_3,Instruction_Page_3_pic,Next_button,quit_notice,continue]
-/ validresponse = (57)
+/ stimulusframes = [1 = Instruction_Page_3,Instruction_Page_3_pic,Next_button,Back_button,quit_notice,continue]
+/ validresponse = (57,48)
 / recorddata = false
-/ branch = [
-	trial.instruction_page_4
-]
+/ branch = [if (trial.instruction_page_3.response == 57) trial.instruction_page_4]
+/ branch = [if (trial.instruction_page_3.response == 48) trial.instruction_page_2]
 </trial>
 
 <trial instruction_page_4>
 / ontrialbegin = [
 	values.Instruction_page += 1;
 ]
-/ stimulusframes = [1 = Instruction_Page_4,Instruction_Page_4_gif,Next_button,quit_notice,continue]
-/ validresponse = (57)
+/ stimulusframes = [1 = Instruction_Page_4,Instruction_Page_4_gif,Next_button,Back_button,quit_notice,continue]
+/ validresponse = (57,48)
 / recorddata = false
+/ branch = [if (trial.instruction_page_4.response == 57) trial.instruction_page_5]
+/ branch = [if (trial.instruction_page_4.response == 48) trial.instruction_page_3]
 </trial>
 
+<trial instruction_page_5>
+/ ontrialbegin = [
+	values.Instruction_page += 1;
+]
+/ stimulusframes = [1 = Instruction_Page_5,Next_button,Back_button,quit_notice,continue]
+/ validresponse = (57,48)
+/ recorddata = false
+/ branch = [if (trial.instruction_page_5.response == 57) trial.instruction_page_6]
+/ branch = [if (trial.instruction_page_5.response == 48) trial.instruction_page_4]
+</trial>
+
+<trial instruction_page_6>
+/ ontrialbegin = [
+	values.Instruction_page += 1;
+]
+/ stimulusframes = [1 = Instruction_Page_6,Next_button,Back_button,quit_notice,continue]
+/ validresponse = (57,48)
+/ recorddata = false
+/ branch = [if (trial.instruction_page_6.response == 48) trial.instruction_page_5]
+</trial>
+
+// Catch response instructions for catch trials
+<text catch_response_instructions>
+/ items = ("ATTENTION: Please click on the response as specified at the center of the screen.")
+/ fontstyle = ("Arial", 4%, true)
+/ txbgcolor = (127,127,127)
+/ position = (50,80)
+</text>
 
 ***********************************************************************************************
 ***********************************************************************************************
-<trial attention_after_prac1and2>
+<trial attention_after_prac12>
 / stimulusframes = [1 = message_after_prac_1and2,Next_button,quit_notice]
 / validresponse = (57)
 / recorddata = false
@@ -233,13 +296,10 @@ When you are ready, press the 'SPACEBAR' to start. GOOD LUCK!")
 / stimulusframes = [1 = message_after_prac_3,Next_button,quit_notice]
 / validresponse = (57)
 / recorddata = false
-/ branch = [
-	trial.real_test_attention
-]
 </trial>
 
-<trial real_test_attention>
-/ stimulusframes = [1 = attention,Next_button,quit_notice]
+<trial attention_after_prac4>
+/ stimulusframes = [1 = message_after_prac_4,Next_button,quit_notice]
 / validresponse = (57)
 / recorddata = false
 </trial>
@@ -247,11 +307,18 @@ When you are ready, press the 'SPACEBAR' to start. GOOD LUCK!")
 <block Instruction>
 / trials = [1 = instruction_page_1]
 </block>
+
 <block attention1>
-/ trials = [1 = attention_after_prac1and2]
+/ trials = [1 = attention_after_prac12]
 </block>
+
 <block attention2>
 / trials = [1 = attention_after_prac3]
 </block>
+
+<block attention3>
+/ trials = [1 = attention_after_prac4]
+</block>
+
 
 

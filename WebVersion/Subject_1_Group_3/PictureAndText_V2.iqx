@@ -8,6 +8,11 @@
 /location_vertical_1 = 1px * display.getpixelsy(25, 1)
 /location_vertical_2 = 1px * display.getpixelsy(50, 1)
 /location_vertical_3 = 1px * display.getpixelsy(75, 1)
+
+/ MYfontstyle = "Avenir Next"
+/ MYfontsize = 2%
+/ textPosition = 46
+/ boldText = 0
 </values>
 
 
@@ -17,11 +22,6 @@
 	/ select = sequence 
 </picture>
 
-<picture SquarePresent_practice>
-	/ size=(values.present_image_size, values.present_image_size)
-	/ items = image_presentation_practice
-	/ select = sequence 
-</picture>
 
 <picture SquarePresent_present>
 	/ size=(values.present_image_size, values.present_image_size)
@@ -121,19 +121,6 @@
 	/ select = sequence
 </picture>
 
-<picture CP_patch_practice>
-	/ size = (values.present_image_size/3,values.present_image_size/3)
-	/ items = CP_patch_practice
-	/ select = sequence
-</picture>
-
-<picture CP_patch_present_practice>
-	/ size = (values.present_image_size/3,values.present_image_size/3)
-	/ hposition = values.x_coordinate
-	/ vposition = values.y_coordinate
-	/ items = ()
-	/ select = sequence
-</picture>
 
 <text process_notice>
 / items = ("You have finished <%values.order_question%> of <%values.number_of_patch%> Questions")
@@ -143,7 +130,7 @@
 </text>
 
 <text Practice_notice>
-	/ items = ("Practice trial <%values.Index_practice%>")
+	/ items = ("Practice trial <%values.Index%>")
 	/ fontstyle = ("Arial", 3%, true)
 	/ position = (50%,5%)
 	/ txbgcolor = (127,127,127)
@@ -197,7 +184,64 @@ and how confident you are.")
 ***************************************************************************************************
 <text interval>
 /items = ("If you are ready, press SPACE BUTTON and move to next trial
-You have finished <%values.Index%> of <%values.num_trials%> trials")
+You have finished <%values.Index - values.num_prac_trials%> of 26 trials")
+/ position = (50%,50%)
+/ fontstyle = ("Arial", 3%, true)
+/ txbgcolor = (127,127,127)
+</text>
+
+***************************************************************************************************
+***************************************************************************************************
+<text Catch>
+/items = ("Catch")
+/ position = (50%,50%)
+/ fontstyle = ("Arial", 15%, true)
+/ txcolor = (yellow)
+/ txbgcolor = (127,127,127) 
+</text>
+
+// words for catch trials
+<item catch_present_words>
+/ 1 = "CLICK: Yes 1"
+/ 2 = "CLICK: Yes 2"
+/ 3 = "CLICK: Yes 3"
+/ 4 = "CLICK: Yes 4"
+</item>
+<item catch_absent_words>
+/ 1 = "CLICK: No 1"
+/ 2 = "CLICK: No 2"
+/ 3 = "CLICK: No 3"
+/ 4 = "CLICK: No 4"
+</item>
+
+
+// Catch (absent and present) text for use in catch trial responses
+// Words are selected using a randomly assigned value of 1-4 determined in trial.catch_presentation_present/trial.catch_presentation_absent
+<text catch_absent>
+/ items = catch_absent_words
+/ select = values.catch_question
+/ vposition = values.textPosition
+/ fontstyle = ("Avenir next", values.MYfontsize, true, false, false, false, 5, 0)
+</text>
+<text catch_present>
+/ items = catch_present_words
+/ select = values.catch_question
+/ vposition = values.textPosition
+/ fontstyle = ("Avenir next", values.MYfontsize, true, false, false, false, 5, 0)
+</text>
+
+<list catch_present_words>
+/ items = (text.catch_present)
+/ selectionrate = always
+</list>
+
+<list catch_absent_words>
+/ items = (text.catch_absent)
+/ selectionrate = always
+</list>
+
+<text catch_interval>
+/items = ("press SPACEBAR to begin the next trial.")
 / position = (50%,50%)
 / fontstyle = ("Arial", 3%, true)
 / txbgcolor = (127,127,127)

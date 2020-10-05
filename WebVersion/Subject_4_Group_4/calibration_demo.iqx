@@ -1,0 +1,175 @@
+﻿***************************************************************************
+***************************************************************************
+			Online Experiment Viewing Distance Calibration DEMO
+***************************************************************************
+***************************************************************************
+
+
+Written by: Ariel Zeleznikow-Johnston (ariel.zeleznikow-johnston@monash.edu)
+
+Last updated: 2020-08-21 by Ariel Zeleznikow-Johnston
+
+Modified from code released by Millisecond Software written by Katja Borchert
+Link to original: https://www.millisecond.com/forums/Topic14608.aspx?Keywords=absoulte%20sizing
+
+Inspired by and stimulus borrowed from code by Qiseng Li
+https://github.com/QishengLi/virtual_chinrest/
+
+******************************************************************************************************************
+*******************************************************************************************************************
+	BACKGROUND INFO
+*******************************************************************************************************************
+*******************************************************************************************************************
+										*SCRIPT PURPOSE*
+
+Demos everything in 'calibration_main.iqx'
+
+***************************************************************************
+***************************************************************************
+						CODE BELOW
+***************************************************************************
+***************************************************************************
+
+*******************************************************************************************************************
+*******************************************************************************************************************
+	INCLUDE
+*******************************************************************************************************************
+*******************************************************************************************************************
+<include>
+/file = "calibration_main.iqx"
+</include>
+
+
+
+*******************************************************************************************************************
+*******************************************************************************************************************
+							REMAINING CODE: Customize after careful consideration only
+*******************************************************************************************************************
+*******************************************************************************************************************
+
+*******************************************************************************************************************
+*******************************************************************************************************************
+
+
+*******************************************************************************************************************
+*******************************************************************************************************************
+	Initialised Constants:
+*******************************************************************************************************************
+*******************************************************************************************************************
+
+<values>
+/squaresize = 50 //squaresize:		sets the size of the square in mm (default: 50mm = 5cm)
+
+// constants to be used for demo screen
+/peripheral_scale = 1 // FIXED SIZE VERSION
+/radius_central = 1 // arbitrarily chosen 1 DVA
+/radius_peripheral = 10 // arbitrarily chosen 10 DVA
+/stimulus_size = 0.1 // arbitarily chosen 1 DVA
+</values>
+
+*******************************************************************************************************************
+*******************************************************************************************************************
+	STIMULI
+*******************************************************************************************************************
+*******************************************************************************************************************
+
+Note: the width and height of the stimulus needs to be explicitly defined in pixels (px)
+<shape demo_square>
+/shape = rectangle
+/width = 1px * values.squaresize * expressions.ratio_pxpermm 
+/height = 1px * values.squaresize * expressions.ratio_pxpermm
+/color = blue
+/position = (50%, 20%)
+</shape>
+
+<text squareinstructions>
+/items = ("The square should measure <%values.squaresize/10%> cm.
+
+Your viewing distance is <%round(values.viewer_distance)/10%> cm.
+
+Press Spacebar to quit.")
+/position = (50%, 85%)
+</text>
+
+<text DVA_1_Pos>
+/items = ("+1
+DVA")
+/position = ((1px * values.DVA_to_distance * values.ratio_pxpermm * 1) + display.canvaswidth/2, 50%)
+</text>
+
+<text DVA_5_Pos>
+/items = ("+5
+DVA")
+/position = ((1px * values.DVA_to_distance * values.ratio_pxpermm * 5) + display.canvaswidth/2, 50%)
+</text>
+
+<text DVA_10_Pos>
+/items = ("+10
+DVA")
+/position = ((1px * values.DVA_to_distance * values.ratio_pxpermm * 10) + display.canvaswidth/2, 50%)
+</text>
+
+<text DVA_1_Neg>
+/position = ((1px * values.DVA_to_distance * values.ratio_pxpermm * -1) + display.canvaswidth/2, 50%)
+/items = ("-1
+DVA")
+</text>
+
+<text DVA_5_Neg>
+/position = ((1px * values.DVA_to_distance * values.ratio_pxpermm * -5) + display.canvaswidth/2, 50%)
+/items = ("-5
+DVA")
+</text>
+
+<text DVA_10_Neg>
+/position = ((1px * values.DVA_to_distance * values.ratio_pxpermm * -10) + display.canvaswidth/2, 50%)
+/items = ("-10
+DVA")
+</text>
+*******************************************************************************************************************
+*******************************************************************************************************************
+	TRIALS
+*******************************************************************************************************************
+*******************************************************************************************************************
+
+Note: presents the square of the specified size
+<trial square>
+/stimulusframes = [1 = demo_square, squareinstructions, DVA_1_Pos, DVA_5_Pos, DVA_10_Pos, DVA_1_Neg, DVA_5_Neg, DVA_10_Neg]
+/validresponse = (57)
+</trial>
+
+*******************************************************************************************************************
+*******************************************************************************************************************
+	BLOCKS
+*******************************************************************************************************************
+*******************************************************************************************************************
+<block squarepresentation>
+/trials = [1 = square]
+</block>
+*******************************************************************************************************************
+*******************************************************************************************************************
+	DATA: this section contains data file information
+*******************************************************************************************************************
+*******************************************************************************************************************
+
+********************
+raw data
+********************
+build:							Inquisit build..
+date, time, subject, group:		date and time script was run with the current subject/groupnumber 
+blockcode, blocknum:			the name and number of the current block
+trialcode, trialnum: 			the name and number of the currently recorded trial
+									(Note: not all trials that are run might record data) 
+stimulusitem:					the presented stimuli in order of trial presentation
+response:						the participant's response
+correct:						the correctness of the response (1 = correct; 0 = incorrect)
+latency: 						the response latency (in ms)
+
+
+
+*******************************************************************************************************************
+												End of File
+*******************************************************************************************************************
+		values.viewer_distance = ((0.45*display.canvaswidth - values.circle_x*display.canvaswidth) / 
+			expressions.ratio_pxpermm) / 
+			tan(values.blindspot_angle*values.radians_to_degrees);

@@ -136,7 +136,7 @@ unable to do the experiment and we will be unable to approve your payment!")
 /position = (50%, 75%)
 / fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
 / txbgcolor = (127,127,127)
-/ txcolor = red
+/ txcolor = snow
 </text>
 
 ********** sizing *******
@@ -146,8 +146,8 @@ unable to do the experiment and we will be unable to approve your payment!")
 Take a credit card (or a drivers license, library card, any equivalent card),
 press it to the screen and adjust the image on your screen to be the same size as the card
 
-To increase the image width: press '>' on your keyboard
-To decrease the image width: press '<' on your keyboard
+To increase the image width: press '2' on your keyboard
+To decrease the image width: press '1' on your keyboard
 
 When you are done, press <ENTER>."
 </item>
@@ -168,7 +168,7 @@ When you are done, press <ENTER>."
 /items = size_title
 /position = (50%, 25%)
 / fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
-/ txcolor = blue
+/ txcolor = snow
 /erase = false
 </text>
 
@@ -255,7 +255,7 @@ When ready, press SPACE to continue and carefully follow the instructions on the
 /position = (50%, 40%)
 / fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
 / txbgcolor = (127,127,127)
-/ color = green
+/ color = grey
 </text>
 
 <text ball_invisible>
@@ -263,7 +263,7 @@ When ready, press SPACE to continue and carefully follow the instructions on the
 /position = (50%, 36%)
 / fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
 / txbgcolor = (127,127,127)
-/ color = red
+/ color = white
 </text>
 
 <text press_enter_now>
@@ -271,7 +271,7 @@ When ready, press SPACE to continue and carefully follow the instructions on the
 /position = (50%, 75%)
 / fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
 / txbgcolor = (127,127,127)
-/ color = grey
+/ color = yellow
 </text>
 
 <text fixation_centre>
@@ -287,7 +287,7 @@ When ready, press SPACE to continue and carefully follow the instructions on the
 /position = (50%, 70%)
 / fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
 / txbgcolor = (127,127,127)
-/ txcolor = yellow
+/ txcolor = white
 </text>
 
 <text close_eye>
@@ -331,7 +331,7 @@ Keep your right eye closed, stare at the black square and don't move your head."
 /position = (values.circle_x_initial, 45%)
 / fontstyle = ("Arial", 2%, false, false, false, false, 5, 1)
 / txbgcolor = (127,127,127)
-/ txcolor = black
+/ txcolor = snow
 </text>
 
 <text stare_square>
@@ -339,7 +339,7 @@ Keep your right eye closed, stare at the black square and don't move your head."
 /position = (values.square_x, 45%)
 / fontstyle = ("Arial", 2%, false, false, false, false, 5, 1)
 / txbgcolor = (127,127,127)
-/ txcolor = black
+/ txcolor = snow
 </text>
 
 <text disappear>
@@ -389,7 +389,7 @@ When ready, press SPACE to start the viewing distance calibration.")
 /items = blindspot_title
 /position = (50%, 25%)
 / fontstyle = ("Arial", 3%, false, false, false, false, 5, 1)
-/ txcolor = blue
+/ txcolor = snow
 /erase = false
 </text>
 
@@ -407,7 +407,7 @@ Your viewing distance is <%round(list.viewing_distance.median)/10%> cm.
 Press SPACE to continue.")
 /position = (50%, 50%)
 / fontstyle = ("Arial", 5%, false, false, false, false, 5, 1)
-/ txcolor = green
+/ txcolor = yellow
 / txbgcolor = grey
 </text>
 
@@ -502,12 +502,12 @@ Trials
 
 <trial changesizes>
 / stimulusframes = [1 = card, instructions_size, size_title]
-/validresponse = (52,51,28)
-/ontrialend = [if (trial.changesizes.response == 51) {values.imagewidth_px -= values.increment_px};
+/validresponse = (2,3,28)
+/ontrialend = [if (trial.changesizes.response == 2) {values.imagewidth_px -= values.increment_px};
 	values.screen_size_x = (1 / expressions.ratio_pxpermm) * display.screenwidth;
 	values.screen_size_y = (1 / expressions.ratio_pxpermm) * display.screenheight;
 	values.line_size = values.thumb_size * expressions.ratio_pxpermm; clearscreen]
-/ontrialend = [if (trial.changesizes.response == 52) {values.imagewidth_px += values.increment_px};
+/ontrialend = [if (trial.changesizes.response == 3) {values.imagewidth_px += values.increment_px};
 	values.screen_size_x = (1 / expressions.ratio_pxpermm) * display.screenwidth;
 	values.screen_size_y = (1 / expressions.ratio_pxpermm) * display.screenheight; 
 	values.line_size = values.thumb_size * expressions.ratio_pxpermm; clearscreen]
@@ -593,15 +593,15 @@ Trials
 		values.circle_x = values.circle_x_initial; // return it to it's initial position
 	}
 	if ((values.circle_x < 50%) && (values.circle_x > 40%)){
-			text.ball_invisible.textcolor = red;
+			text.ball_invisible.textcolor = white;
 			text.ball_visible.textcolor = grey;
 			shape.circle.color = grey;
-			text.press_enter_now.textcolor = green;
+			text.press_enter_now.textcolor = yellow;
 	} else {
 			text.ball_invisible.textcolor = grey;
-			text.ball_visible.textcolor = green;
+			text.ball_visible.textcolor = white;
 			text.press_enter_now.textcolor = grey;
-			shape.circle.color = red;
+			shape.circle.color = yellow;
 	}
 	
 ]

@@ -20,26 +20,27 @@ file_path_patch_mask = 'maskCrop\';
 % file_path_mask = 'mask\';
 % file_path_patch_mask = 'maskCrop\';
 
-Total_Trial = 20; %% Define how many congruent images are used to presentation
+Total_Trial = 40; %% Define how many congruent images are used to presentation
 Total_Trial_practice = 3;
 Total_Trial_number = Total_Trial + Total_Trial_practice;
 Number_of_Masking = 20;
 
-for subject = 1:1
+for subject = 1:4
     order_list_group = randperm(140,140); % Shuffle the order of the square image base
-    for group = 1:1
+    for group = 1:4
         DesDir = sprintf('Subject_%d_Group_%d',subject,group);
+        %DesDir = sprintf('QL_Exp2_demo');
         mkdir('WebVersion\',DesDir);
         DST_PATH_t = ['WebVersion\',DesDir];
         %%Allocate the square images in each group
         
-        order_list = order_list_group(1 + Total_Trial_number*(group-1):Total_Trial_number + Total_Trial_number*(group-1));
+        %order_list = order_list_group(1 + Total_Trial_number*(group-1):Total_Trial_number + Total_Trial_number*(group-1));
         
-%         if group == 1 || group == 2
-%             order_list = order_list_group(1 + Total_Trial_number*(group-1):Total_Trial_number + Total_Trial_number*(group-1));
-%         else
-%             order_list = order_list_group(91:end);
-%         end
+        if group == 1 || group == 2 || group == 3
+            order_list = order_list_group(1 + Total_Trial_number*(group-1):Total_Trial_number + Total_Trial_number*(group-1));
+        else
+            order_list = order_list_group(98:end);
+        end
 
         order_list_Masking = randperm(140,Number_of_Masking);
 %         order_list_catch = randperm(8,Total_Catch_number);
@@ -475,7 +476,7 @@ for subject = 1:1
             
             n_all_locations.loc9 = n_loc_9;
             
-            save(string(['Null_patch_B' num2str(subject) '_G' num2str(group) '.mat']), 'n_all_locations','-mat');
+            save(string(['Null_patch_S' num2str(subject) '_G' num2str(group) '.mat']), 'n_all_locations','-mat');
             
             clear n_all_locations
             clear n_loc_1

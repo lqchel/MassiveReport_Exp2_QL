@@ -4,10 +4,9 @@
 </defaults>
 
 <values>
-	/num_trials = 20
+	/num_trials = 40
 	/num_prac_trials = 4
 	/Index = 0
-	/Catch_index = 0
 	/test = 0
 	/size = 20%
 	/order = 0
@@ -42,6 +41,12 @@
 	/catch_trial_4 = 14
 	/catch_trial_5 = 20
 	/catch_trial_6 = 23
+	/catch_trial_7 = 27
+	/catch_trial_8 = 30
+	/catch_trial_9 = 35
+	/catch_trial_10 = 37
+	/catch_trial_11 = 40
+	/catch_trial_12 = 42
 	/question = 0
 	/catch_question = 0
 	/OLIFE_subscale_1_score = 0
@@ -67,7 +72,7 @@
 
 
 <counter image_presentation_order>
-/ select = noreplace(1-20)
+/ select = noreplace(1-23)
 </counter>
 
 <trial image_presentation>
@@ -804,7 +809,10 @@ expressions.validresponse_disks
 / selectionmode = 	
 	if (values.Index == values.catch_trial_1 || values.Index == values.catch_trial_2 ||
 	values.Index == values.catch_trial_3 || values.Index == values.catch_trial_4 || 
-	values.Index == values.catch_trial_5 ||values.Index == values.catch_trial_6){
+	values.Index == values.catch_trial_5 ||values.Index == values.catch_trial_6 ||
+	values.Index == values.catch_trial_7 || values.Index == values.catch_trial_8 ||
+	values.Index == values.catch_trial_9 || values.Index == values.catch_trial_10 || 
+	values.Index == values.catch_trial_11 ||values.Index == values.catch_trial_12){
 		2;
 	}
 	else {
@@ -826,9 +834,9 @@ expressions.validresponse_disks
 9 = attention2;
 10 = catch;
 11 = attention3;
-12-37 = list.test_select;
-38 = schizotypy_survey;
-39 = demographics;]
+12-63 = list.test_select;
+64 = schizotypy_survey;
+65 = demographics;]
 </expt>
 
 <data>

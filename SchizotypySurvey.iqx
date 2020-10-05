@@ -2,443 +2,443 @@
 / caption = "When in the dark do you often see shapes and forms even though there is nothing there?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("1","0")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE2>
 / caption = "Are your thoughts sometimes so strong that you can almost hear them?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("1","0")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE3>
 / caption = "Have you ever thought that you had special, almost magical powers?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("1","0")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE4>
 / caption = "Have you sometimes sensed an evil presence around you, even though you could not see it?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("1","0")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE5>
 / caption = "Do you think that you could learn to read other’s minds if you wanted to?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("1","0")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE6>
 / caption = "When you look in the mirror does your face sometimes seem quite different from usual?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("1","0")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE7>
 / caption = "Do ideas and insights sometimes come to you so fast that you cannot express them all?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("1","0")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE8>
 / caption = "Can some people make you aware of them just by thinking about you?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("1","0")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE9>
 / caption = "Does a passing thought ever seem so real it frightens you?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("1","0")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE10>
 / caption = "Do you feel that your accidents are caused by mysterious forces?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("1","0")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE11>
 / caption = "Do you ever have a sense of vague danger or sudden dread for reasons that you do not understand?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("1","0")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE12>
 / caption = "Does your sense of smell sometimes become unusually strong?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("1","0")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE13>
 / caption = "Are you easily confused if too much happens at the same time?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("1","0")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE14>
 / caption = "Do you frequently have difficulty in starting to do things?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("1","0")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE15>
 / caption = "Are you a person whose mood goes up and down easily?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("1","0")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE16>
 / caption = "Do you dread going into a room by yourself where other people have already gathered and are talking?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("1","0")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE17>
 / caption = "Do you find it difficult to keep interested in the same thing for a long time?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("1","0")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE18>
 / caption = "Do you often have difficulties in controlling your thoughts?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("1","0")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE19>
 / caption = "Are you easily distracted from work by daydreams?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("1","0")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE20>
 / caption = "Do you ever feel that your speech is difficult to understand because the words are all mixed up and don’t make sense?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("1","0")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE21>
 / caption = "Are you easily distracted when you read or talk to someone?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("1","0")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE22>
 / caption = "Is it hard for you to make decisions?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("1","0")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE23>
 / caption = "When in a crowded room, do you often have difficulty in following a conversation?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("1","0")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE24>
 / caption = "Are there very few things that you have ever enjoyed doing?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("1","0")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE25>
 / caption = "Are you much too independent to get involved with other people?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("1","0")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE26>
 / caption = "Do you love having your back massaged?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("0","1")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE27>
 / caption = "Do you find the bright lights of a city exciting to look at?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("0","1")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE28>
 / caption = "Do you feel very close to your friends?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("0","1")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE29>
 / caption = "Has dancing or the idea of it always seemed dull to you?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("1","0")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE30>
 / caption = "Do you like mixing with people?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("0","1")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE31>
 / caption = "Is trying new foods something you have always enjoyed?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("0","1")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE32>
 / caption = "Have you often felt uncomfortable when your friends touch you?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("1","0")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE33>
 / caption = "Do you prefer watching television to going out with people?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("1","0")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE34>
 / caption = "Do you consider yourself to be pretty much an average sort of person?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("0","1")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE35>
 / caption = "Would you like other people to be afraid of you?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("1","0")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE36>
 / caption = "Do you often feel the impulse to spend money which you know you can’t afford?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("1","0")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE37>
 / caption = "Are you usually in an average kind of mood, not too high and not too low?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("0","1")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE38>
 / caption = "Do you at times have an urge to do something harmful or shocking?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("1","0")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE39>
 / caption = "Do you stop to think things over before doing anything?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("0","1")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE40>
 / caption = "Do you often overindulge in alcohol or food?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("1","0")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE41>
 / caption = "Do you ever have the urge to break or smash things?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("1","0")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE42>
 / caption = "Have you ever felt the urge to injure yourself?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("1","0")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 <radiobuttons OLIFE43>
 / caption = "Do you often feel like doing the opposite of what other people suggest even though you know they are right?"
 / options = ("Yes", "No")
 / orientation = horizontal
-/ responsefontstyle = ("Arial", 2%, false, false, false, false, 5, 0)
+/ responsefontstyle = ("Arial", 3%, false, false, false, false, 5, 0)
 / optionvalues = ("1","0")
 / required = true
-/ position = (10,45)
+/ position = (15,45)
 </radiobuttons>
 
 
 <surveypage schizotypy_Q1>
 / caption = "You have completed the trials. We would now like you to complete our questionnaire. This will take approximately 10 minutes."
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE1]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 1 of 43"
 / ontrialend = [values.OLIFE_subscale_1_score = values.OLIFE_subscale_1_score + radiobuttons.OLIFE1.selectedvalue]
@@ -446,13 +446,13 @@
 
 <surveypage schizotypy_Q2>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE2]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 2 of 43"
 / ontrialend = [values.OLIFE_subscale_1_score = values.OLIFE_subscale_1_score + radiobuttons.OLIFE2.selectedvalue]
@@ -460,13 +460,13 @@
 
 <surveypage schizotypy_Q3>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE3]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 3 of 43"
 / ontrialend = [values.OLIFE_subscale_1_score = values.OLIFE_subscale_1_score + radiobuttons.OLIFE3.selectedvalue]
@@ -474,13 +474,13 @@
 
 <surveypage schizotypy_Q4>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE4]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 4 of 43"
 / ontrialend = [values.OLIFE_subscale_1_score = values.OLIFE_subscale_1_score + radiobuttons.OLIFE4.selectedvalue]
@@ -488,13 +488,13 @@
 
 <surveypage schizotypy_Q5>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE5]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 5 of 43"
 / ontrialend = [values.OLIFE_subscale_1_score = values.OLIFE_subscale_1_score + radiobuttons.OLIFE5.selectedvalue]
@@ -502,13 +502,13 @@
 
 <surveypage schizotypy_Q6>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE6]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 6 of 43"
 / ontrialend = [values.OLIFE_subscale_1_score = values.OLIFE_subscale_1_score + radiobuttons.OLIFE6.selectedvalue]
@@ -516,13 +516,13 @@
 
 <surveypage schizotypy_Q7>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE7]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 7 of 43"
 / ontrialend = [values.OLIFE_subscale_1_score = values.OLIFE_subscale_1_score + radiobuttons.OLIFE7.selectedvalue]
@@ -530,13 +530,13 @@
 
 <surveypage schizotypy_Q8>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE8]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 8 of 43"
 / ontrialend = [values.OLIFE_subscale_1_score = values.OLIFE_subscale_1_score + radiobuttons.OLIFE8.selectedvalue]
@@ -544,13 +544,13 @@
 
 <surveypage schizotypy_Q9>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE9]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 9 of 43"
 / ontrialend = [values.OLIFE_subscale_1_score = values.OLIFE_subscale_1_score + radiobuttons.OLIFE9.selectedvalue]
@@ -558,13 +558,13 @@
 
 <surveypage schizotypy_Q10>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE10]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 10 of 43"
 / ontrialend = [values.OLIFE_subscale_1_score = values.OLIFE_subscale_1_score + radiobuttons.OLIFE10.selectedvalue]
@@ -572,13 +572,13 @@
 
 <surveypage schizotypy_Q11>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE11]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 11 of 43"
 / ontrialend = [values.OLIFE_subscale_1_score = values.OLIFE_subscale_1_score + radiobuttons.OLIFE11.selectedvalue]
@@ -586,13 +586,13 @@
 
 <surveypage schizotypy_Q12>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE12]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 12 of 43"
 / ontrialend = [values.OLIFE_subscale_1_score = values.OLIFE_subscale_1_score + radiobuttons.OLIFE12.selectedvalue]
@@ -600,13 +600,13 @@
 
 <surveypage schizotypy_Q13>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE13]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 13 of 43"
 / ontrialend = [values.OLIFE_subscale_2_score = values.OLIFE_subscale_2_score + radiobuttons.OLIFE13.selectedvalue]
@@ -614,13 +614,13 @@
 
 <surveypage schizotypy_Q14>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE14]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 14 of 43"
 / ontrialend = [values.OLIFE_subscale_2_score = values.OLIFE_subscale_2_score + radiobuttons.OLIFE14.selectedvalue]
@@ -628,13 +628,13 @@
 
 <surveypage schizotypy_Q15>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE15]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 15 of 43"
 / ontrialend = [values.OLIFE_subscale_2_score = values.OLIFE_subscale_2_score + radiobuttons.OLIFE15.selectedvalue]
@@ -642,13 +642,13 @@
 
 <surveypage schizotypy_Q16>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE16]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 16 of 43"
 / ontrialend = [values.OLIFE_subscale_2_score = values.OLIFE_subscale_2_score + radiobuttons.OLIFE16.selectedvalue]
@@ -656,13 +656,13 @@
 
 <surveypage schizotypy_Q17>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE17]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 17 of 43"
 / ontrialend = [values.OLIFE_subscale_2_score = values.OLIFE_subscale_2_score + radiobuttons.OLIFE17.selectedvalue]
@@ -670,13 +670,13 @@
 
 <surveypage schizotypy_Q18>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE18]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 18 of 43"
 / ontrialend = [values.OLIFE_subscale_2_score = values.OLIFE_subscale_2_score + radiobuttons.OLIFE18.selectedvalue]
@@ -684,13 +684,13 @@
 
 <surveypage schizotypy_Q19>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE19]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 19 of 43"
 / ontrialend = [values.OLIFE_subscale_2_score = values.OLIFE_subscale_2_score + radiobuttons.OLIFE19.selectedvalue]
@@ -698,13 +698,13 @@
 
 <surveypage schizotypy_Q20>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE20]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 20 of 43"
 / ontrialend = [values.OLIFE_subscale_2_score = values.OLIFE_subscale_2_score + radiobuttons.OLIFE20.selectedvalue]
@@ -712,13 +712,13 @@
 
 <surveypage schizotypy_Q21>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE21]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 21 of 43"
 / ontrialend = [values.OLIFE_subscale_2_score = values.OLIFE_subscale_2_score + radiobuttons.OLIFE21.selectedvalue]
@@ -726,13 +726,13 @@
 
 <surveypage schizotypy_Q22>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE22]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 22 of 43"
 / ontrialend = [values.OLIFE_subscale_2_score = values.OLIFE_subscale_2_score + radiobuttons.OLIFE22.selectedvalue]
@@ -740,13 +740,13 @@
 
 <surveypage schizotypy_Q23>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE23]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 23 of 43"
 / ontrialend = [values.OLIFE_subscale_2_score = values.OLIFE_subscale_2_score + radiobuttons.OLIFE23.selectedvalue]
@@ -754,13 +754,13 @@
 
 <surveypage schizotypy_Q24>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE24]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 24 of 43"
 / ontrialend = [values.OLIFE_subscale_3_score = values.OLIFE_subscale_3_score + radiobuttons.OLIFE24.selectedvalue]
@@ -768,13 +768,13 @@
 
 <surveypage schizotypy_Q25>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE25]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 25 of 43"
 / ontrialend = [values.OLIFE_subscale_3_score = values.OLIFE_subscale_3_score + radiobuttons.OLIFE25.selectedvalue]
@@ -782,13 +782,13 @@
 
 <surveypage schizotypy_Q26>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE26]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 26 of 43"
 / ontrialend = [values.OLIFE_subscale_3_score = values.OLIFE_subscale_3_score + radiobuttons.OLIFE26.selectedvalue]
@@ -796,13 +796,13 @@
 
 <surveypage schizotypy_Q27>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE27]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 27 of 43"
 / ontrialend = [values.OLIFE_subscale_3_score = values.OLIFE_subscale_3_score + radiobuttons.OLIFE27.selectedvalue]
@@ -810,13 +810,13 @@
 
 <surveypage schizotypy_Q28>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE28]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 28 of 43"
 / ontrialend = [values.OLIFE_subscale_3_score = values.OLIFE_subscale_3_score + radiobuttons.OLIFE28.selectedvalue]
@@ -824,13 +824,13 @@
 
 <surveypage schizotypy_Q29>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE29]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 29 of 43"
 / ontrialend = [values.OLIFE_subscale_3_score = values.OLIFE_subscale_3_score + radiobuttons.OLIFE29.selectedvalue]
@@ -838,13 +838,13 @@
 
 <surveypage schizotypy_Q30>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE30]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 30 of 43"
 / ontrialend = [values.OLIFE_subscale_3_score = values.OLIFE_subscale_3_score + radiobuttons.OLIFE30.selectedvalue]
@@ -852,13 +852,13 @@
 
 <surveypage schizotypy_Q31>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE31]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 31 of 43"
 / ontrialend = [values.OLIFE_subscale_3_score = values.OLIFE_subscale_3_score + radiobuttons.OLIFE31.selectedvalue]
@@ -866,13 +866,13 @@
 
 <surveypage schizotypy_Q32>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE32]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 32 of 43"
 / ontrialend = [values.OLIFE_subscale_3_score = values.OLIFE_subscale_3_score + radiobuttons.OLIFE32.selectedvalue]
@@ -880,13 +880,13 @@
 
 <surveypage schizotypy_Q33>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE33]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 33 of 43"
 / ontrialend = [values.OLIFE_subscale_3_score = values.OLIFE_subscale_3_score + radiobuttons.OLIFE33.selectedvalue]
@@ -894,13 +894,13 @@
 
 <surveypage schizotypy_Q34>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE34]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 34 of 43"
 / ontrialend = [values.OLIFE_subscale_4_score = values.OLIFE_subscale_4_score + radiobuttons.OLIFE34.selectedvalue]
@@ -908,13 +908,13 @@
 
 <surveypage schizotypy_Q35>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE35]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 35 of 43"
 / ontrialend = [values.OLIFE_subscale_4_score = values.OLIFE_subscale_4_score + radiobuttons.OLIFE35.selectedvalue]
@@ -922,13 +922,13 @@
 
 <surveypage schizotypy_Q36>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE36]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 36 of 43"
 / ontrialend = [values.OLIFE_subscale_4_score = values.OLIFE_subscale_4_score + radiobuttons.OLIFE36.selectedvalue]
@@ -936,13 +936,13 @@
 
 <surveypage schizotypy_Q37>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE37]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 37 of 43"
 / ontrialend = [values.OLIFE_subscale_4_score = values.OLIFE_subscale_4_score + radiobuttons.OLIFE37.selectedvalue]
@@ -950,13 +950,13 @@
 
 <surveypage schizotypy_Q38>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE38]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 38 of 43"
 / ontrialend = [values.OLIFE_subscale_4_score = values.OLIFE_subscale_4_score + radiobuttons.OLIFE38.selectedvalue]
@@ -964,13 +964,13 @@
 
 <surveypage schizotypy_Q39>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE39]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 39 of 43"
 / ontrialend = [values.OLIFE_subscale_4_score = values.OLIFE_subscale_4_score + radiobuttons.OLIFE39.selectedvalue]
@@ -978,13 +978,13 @@
 
 <surveypage schizotypy_Q40>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE40]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 40 of 43"
 / ontrialend = [values.OLIFE_subscale_4_score = values.OLIFE_subscale_4_score + radiobuttons.OLIFE40.selectedvalue]
@@ -992,13 +992,13 @@
 
 <surveypage schizotypy_Q41>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE41]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 41 of 43"
 / ontrialend = [values.OLIFE_subscale_4_score = values.OLIFE_subscale_4_score + radiobuttons.OLIFE41.selectedvalue]
@@ -1006,13 +1006,13 @@
 
 <surveypage schizotypy_Q42>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE42]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 42 of 43"
 / ontrialend = [values.OLIFE_subscale_4_score = values.OLIFE_subscale_4_score + radiobuttons.OLIFE42.selectedvalue]
@@ -1020,13 +1020,13 @@
 
 <surveypage schizotypy_Q43>
 / fontstyle = ("Arial", 4%, true)
-/ itemfontstyle = ("Arial", 2.5%, false, true, false, false, 5, 0)
+/ itemfontstyle = ("Arial", 3%, false, true, false, false, 5, 0)
 / showquestionnumbers = false
 / showpagenumbers = false
 / questions = [1=OLIFE43]
 / navigationbuttonsize = (20, 4)
-/ navigationbuttonfontstyle = ("Arial", 2%, true, false, false, false, 5, 0)
-/ nextbuttonposition = (75%, 83%)
+/ navigationbuttonfontstyle = ("Arial", 3%, true, false, false, false, 5, 0)
+/ nextbuttonposition = (15%,60%)
 / response = correct
 / finishlabel = "Finish question 43 of 43"
 / ontrialend = [values.OLIFE_subscale_4_score = values.OLIFE_subscale_4_score + radiobuttons.OLIFE43.selectedvalue]

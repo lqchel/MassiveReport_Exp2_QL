@@ -1,8 +1,9 @@
 clc
 clear
-for subject = 1:1
-    for group = 1:1
+for subject = 1:4
+    for group = 1:4
         filename = sprintf('Script_B%d_G%d.iqx',subject,group);
+       % filename = sprintf('Script_QL_demo.iqx');
         fid = fopen(filename,'w');
         fprintf(fid,'<include>\n');
 %         fprintf(fid,'/ file = "ConcentrationResponse.iqx"\n');

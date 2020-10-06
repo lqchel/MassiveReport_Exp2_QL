@@ -6,6 +6,7 @@
 <values>
 	/num_trials = 40
 	/num_prac_trials = 4
+	/num_catch_trials = 12
 	/Index = 0
 	/test = 0
 	/size = 20%
@@ -72,7 +73,7 @@
 
 
 <counter image_presentation_order>
-/ select = noreplace(1-23)
+/ select = noreplace(1-43)
 </counter>
 
 <trial image_presentation>
@@ -325,9 +326,9 @@
 		values.y_coordinate = item.CP_y_coordinates.item(values.order);
 		values.patch_ID += 1;
 		if(item.CongOrIncong.item(values.order) == "Cong"){
-			values.Patch_Source = 3;
-		}else if(item.CongOrIncong.item(values.order) == "Incong"){
 			values.Patch_Source = 2;
+		}else if(item.CongOrIncong.item(values.order) == "Incong"){
+			values.Patch_Source = 3;
 		}
 		
 		values.Exist_Object = 1;
@@ -363,6 +364,11 @@
 			values.patch_ID += 1;
 			values.Exist_Object = 0;
 			values.null_index = 0;
+			if(item.CongOrIncong.item(values.order) == "Cong"){
+				values.Patch_Source = 2;
+			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+				values.Patch_Source = 3;
+			}
 		}else if (item.Present_1_position.item(values.order) == "2"){
 			trial.Patch_present.insertstimulusframe(picture.Patch_locate_2_present,1);
 			trial.Patch_present.insertstimulusframe(text.cross,1);
@@ -371,6 +377,11 @@
 			values.Patch_Position = 2;
 			values.patch_ID += 1;
 			values.Exist_Object = 0;
+			if(item.CongOrIncong.item(values.order) == "Cong"){
+				values.Patch_Source = 2;
+			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+				values.Patch_Source = 3;
+			}
 
 		}else if (item.Present_1_position.item(values.order) == "3"){
 			trial.Patch_present.insertstimulusframe(picture.Patch_locate_3_present,1);
@@ -380,6 +391,11 @@
 			values.Patch_Position = 3;
 			values.patch_ID += 1;
 			values.Exist_Object = 0;
+			if(item.CongOrIncong.item(values.order) == "Cong"){
+				values.Patch_Source = 2;
+			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+				values.Patch_Source = 3;
+			}
 
 		}else if (item.Present_1_position.item(values.order) == "4"){
 			trial.Patch_present.insertstimulusframe(picture.Patch_locate_4_present,1);
@@ -389,7 +405,11 @@
 			values.Patch_Position = 4;
 			values.patch_ID += 1;
 			values.Exist_Object = 0;
-
+			if(item.CongOrIncong.item(values.order) == "Cong"){
+				values.Patch_Source = 2;
+			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+				values.Patch_Source = 3;
+			}
 		}else if (item.Present_1_position.item(values.order) == "5"){
 			trial.Patch_present.insertstimulusframe(picture.Patch_locate_5_present,1);
 			values.x_coordinate = values.location_horizontal_2;
@@ -397,7 +417,11 @@
 			values.Patch_Position = 5;
 			values.patch_ID += 1;
 			values.Exist_Object = 0;
-
+			if(item.CongOrIncong.item(values.order) == "Cong"){
+				values.Patch_Source = 2;
+			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+				values.Patch_Source = 3;
+			}
 		}else if (item.Present_1_position.item(values.order) == "6"){
 			trial.Patch_present.insertstimulusframe(picture.Patch_locate_6_present,1);
 			trial.Patch_present.insertstimulusframe(text.cross,1);
@@ -406,7 +430,12 @@
 			values.Patch_Position = 6;
 			values.patch_ID += 1;
 			values.Exist_Object = 0;
-
+			if(item.CongOrIncong.item(values.order) == "Cong"){
+				values.Patch_Source = 2;
+			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+				values.Patch_Source = 3;
+			}
+			
 		}else if (item.Present_1_position.item(values.order) == "7"){
 			trial.Patch_present.insertstimulusframe(picture.Patch_locate_7_present,1);
 			trial.Patch_present.insertstimulusframe(text.cross,1);
@@ -415,7 +444,11 @@
 			values.Patch_Position = 7;
 			values.patch_ID += 1;
 			values.Exist_Object = 0;
-
+			if(item.CongOrIncong.item(values.order) == "Cong"){
+				values.Patch_Source = 2;
+			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+				values.Patch_Source = 3;
+			}
 		}else if (item.Present_1_position.item(values.order) == "8"){
 			trial.Patch_present.insertstimulusframe(picture.Patch_locate_8_present,1);
 			trial.Patch_present.insertstimulusframe(text.cross,1);
@@ -424,7 +457,12 @@
 			values.Patch_Position = 8;
 			values.patch_ID += 1;
 			values.Exist_Object = 0;
-
+			if(item.CongOrIncong.item(values.order) == "Cong"){
+				values.Patch_Source = 2;
+			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+				values.Patch_Source = 3;
+			}
+			
 		}else{
 			trial.Patch_present.insertstimulusframe(picture.Patch_locate_9_present,1);
 			trial.Patch_present.insertstimulusframe(text.cross,1);
@@ -433,7 +471,11 @@
 			values.Patch_Position = 9;
 			values.patch_ID += 1;
 			values.Exist_Object = 0;
-
+			if(item.CongOrIncong.item(values.order) == "Cong"){
+				values.Patch_Source = 2;
+			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+				values.Patch_Source = 3;
+			}
 		}
 	}else if(values.question_choose == 3){
 		picture.Present_image_patch_step.insertitem(picture.SquarePresent.item(values.order),1);
@@ -446,7 +488,12 @@
 			values.Patch_Position = 1;
 			values.patch_ID += 1;
 			values.Exist_Object = 0;
-
+			if(item.CongOrIncong.item(values.order) == "Cong"){
+				values.Patch_Source = 2;
+			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+				values.Patch_Source = 3;
+			}
+			
 		}else if (item.Present_2_position.item(values.order) == "2"){
 			trial.Patch_present.insertstimulusframe(picture.Patch_locate_2_present,1);
 			trial.Patch_present.insertstimulusframe(text.cross,1);
@@ -455,7 +502,12 @@
 			values.Patch_Position = 2;
 			values.patch_ID += 1;
 			values.Exist_Object = 0;
-
+			if(item.CongOrIncong.item(values.order) == "Cong"){
+				values.Patch_Source = 2;
+			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+				values.Patch_Source = 3;
+			}
+			
 		}else if (item.Present_2_position.item(values.order) == "3"){
 			trial.Patch_present.insertstimulusframe(picture.Patch_locate_3_present,1);
 			trial.Patch_present.insertstimulusframe(text.cross,1);
@@ -465,6 +517,12 @@
 			values.patch_ID += 1;
 			values.Exist_Object = 0;
 			values.null_index = 0;
+			if(item.CongOrIncong.item(values.order) == "Cong"){
+				values.Patch_Source = 2;
+			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+				values.Patch_Source = 3;
+			}
+			
 		}else if (item.Present_2_position.item(values.order) == "4"){
 			trial.Patch_present.insertstimulusframe(picture.Patch_locate_4_present,1);
 			trial.Patch_present.insertstimulusframe(text.cross,1);
@@ -473,7 +531,12 @@
 			values.Patch_Position = 4;
 			values.patch_ID += 1;
 			values.Exist_Object = 0;
-
+			if(item.CongOrIncong.item(values.order) == "Cong"){
+				values.Patch_Source = 2;
+			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+				values.Patch_Source = 3;
+			}
+			
 		}else if (item.Present_2_position.item(values.order) == "5"){
 			trial.Patch_present.insertstimulusframe(picture.Patch_locate_5_present,1);
 			values.x_coordinate = values.location_horizontal_2;
@@ -481,7 +544,12 @@
 			values.Patch_Position = 5;
 			values.patch_ID += 1;
 			values.Exist_Object = 0;
-
+			if(item.CongOrIncong.item(values.order) == "Cong"){
+				values.Patch_Source = 2;
+			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+				values.Patch_Source = 3;
+			}
+			
 		}else if (item.Present_2_position.item(values.order) == "6"){
 			trial.Patch_present.insertstimulusframe(picture.Patch_locate_6_present,1);
 			trial.Patch_present.insertstimulusframe(text.cross,1);
@@ -490,7 +558,12 @@
 			values.Patch_Position = 6;
 			values.patch_ID += 1;
 			values.Exist_Object = 0;
-
+			if(item.CongOrIncong.item(values.order) == "Cong"){
+				values.Patch_Source = 2;
+			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+				values.Patch_Source = 3;
+			}
+			
 		}else if (item.Present_2_position.item(values.order) == "7"){
 			trial.Patch_present.insertstimulusframe(picture.Patch_locate_7_present,1);
 			trial.Patch_present.insertstimulusframe(text.cross,1);
@@ -499,7 +572,12 @@
 			values.Patch_Position = 7;
 			values.patch_ID += 1;
 			values.Exist_Object = 0;
-
+			if(item.CongOrIncong.item(values.order) == "Cong"){
+				values.Patch_Source = 2;
+			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+				values.Patch_Source = 3;
+			}
+			
 		}else if (item.Present_2_position.item(values.order) == "8"){
 			trial.Patch_present.insertstimulusframe(picture.Patch_locate_8_present,1);
 			trial.Patch_present.insertstimulusframe(text.cross,1);
@@ -508,7 +586,12 @@
 			values.Patch_Position = 8;
 			values.patch_ID += 1;
 			values.Exist_Object = 0;
-
+			if(item.CongOrIncong.item(values.order) == "Cong"){
+				values.Patch_Source = 2;
+			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+				values.Patch_Source = 3;
+			}
+			
 		}else{
 			trial.Patch_present.insertstimulusframe(picture.Patch_locate_9_present,1);
 			trial.Patch_present.insertstimulusframe(text.cross,1);
@@ -517,7 +600,12 @@
 			values.Patch_Position = 9;
 			values.patch_ID += 1;
 			values.Exist_Object = 0;
-
+			if(item.CongOrIncong.item(values.order) == "Cong"){
+				values.Patch_Source = 2;
+			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+				values.Patch_Source = 3;
+			}
+			
 		}
 	}else{
 		if(counter.patch_of_random.selectedvalue == 1){
@@ -726,7 +814,7 @@ lowC_instruction, highC_instruction,part_of_Image,Not_part_of_Image,catch_respon
 expressions.validresponse_disks
 ]
 / ontrialend = [values.Exist_Object = values.catch_question;
-				values.Patch_Source = 1;
+				values.Patch_Source = 0;
 				values.Image_ID = 0;
 				values.Patch_Position = 0;
 				values.null_index = 0;
@@ -754,7 +842,7 @@ expressions.validresponse_disks
 ]
 / ontrialend = [ 
 		values.Exist_Object = values.catch_question;
-		values.Patch_Source = -1;
+		values.Patch_Source = 0;
 		values.Image_ID = 0;
 		values.Patch_Position = 0;
 		values.null_index = 0;

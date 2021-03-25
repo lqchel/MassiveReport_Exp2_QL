@@ -10,7 +10,6 @@ file_path_InCongruentCropped = 'squareimage\incongruent cropped\';
 file_path_mask = 'mask\';
 file_path_patch_mask = 'maskCrop\';
 
-
 % Version For individual folder
 % file_path_Congruent_Patch = 'congruent patch\';
 % file_path_inCongruent_Patch = 'incongruent patch\';
@@ -26,9 +25,9 @@ Total_Trial_number = Total_Trial + Total_Trial_practice;
 Number_of_Masking = 20;
 Number_of_Null = 117; % number of null patches per group
 Null_per_trial = 3; % number of null patches each trial
-Number_of_Batch = 4;
-Number_of_Group = 4;
-Number_of_Subjects = 15; % number of subjects per group
+Number_of_Batch = 1;
+Number_of_Group = 1;
+Number_of_Subjects = 5; % number of subjects per group
 Total_Null_Number = Number_of_Null*Number_of_Batch*Number_of_Group;
 
 %% Prepare Null Patch Stimuli for All Batches 
@@ -49,22 +48,23 @@ for batch = 1:Number_of_Batch
     % 1, it's cong-incong, then in combination 2, it's image-patch can
     % be cong-cong, incong-cong, or incong-incong. here,generate 4 groups, 
     % each with unique image-patch combination for each image pair
-    combination_sequence = zeros(Total_Trial_Number,4);
+    combination_sequence = zeros(Total_Trial_number,4);
     combination_sequence(1:3,:) = [1 2 4 3; 2 3 1 4; 3 4 1 2];
     for t = 1:Total_Trial
         combination_sequence(t+3,:) = randperm(4,4); 
     end
+      
     
+%%%%%%%%%%%%%%%%%%%%%%%%% Select stimuli common for participants allocated to the same group, and copy files 
 
-%% Select stimuli common for participants allocated to the same group 
     for group = 1:Number_of_Group
-    DesDir = sprintf('Batch_%d_Group_%d_',batch,group); % save all materials for experiments of the same batch and combination in one folder
+    DesDir = sprintf('Batch_%d_Group_%d',batch,group); % save all materials for experiments of the same batch and combination in one folder
     %DesDir = sprintf('QL_Exp2_demo');
     mkdir('WebVersion\',DesDir);
     DST_PATH_t = ['WebVersion\',DesDir];
     order_list_Masking = randperm(140,Number_of_Masking);
-        
-%% Specify where the CP located 
+
+    %% Specify where the CP located for the selected images
     IP_position = ones(1,length(order_list));
     for presentation_order = 1:length(order_list)
         Presentation_image_patch_name = sprintf('cong_%d_*.jpg',order_list(presentation_order));
@@ -99,30 +99,61 @@ for batch = 1:Number_of_Batch
             CP_y_coordinates(presentation_number) = "75";
         end    
     end           
-            
+ %% Copy all selected image pairs and CP patches to folder
+    for presentation_number = 1:Total_Trial_number
+        % copy image
+        string_order = num2str(order_list(presentation_number).','%03d');
+        cong_img_name = sprintf('%s%s%s.jpg',file_path_CongruentCropped,'SquareCongruent_',string_order); 
+        incong_img_name = sprintf('%s%s%s.jpg',file_path_InCongruentCropped,'SquareIncongruent_',string_order); 
+        copyfile(cong_img_name,DST_PATH_t);
+        copyfile(incong_img_name,DST_PATH_t);
+        
+       %copy patches
+       item_content_incong = sprintf('incong_%d_%d_p.jpg',order_list(presentation_number),IP_position(presentation_number));
+       incong_patch_name = sprintf('%s%s',file_path_inCongruent_Patch,item_content_incong);
+       copyfile(incong_patch_name,DST_PATH_t);%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%COPY
+       item_content_cong = sprintf('cong_%d_%d_p.jpg',order_list(presentation_number),IP_position(presentation_number));
+       cong_patch_name = sprintf('%s%s',file_path_Congruent_Patch,item_content_cong);
+       copyfile(cong_patch_name,DST_PATH_t);%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%COPY
+    end     
+
 %% Select Null Patches for current group
     % select unique set of null patches for each group 
     Current_group_across_batch = (batch-1).*4 + group;
     group_null_patch = n_patch_order(1+(Current_group_across_batch-1) * Number_of_Null:Current_group_across_batch * Number_of_Null);
     temp = randperm(length(group_null_patch),length(group_null_patch));
-    for i = 1:length(group_null_patch)
-    group_null_patch(i) = group_null_patch(temp(i)); % randomize null patch sequence
-    end    
-
+    group_null_patch = group_null_patch(:,temp); % randomize null patch selection sequence
+    
     for group_null_list = 1:length(group_null_patch)
         string_order = num2str(group_null_patch(group_null_list).','%07d');
-        fprintf(fid,'"patch%s.jpg",\n',string_order);
         file_name = sprintf('%spatch%s.jpg',file_path_N_patches,string_order);
         copyfile(file_name,DST_PATH_t);%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%COPY
     end
     
-%% Select Stimuli Unique to Each Participant, and Write Stimuli Info on Separate Base-script for Each Participant           
-        for subject = 1:Number_of_Subjects
-            filename = sprintf('BaseScript_B%d_C%d_S%d.iqx',batch,group,subject); 
-            fid = fopen(filename,'w');
-            NumberOfNpatch = 7044;
+%% Copy List of Masking and the masking for patches
+            for Masking_group = 1:5
+                for content = 1:(Number_of_Masking/5)
+                    string_order = num2str(order_list_Masking(content+(Number_of_Masking/5)*(Masking_group-1)).','%03d');
+                    file_name = sprintf('%smask_%s.jpg',file_path_mask,string_order);
+                    copyfile(file_name,DST_PATH_t);%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%COPY
+                end
+            end
+
+            for Masking_group_patch = 1:5
+                for content = 1:(Number_of_Masking/5)
+                    string_order = num2str(order_list_Masking(content+(Number_of_Masking/5)*(Masking_group_patch-1)).','%03d');
+                    file_name = sprintf('%smaskCrop_%s.jpg',file_path_patch_mask,string_order);
+                    copyfile(file_name,DST_PATH_t);%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%COPY
+                end
+            end    
             
-%% Create and Write List of Images in Base Script 
+%%%%%%%%% Select Stimuli Unique to Each Participant, and Write Stimuli Info on Separate Base-script for Each Participant%%%%%%%%%%%%%%%%%%%%%%%%%%%           
+  
+        for subject = 1:Number_of_Subjects
+            filename = sprintf('BaseScript_B%d_G%d_S%d.iqx',batch,group,subject); 
+            fid = fopen(filename,'w');
+            
+%% Write List of Image file names in Base Script 
 %Need to mix the congruent and Incongruent images throughout the experiment
             fprintf(fid,'<item image_presentation>\n'); %Only create the congruent part
             PresentArray = string(ones(1,Total_Trial_number)); %Pre-create an array to represent the order of presentation image for INCONG and CONG        
@@ -132,39 +163,25 @@ for batch = 1:Number_of_Batch
                     PresentArray(presentation_number) = 'Cong';
                     string_order = num2str(order_list(presentation_number).','%03d');
                     address = sprintf('"%s%s.jpg"','SquareCongruent_',string_order);
-                    file_name = sprintf('%s%s%s.jpg',file_path_CongruentCropped,'SquareCongruent_',string_order); 
                     fprintf(fid,'/%d = ',presentation_number);
                     fprintf(fid,'%s\n',address);
-                    copyfile(file_name,DST_PATH_t);%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%COPY
                 elseif combination_sequence(presentation_number,group) == 3 || combination_sequence(presentation_number,group) == 4
                     %Here to create part of Incongruent images
                     PresentArray(presentation_number) = 'INcong';
                     string_order = num2str(order_list(presentation_number).','%03d');
                     address = sprintf('"%s%s.jpg"','SquareIncongruent_',string_order);
-                    file_name = sprintf('%s%s%s.jpg',file_path_InCongruentCropped,'SquareIncongruent_',string_order); 
                     fprintf(fid,'/%d = ',presentation_number);
                     fprintf(fid,'%s\n',address);
-                    copyfile(file_name,DST_PATH_t);%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%COPY
                 end
             end
             fprintf(fid,'</item>\n\n');
-
-%% Create and Write list of image-patch combination
-            fprintf(fid,'<item image_patch_combination>\n');     
-                for presentation_number = 1:Total_Trial_number
-                    fprintf(fid,'/%d = "%s%%"\n',presentation_number,num2str(combination_sequence(presentation_number,group)));
-                end
-            fprintf(fid,'</item>\n\n');
-
-%% Create and Write List of Masking and the masking for patches
+%% Write List of Masking and the masking for patches
             for Masking_group = 1:5
                 string_title_number = num2str(Masking_group.','%01d');
                 fprintf(fid,'<item Masking_item_%s>\n',string_title_number);
                 for content = 1:(Number_of_Masking/5)
                     string_order = num2str(order_list_Masking(content+(Number_of_Masking/5)*(Masking_group-1)).','%03d');
                     fprintf(fid,'/%d = "mask_%s.jpg"\n',content,string_order);
-                    file_name = sprintf('%smask_%s.jpg',file_path_mask,string_order);
-                    copyfile(file_name,DST_PATH_t);%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%COPY
                 end
                 fprintf(fid,'</item>\n\n');
             end
@@ -175,26 +192,20 @@ for batch = 1:Number_of_Batch
                 for content = 1:(Number_of_Masking/5)
                     string_order = num2str(order_list_Masking(content+(Number_of_Masking/5)*(Masking_group_patch-1)).','%03d');
                     fprintf(fid,'/%d = "maskCrop_%s.jpg"\n',content,string_order);
-                    file_name = sprintf('%smaskCrop_%s.jpg',file_path_patch_mask,string_order);
-                    copyfile(file_name,DST_PATH_t);%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%COPY
                 end
                 fprintf(fid,'</item>\n\n');
-            end
+            end    
 
-            
+         
 %% Write CP patch
             fprintf(fid,'<item CP_patch>\n');
             for presentation_number = 1:Total_Trial_number
                 if PresentArray(presentation_number) == "Cong"
                    item_content = sprintf('incong_%d_%d_p.jpg',order_list(presentation_number),IP_position(presentation_number));
                    fprintf(fid,'/%d = "%s"\n',presentation_number,item_content);
-                   file_name = sprintf('%s%s',file_path_inCongruent_Patch,item_content);
-                   copyfile(file_name,DST_PATH_t);%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%COPY
                 elseif PresentArray(presentation_number) == "INcong"
                    item_content = sprintf('cong_%d_%d_p.jpg',order_list(presentation_number),IP_position(presentation_number));
                    fprintf(fid,'/%d = "%s"\n',presentation_number,item_content);
-                   file_name = sprintf('%s%s',file_path_Congruent_Patch,item_content);
-                   copyfile(file_name,DST_PATH_t);%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%COPY
                 end
             end
             fprintf(fid,'</item>\n\n');            
@@ -302,15 +313,15 @@ for batch = 1:Number_of_Batch
 %%% participant 15 views null patch 43 - 45 for image 1, ... null patch 34
 %%% - 36 for image 37
             sequence_start_point = 1+(subject-1)*Null_per_trial; % shifts for every subject
-            sequence_end_point = sequence_start_point + Total_Trial_Number*Null_per_trial;           
+            sequence_end_point = sequence_start_point + Total_Trial_number*Null_per_trial-1;           
             if sequence_end_point <= Number_of_Null
                 subject_null_sequence = group_null_patch(sequence_start_point:sequence_end_point);
             else
-                end_point_from_beginning = sequence_end_point-sequence_start_point;
+                end_point_from_beginning = sequence_end_point-Number_of_Null;
                 subject_null_sequence = [group_null_patch(sequence_start_point:end) group_null_patch(1:end_point_from_beginning)];
             end
             
-            % print select null patch file nemaes
+            % print select null patch file names
             fprintf(fid,'<picture nPatch_resource>\n');
             fprintf(fid,'  / size = (values.present_image_size/3,values.present_image_size/3)\n');
             fprintf(fid,'  /items = (');
@@ -320,19 +331,30 @@ for batch = 1:Number_of_Batch
                 fprintf(fid,'"patch%s.jpg",\n',string_order);
             end
             fprintf(fid,')\n');
-            fprintf(fid,'  / select = sequence\n');
+            fprintf(fid,'  / select = sequential\n');
             fprintf(fid,'</picture>\n\n');
             
-            % print null patch locations
-            n_patch_location = mod(subject_null_sequence,12); % record location of null patches
+            % get and print null patch locations
+            n_patch_location = mod(subject_null_sequence,12); % get location of null patches, in terms of 1-12 grid  
+            % corrent n patch locations to 1-9 grid
+            n_patch_location(n_patch_location > 3 & n_patch_location < 9) = n_patch_location(n_patch_location > 3 & n_patch_location < 9) -1;
+            n_patch_location(n_patch_location > 9 & n_patch_location < 12) = n_patch_location(n_patch_location > 9 & n_patch_location < 12) -2;
+
+            fprintf(fid,'<item Null_location>\n');
+            for n_patch_list = 1:length(subject_null_sequence)
+                fprintf(fid,'/%d = "%s" \n',n_patch_list,num2str(n_patch_location(n_patch_list)));
+            end
+            fprintf(fid,'</item>\n\n');  
+            
+            % get and print null patch locations as coordinates (for patch presentation)
             Null_x_coordinates = string(ones(1,Total_Trial_number));
             Null_y_coordinates = string(ones(1,Total_Trial_number));
             for n_patch_list = 1:length(subject_null_sequence)
-                if n_patch_location(n_patch_list) == 1 || n_patch_location(n_patch_list) == 5 || n_patch_location(n_patch_list) == 9
+                if n_patch_location(n_patch_list) == 1 || n_patch_location(n_patch_list) == 4 || n_patch_location(n_patch_list) == 7
                     Null_x_coordinates(n_patch_list) = "33.3";
-                elseif IP_position(n_patch_list) == 2 || n_patch_location(n_patch_list) == 6 || n_patch_location(n_patch_list) == 10
+                elseif n_patch_location(n_patch_list) == 2 || n_patch_location(n_patch_list) == 5 || n_patch_location(n_patch_list) == 8
                     Null_x_coordinates(n_patch_list) = "50";
-                elseif n_patch_location(n_patch_list) == 3 || n_patch_location(n_patch_list) == 7 || n_patch_location(n_patch_list) == 11
+                elseif n_patch_location(n_patch_list) == 3 || n_patch_location(n_patch_list) == 6 || n_patch_location(n_patch_list) == 9
                     Null_x_coordinates(n_patch_list) = "66.7";
                 end    
             end
@@ -340,9 +362,9 @@ for batch = 1:Number_of_Batch
             for n_patch_list = 1:length(subject_null_sequence)
                 if n_patch_location(n_patch_list) == 1 || n_patch_location(n_patch_list) == 2 || n_patch_location(n_patch_list) == 3
                     Null_y_coordinates(n_patch_list) = "25";
-                elseif n_patch_location(n_patch_list) == 5 || n_patch_location(n_patch_list) == 6 || n_patch_location(n_patch_list) == 7
+                elseif n_patch_location(n_patch_list) == 4 || n_patch_location(n_patch_list) == 5 || n_patch_location(n_patch_list) == 6
                     Null_y_coordinates(n_patch_list) = "50";
-                elseif n_patch_location(n_patch_list) == 9 || n_patch_location(n_patch_list) == 10 || n_patch_location(n_patch_list) == 11
+                elseif n_patch_location(n_patch_list) == 7 || n_patch_location(n_patch_list) == 8 || n_patch_location(n_patch_list) == 9
                     Null_y_coordinates(n_patch_list) = "75";
                 end    
             end    
@@ -370,12 +392,12 @@ for batch = 1:Number_of_Batch
             end
             fprintf(fid,'</item>\n\n');
             
-            fprintf(fid,'<item Patch_CongOrIncong>\n');
+            fprintf(fid,'<item Patch_OriginalOrModified>\n');
             for presentation_order = 1:length(order_list)
-                if combination_sequence(presentation_number,group) == 1 || combination_sequence(presentation_number,group) == 3
-                    fprintf(fid,'/%d = "Cong" \n',presentation_order);
-                elseif combination_sequence(presentation_number,group) == 1 || combination_sequence(presentation_number,group) == 3
-                    fprintf(fid,'/%d = "Incong" \n',presentation_order);
+                if combination_sequence(presentation_order,group) == 1 || combination_sequence(presentation_order,group) == 4
+                    fprintf(fid,'/%d = "Original" \n',presentation_order);
+                elseif combination_sequence(presentation_order,group) == 2 || combination_sequence(presentation_order,group) == 3
+                    fprintf(fid,'/%d = "Modified" \n',presentation_order);
                 end
             end
             fprintf(fid,'</item>\n\n');
@@ -387,8 +409,7 @@ for batch = 1:Number_of_Batch
             end
             fprintf(fid,'</item>\n\n');
             
-%% Here used to specify where positions of the other two present patches (formal experiment)
-
+%% Here used to specify where positions of the other two present patches
             Present_patch_1 = ones(1,length(order_list));
             Present_patch_2 = ones(1,length(order_list));
             Odd_position = [1 3 5 7 9];
@@ -439,14 +460,47 @@ end
 
 
 
+%% Testing the null patch selection mechanism 
 
-
-
-
-
-
-
-
+% Total_Trial = 34; %% Define how many images are used to presentation
+% Total_Trial_practice = 3;
+% Total_Trial_number = Total_Trial + Total_Trial_practice;
+% Number_of_Masking = 20;
+% Number_of_Null = 117; % number of null patches per group
+% Null_per_trial = 3; % number of null patches each trial
+% Number_of_Batch = 1;
+% Number_of_Group = 1;
+% Number_of_Subjects = 15; % number of subjects per group
+% Total_Null_Number = Number_of_Null*Number_of_Batch*Number_of_Group;
+% 
+% % Prepare Null Patch Stimuli for All Batches 
+% all_n_patch = 1:7044;
+% all_n_patch(mod(all_n_patch,4) == 0) = []; % null patch locations go from 1-12, here we exclude null patches position 4, 8 and 12
+% n_patch_order = all_n_patch(1:Total_Null_Number);
+% 
+% subject_null_sequence = zeros(15,Null_per_trial*Total_Trial_number);
+% for batch = 1:Number_of_Batch
+%     for group = 1:Number_of_Group
+%         % select unique set of null patches for each group 
+%         Current_group_across_batch = (batch-1).*4 + group;
+%         group_null_patch = n_patch_order(1+(Current_group_across_batch-1) * Number_of_Null:Current_group_across_batch * Number_of_Null);
+%         temp = randperm(length(group_null_patch),length(group_null_patch));
+%         group_null_patch = group_null_patch(:,temp);
+%         
+%             for subject = 1:15
+%                 sequence_start_point = 1+(subject-1)*Null_per_trial; % shifts for every subject
+%                 sequence_end_point = sequence_start_point + Total_Trial_number*Null_per_trial-1;           
+%                 if sequence_end_point <= Number_of_Null
+%                     subject_null_sequence(subject,:) = group_null_patch(sequence_start_point:sequence_end_point);
+%                 else
+%                     end_point_from_beginning = sequence_end_point-Number_of_Null;
+%                     subject_null_sequence(subject,:) = [group_null_patch(sequence_start_point:end) group_null_patch(1:end_point_from_beginning)];
+%                 end
+%             end
+%     end
+% end
+% 
+% heatmap(subject_null_sequence,'Colormap',jet,'Colorlimits',[1 max(group_null_patch)+5])
 
 
 

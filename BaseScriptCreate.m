@@ -145,6 +145,26 @@ for batch = 1:Number_of_Batch
                 end
             end
             fprintf(fid,'</item>\n\n');
+%% Write list of counterparts of each test image in the congruent-incongruent pair (for modified patch presentation)
+
+            fprintf(fid,'<item counter_image>\n'); %Only create the congruent part
+            % copy file names
+            for presentation_number = 1:Total_Trial_number
+                if combination_sequence(presentation_number,group) == 1 || combination_sequence(presentation_number,group) == 2
+                    string_order = num2str(order_list(presentation_number).','%03d');
+                    address = sprintf('"%s%s.jpg"','SquareIncongruent_',string_order);
+                    fprintf(fid,'/%d = ',presentation_number);
+                    fprintf(fid,'%s\n',address);
+                elseif combination_sequence(presentation_number,group) == 3 || combination_sequence(presentation_number,group) == 4
+                    %Here to create part of Incongruent images
+                    string_order = num2str(order_list(presentation_number).','%03d');
+                    address = sprintf('"%s%s.jpg"','SquareCongruent_',string_order);
+                    fprintf(fid,'/%d = ',presentation_number);
+                    fprintf(fid,'%s\n',address);
+                end
+            end
+            fprintf(fid,'</item>\n\n');
+
 %% Write List of Masking and the masking for patches
             for Masking_group = 1:5
                 string_title_number = num2str(Masking_group.','%01d');
@@ -271,17 +291,12 @@ for batch = 1:Number_of_Batch
             end
             
             % print select null patch file names
-            fprintf(fid,'<picture nPatch_resource>\n');
-            fprintf(fid,'  / size = (values.present_image_size/3,values.present_image_size/3)\n');
-            fprintf(fid,'  /items = (');
-            
+            fprintf(fid,'<item null_patch>\n');           
             for n_patch_list = 1:length(subject_null_sequence)
                 string_order = num2str(subject_null_sequence(n_patch_list).','%07d');
                 fprintf(fid,'"patch%s.jpg",\n',string_order);
             end
-            fprintf(fid,')\n');
-            fprintf(fid,'  / select = sequential\n');
-            fprintf(fid,'</picture>\n\n');
+            fprintf(fid,'</item>\n\n');
             
             % get and print null patch locations
             n_patch_location = mod(subject_null_sequence,12); % get location of null patches, in terms of 1-12 grid  

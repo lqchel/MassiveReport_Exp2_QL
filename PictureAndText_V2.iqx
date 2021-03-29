@@ -22,6 +22,11 @@
 	/ select = sequence 
 </picture>
 
+<picture SquareCounterpart>
+	/ size=(values.present_image_size, values.present_image_size)
+	/ items = counter_image
+	/ select = sequence 
+</picture>
 
 <picture SquarePresent_present>
 	/ size=(values.present_image_size, values.present_image_size)
@@ -107,16 +112,16 @@
 	/ select = noreplace 
 </picture>
 
-<picture CP_patch>
+<picture null_patch_source>
 	/ size = (values.present_image_size/3,values.present_image_size/3)
-	/ items = CP_patch
+	/ items = null_patch
 	/ select = sequence
 </picture>
 
-<picture CP_patch_present>
+<picture null_patch_present>
 	/ size = (values.present_image_size/3,values.present_image_size/3)
-	/ hposition = text.x.item(values.order)
-	/ vposition = text.y.item(values.order)
+	/ hposition = text.x.item(values.null_order)
+	/ vposition = text.y.item(values.null_order)
 	/ items = ()
 	/ select = sequence
 </picture>
@@ -149,12 +154,12 @@
 </text>
 
 <text x>
-	/ items = CP_x_coordinates
+	/ items = Null_x_coordinates
 	/ select = sequence
 </text>
 
 <text y>
-	/ items = CP_y_coordinates
+	/ items = Null_y_coordinates
 	/ select = sequence
 </text>
 ***************************************************************************************************
@@ -200,44 +205,19 @@ You have finished <%values.Index - values.num_prac_trials%> of <%values.num_tria
 / txbgcolor = (127,127,127) 
 </text>
 
-// words for catch trials
-<item catch_present_words>
-/ 1 = "CLICK: Yes 1"
-/ 2 = "CLICK: Yes 2"
-/ 3 = "CLICK: Yes 3"
-/ 4 = "CLICK: Yes 4"
-</item>
-<item catch_absent_words>
-/ 1 = "CLICK: No 1"
-/ 2 = "CLICK: No 2"
-/ 3 = "CLICK: No 3"
-/ 4 = "CLICK: No 4"
-</item>
-
-
 // Catch (absent and present) text for use in catch trial responses
 // Words are selected using a randomly assigned value of 1-4 determined in trial.catch_presentation_present/trial.catch_presentation_absent
-<text catch_absent>
-/ items = catch_absent_words
-/ select = values.catch_question
-/ vposition = values.textPosition
-/ fontstyle = ("Avenir next", values.MYfontsize, true, false, false, false, 5, 0)
-</text>
-<text catch_present>
-/ items = catch_present_words
-/ select = values.catch_question
-/ vposition = values.textPosition
-/ fontstyle = ("Avenir next", values.MYfontsize, true, false, false, false, 5, 0)
-</text>
 
 <list catch_present_words>
-/ items = (text.catch_present)
+/ items = ("Yes 1","Yes 2","Yes 3","Yes 4")
 / selectionrate = always
+/ selectionmode = values.catch_question
 </list>
 
 <list catch_absent_words>
-/ items = (text.catch_absent)
+/ items = ("No 1","No 2","No 3","No 4")
 / selectionrate = always
+/ selectionmode = values.catch_question
 </list>
 
 <text catch_interval>

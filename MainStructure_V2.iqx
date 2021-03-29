@@ -4,13 +4,13 @@
 </defaults>
 
 <values>
-	/num_trials = 40
-	/num_prac_trials = 4
-	/num_catch_trials = 12
+	/num_trials = 37
+	/num_catch_trials = 8
 	/Index = 0
 	/test = 0
 	/size = 20%
 	/order = 0
+	/null_order = 0
 	/Index_odd_practice = 0
 	/Index_even_practice = 0
 	/x_coordinate = 0
@@ -44,10 +44,6 @@
 	/catch_trial_6 = 23
 	/catch_trial_7 = 27
 	/catch_trial_8 = 30
-	/catch_trial_9 = 35
-	/catch_trial_10 = 37
-	/catch_trial_11 = 40
-	/catch_trial_12 = 42
 	/question = 0
 	/catch_question = 0
 	/OLIFE_subscale_1_score = 0
@@ -73,7 +69,7 @@
 
 
 <counter image_presentation_order>
-/ select = noreplace(1-43)
+/ select = sequence(1-values.num_trials)
 </counter>
 
 <trial image_presentation>
@@ -106,9 +102,9 @@
 	values.p_confidence = 0;
 	values.patch_ID = 0;
 	values.null_index = 0;
-	if (item.CongOrIncong.item(values.order) == "Cong"){
+	if (item.Image_CongOrIncong.item(values.order) == "Cong"){
 		values.CongOrIncong = 0;
-	}else if (item.CongOrIncong.item(values.order) == "Incong"){
+	}else if (item.Image_CongOrIncong.item(values.order) == "Incong"){
 		values.CongOrIncong = 1;
 	}
 	values.Image_ID = item.Image_ID.item(values.order);
@@ -124,18 +120,10 @@
 **********************************************Step 4: Patch Present Step********************************************************
 1. Prepare random data for patches and questions                                    
 
-<counter original_or_modified>
-/ select = replace(1-2)
-</counter>
 
 <counter question_choose>
 / select = noreplace(1-6)
 </counter>
-
-<counter patch_of_random>
-/select = noreplace(1-9)
-</counter>
-
 
 <trial fixation_2nd>
 	/ stimulusframes = [1 = cross]
@@ -156,9 +144,9 @@
 	values.null_index = 0;
 	values.question_choose = counter.question_choose.selectedvalue;
 	
-	if(values.question_choose == 1 && counter.original_or_modified.selectedvalue == 1){
+	if(values.question_choose == 1 && item.Patch_OriginalOrModified.item(values.order) == "Original"){
 		
-		if(item.Object_Patch.item(values.order)=="1"){
+		if(item.Object_Patch.item(values.order)=="1")){
 			picture.Present_image_patch_step.insertitem(picture.SquarePresent.item(values.order),1);
 			trial.Patch_present.insertstimulusframe(picture.Present_image_patch_step,1);
 			trial.Patch_present.insertstimulusframe(picture.Patch_locate_1_present,1);
@@ -169,9 +157,9 @@
 			values.y_coordinate = values.location_vertical_1;
 			values.Exist_Object = 1;
 			
-			if(item.CongOrIncong.item(values.order) == "Cong"){
+			if(item.Image_CongOrIncong.item(values.order) == "Cong"){
 				values.Patch_Source = 2;
-			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+			}else if(item.Image_CongOrIncong.item(values.order) == "Incong"){
 				values.Patch_Source = 3;
 			}
 			
@@ -188,9 +176,9 @@
 			values.y_coordinate = values.location_vertical_1;
 			values.Exist_Object = 1;
 			
-			if(item.CongOrIncong.item(values.order) == "Cong"){
+			if(item.Image_CongOrIncong.item(values.order) == "Cong"){
 				values.Patch_Source = 2;
-			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+			}else if(item.Image_CongOrIncong.item(values.order) == "Incong"){
 				values.Patch_Source = 3;
 			}
 			
@@ -207,9 +195,9 @@
 			values.y_coordinate = values.location_vertical_1;
 			values.Exist_Object = 1;
 			
-			if(item.CongOrIncong.item(values.order) == "Cong"){
+			if(item.Image_CongOrIncong.item(values.order) == "Cong"){
 				values.Patch_Source = 2;
-			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+			}else if(item.Image_CongOrIncong.item(values.order) == "Incong"){
 				values.Patch_Source = 3;
 			}
 			
@@ -225,9 +213,9 @@
 			values.y_coordinate = values.location_vertical_2;
 			values.Exist_Object = 1;
 			
-			if(item.CongOrIncong.item(values.order) == "Cong"){
+			if(item.Image_CongOrIncong.item(values.order) == "Cong"){
 				values.Patch_Source = 2;
-			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+			}else if(item.Image_CongOrIncong.item(values.order) == "Incong"){
 				values.Patch_Source = 3;
 			}
 			
@@ -243,9 +231,9 @@
 			values.x_coordinate = values.location_horizontal_2;
 			values.y_coordinate = values.location_vertical_2;
 			values.Exist_Object = 1;
-			if(item.CongOrIncong.item(values.order) == "Cong"){
+			if(item.Image_CongOrIncong.item(values.order) == "Cong"){
 				values.Patch_Source = 2;
-			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+			}else if(item.Image_CongOrIncong.item(values.order) == "Incong"){
 				values.Patch_Source = 3;
 			}
 			values.Patch_Position = 5;
@@ -260,9 +248,9 @@
 			values.x_coordinate = values.location_horizontal_3;
 			values.y_coordinate = values.location_vertical_2;
 			values.Exist_Object = 1;
-			if(item.CongOrIncong.item(values.order) == "Cong"){
+			if(item.Image_CongOrIncong.item(values.order) == "Cong"){
 				values.Patch_Source = 2;
-			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+			}else if(item.Image_CongOrIncong.item(values.order) == "Incong"){
 				values.Patch_Source = 3;
 			}
 			values.Patch_Position = 6;
@@ -277,9 +265,9 @@
 			values.x_coordinate = values.location_horizontal_1;
 			values.y_coordinate = values.location_vertical_3;
 			values.Exist_Object = 1;
-			if(item.CongOrIncong.item(values.order) == "Cong"){
+			if(item.Image_CongOrIncong.item(values.order) == "Cong"){
 				values.Patch_Source = 2;
-			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+			}else if(item.Image_CongOrIncong.item(values.order) == "Incong"){
 				values.Patch_Source = 3;
 			}
 			values.Patch_Position = 7;
@@ -294,9 +282,9 @@
 			values.x_coordinate = values.location_horizontal_2;
 			values.y_coordinate = values.location_vertical_3;
 			values.Exist_Object = 1;
-			if(item.CongOrIncong.item(values.order) == "Cong"){
+			if(item.Image_CongOrIncong.item(values.order) == "Cong"){
 				values.Patch_Source = 2;
-			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+			}else if(item.Image_CongOrIncong.item(values.order) == "Incong"){
 				values.Patch_Source = 3;
 			}
 			values.Patch_Position = 8;
@@ -310,48 +298,175 @@
 			values.x_coordinate = values.location_horizontal_3;
 			values.y_coordinate = values.location_vertical_3;
 			values.Exist_Object = 1;
-			if(item.CongOrIncong.item(values.order) == "Cong"){
+			if(item.Image_CongOrIncong.item(values.order) == "Cong"){
 				values.Patch_Source = 2;
-			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+			}else if(item.Image_CongOrIncong.item(values.order) == "Incong"){
 				values.Patch_Source = 3;
 			}
 			
 			values.Patch_Position = 9; 
 		}	
-	}else if(values.question_choose == 1 && counter.original_or_modified.selectedvalue == 2){
-		picture.CP_patch_present.insertitem(picture.CP_patch.item(values.order),1);
-		trial.Patch_present.insertstimulusframe(text.cross, 1);
-		trial.Patch_present.insertstimulusframe(picture.CP_patch_present, 2);
-		values.x_coordinate = item.CP_x_coordinates.item(values.order);
-		values.y_coordinate = item.CP_y_coordinates.item(values.order);
-		values.patch_ID += 1;
-		if(item.CongOrIncong.item(values.order) == "Cong"){
-			values.Patch_Source = 2;
-		}else if(item.CongOrIncong.item(values.order) == "Incong"){
-			values.Patch_Source = 3;
-		}
-		
-		values.Exist_Object = 1;
-
-		if(item.CP_x_coordinates.item(values.order) == "33.3%" && item.CP_y_coordinates.item(values.order) == "25%"){
+	}else if(values.question_choose == 1 && item.Patch_OriginalOrModified.item(values.order) == "Modified"){
+		if(item.Object_Patch.item(values.order)=="1")){
+			picture.Present_image_patch_step.insertitem(picture.SquareCounterpart.item(values.order),1);
+			trial.Patch_present.insertstimulusframe(picture.Present_image_patch_step,1);
+			trial.Patch_present.insertstimulusframe(picture.Patch_locate_1_present,1);
+			trial.Patch_present.insertstimulusframe(text.cross,1);
+			
+			values.patch_ID += 1;
+			values.x_coordinate = values.location_horizontal_1;
+			values.y_coordinate = values.location_vertical_1;
+			values.Exist_Object = 1;
+			
+			if(item.Image_CongOrIncong.item(values.order) == "Cong"){
+				values.Patch_Source = 3;
+			}else if(item.Image_CongOrIncong.item(values.order) == "Incong"){
+				values.Patch_Source = 2;
+			}
+			
 			values.Patch_Position = 1;
-		}else if(item.CP_x_coordinates.item(values.order) == "50%" && item.CP_y_coordinates.item(values.order) == "25%"){
+
+			
+		}else if(item.Object_Patch.item(values.order)=="2"){
+			picture.Present_image_patch_step.insertitem(picture.SquareCounterpart.item(values.order),1);
+			trial.Patch_present.insertstimulusframe(picture.Present_image_patch_step,1);
+			trial.Patch_present.insertstimulusframe(picture.Patch_locate_2_present,1);
+			trial.Patch_present.insertstimulusframe(text.cross,1);
+			values.patch_ID += 1;
+			values.x_coordinate = values.location_horizontal_2;
+			values.y_coordinate = values.location_vertical_1;
+			values.Exist_Object = 1;
+			
+			if(item.Image_CongOrIncong.item(values.order) == "Cong"){
+				values.Patch_Source = 3;
+			}else if(item.Image_CongOrIncong.item(values.order) == "Incong"){
+				values.Patch_Source = 2;
+			}
+			
 			values.Patch_Position = 2;
-		}else if(item.CP_x_coordinates.item(values.order) == "66.7%" && item.CP_y_coordinates.item(values.order) == "25%"){
+
+			
+		}else if(item.Object_Patch.item(values.order)=="3"){
+			picture.Present_image_patch_step.insertitem(picture.SquareCounterpart.item(values.order),1);
+			trial.Patch_present.insertstimulusframe(picture.Present_image_patch_step,1);
+			trial.Patch_present.insertstimulusframe(picture.Patch_locate_3_present,1);
+			trial.Patch_present.insertstimulusframe(text.cross,1);
+			values.patch_ID += 1;
+			values.x_coordinate = values.location_horizontal_3;
+			values.y_coordinate = values.location_vertical_1;
+			values.Exist_Object = 1;
+			
+			if(item.Image_CongOrIncong.item(values.order) == "Cong"){
+				values.Patch_Source = 3;
+			}else if(item.Image_CongOrIncong.item(values.order) == "Incong"){
+				values.Patch_Source = 2;
+			}
+			
 			values.Patch_Position = 3;
-		}else if(item.CP_x_coordinates.item(values.order) == "33.3%" && item.CP_y_coordinates.item(values.order) == "50%"){
+
+		}else if(item.Object_Patch.item(values.order)=="4"){
+			picture.Present_image_patch_step.insertitem(picture.SquareCounterpart.item(values.order),1);
+			trial.Patch_present.insertstimulusframe(picture.Present_image_patch_step,1);
+			trial.Patch_present.insertstimulusframe(picture.Patch_locate_4_present,1);
+			trial.Patch_present.insertstimulusframe(text.cross,1);
+			values.patch_ID += 1;
+			values.x_coordinate = values.location_horizontal_1;
+			values.y_coordinate = values.location_vertical_2;
+			values.Exist_Object = 1;
+			
+			if(item.Image_CongOrIncong.item(values.order) == "Cong"){
+				values.Patch_Source = 3;
+			}else if(item.Image_CongOrIncong.item(values.order) == "Incong"){
+				values.Patch_Source = 2;
+			}
+			
 			values.Patch_Position = 4;
-		}else if(item.CP_x_coordinates.item(values.order) == "50%" && item.CP_y_coordinates.item(values.order) == "50%"){
+
+			
+		}else if(item.Object_Patch.item(values.order)=="5"){
+			picture.Present_image_patch_step.insertitem(picture.SquareCounterpart.item(values.order),1);
+			trial.Patch_present.insertstimulusframe(picture.Present_image_patch_step,1);
+			trial.Patch_present.insertstimulusframe(picture.Patch_locate_5_present,1);
+			
+			values.patch_ID += 1;
+			values.x_coordinate = values.location_horizontal_2;
+			values.y_coordinate = values.location_vertical_2;
+			values.Exist_Object = 1;
+			if(item.Image_CongOrIncong.item(values.order) == "Cong"){
+				values.Patch_Source = 3;
+			}else if(item.Image_CongOrIncong.item(values.order) == "Incong"){
+				values.Patch_Source = 2;
+			}
 			values.Patch_Position = 5;
-		}else if(item.CP_x_coordinates.item(values.order) == "66.7%" && item.CP_y_coordinates.item(values.order) == "50%"){
+			values.null_index = 0;
+			
+		}else if(item.Object_Patch.item(values.order)=="6"){
+			picture.Present_image_patch_step.insertitem(picture.SquareCounterpart.item(values.order),1);
+			trial.Patch_present.insertstimulusframe(picture.Present_image_patch_step,1);
+			trial.Patch_present.insertstimulusframe(picture.Patch_locate_6_present,1);
+			trial.Patch_present.insertstimulusframe(text.cross,1);
+			values.patch_ID += 1;
+			values.x_coordinate = values.location_horizontal_3;
+			values.y_coordinate = values.location_vertical_2;
+			values.Exist_Object = 1;
+			if(item.Image_CongOrIncong.item(values.order) == "Cong"){
+				values.Patch_Source = 3;
+			}else if(item.Image_CongOrIncong.item(values.order) == "Incong"){
+				values.Patch_Source = 2;
+			}
 			values.Patch_Position = 6;
-		}else if(item.CP_x_coordinates.item(values.order) == "33.3%" && item.CP_y_coordinates.item(values.order) == "75%"){
+			values.null_index = 0;	
+			
+		}else if(item.Object_Patch.item(values.order)=="7"){
+			picture.Present_image_patch_step.insertitem(picture.SquareCounterpart.item(values.order),1);
+			trial.Patch_present.insertstimulusframe(picture.Present_image_patch_step,1);
+			trial.Patch_present.insertstimulusframe(picture.Patch_locate_7_present,1);
+			trial.Patch_present.insertstimulusframe(text.cross,1);
+			values.patch_ID += 1;
+			values.x_coordinate = values.location_horizontal_1;
+			values.y_coordinate = values.location_vertical_3;
+			values.Exist_Object = 1;
+			if(item.Image_CongOrIncong.item(values.order) == "Cong"){
+				values.Patch_Source = 3;
+			}else if(item.Image_CongOrIncong.item(values.order) == "Incong"){
+				values.Patch_Source = 2;
+			}
 			values.Patch_Position = 7;
-		}else if(item.CP_x_coordinates.item(values.order) == "50%" && item.CP_y_coordinates.item(values.order) == "75%"){
+			values.null_index = 0;
+			
+		}else if(item.Object_Patch.item(values.order)=="8"){
+			picture.Present_image_patch_step.insertitem(picture.SquareCounterpart.item(values.order),1);
+			trial.Patch_present.insertstimulusframe(picture.Present_image_patch_step,1);
+			trial.Patch_present.insertstimulusframe(picture.Patch_locate_8_present,1);
+			trial.Patch_present.insertstimulusframe(text.cross,1);
+			values.patch_ID += 1;
+			values.x_coordinate = values.location_horizontal_2;
+			values.y_coordinate = values.location_vertical_3;
+			values.Exist_Object = 1;
+			if(item.Image_CongOrIncong.item(values.order) == "Cong"){
+				values.Patch_Source = 3;
+			}else if(item.Image_CongOrIncong.item(values.order) == "Incong"){
+				values.Patch_Source = 2;
+			}
 			values.Patch_Position = 8;
-		}else if(item.CP_x_coordinates.item(values.order) == "66.7%" && item.CP_y_coordinates.item(values.order) == "75%"){
-			values.Patch_Position = 9;
-		}
+			
+		}else{
+			picture.Present_image_patch_step.insertitem(picture.SquareCounterpart.item(values.order),1);
+			trial.Patch_present.insertstimulusframe(picture.Present_image_patch_step,1);
+			trial.Patch_present.insertstimulusframe(picture.Patch_locate_9_present,1);
+			trial.Patch_present.insertstimulusframe(text.cross,1);
+			values.patch_ID += 1;
+			values.x_coordinate = values.location_horizontal_3;
+			values.y_coordinate = values.location_vertical_3;
+			values.Exist_Object = 1;
+			if(item.Image_CongOrIncong.item(values.order) == "Cong"){
+				values.Patch_Source = 3;
+			}else if(item.Image_CongOrIncong.item(values.order) == "Incong"){
+				values.Patch_Source = 2;
+			}
+			
+			values.Patch_Position = 9; 
+		}	
 	}else if(values.question_choose == 2){
 		picture.Present_image_patch_step.insertitem(picture.SquarePresent.item(values.order),1);
 		trial.Patch_present.insertstimulusframe(picture.Present_image_patch_step,1);
@@ -364,9 +479,9 @@
 			values.patch_ID += 1;
 			values.Exist_Object = 0;
 			values.null_index = 0;
-			if(item.CongOrIncong.item(values.order) == "Cong"){
+			if(item.Image_CongOrIncong.item(values.order) == "Cong"){
 				values.Patch_Source = 2;
-			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+			}else if(item.Image_CongOrIncong.item(values.order) == "Incong"){
 				values.Patch_Source = 3;
 			}
 		}else if (item.Present_1_position.item(values.order) == "2"){
@@ -377,9 +492,9 @@
 			values.Patch_Position = 2;
 			values.patch_ID += 1;
 			values.Exist_Object = 0;
-			if(item.CongOrIncong.item(values.order) == "Cong"){
+			if(item.Image_CongOrIncong.item(values.order) == "Cong"){
 				values.Patch_Source = 2;
-			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+			}else if(item.Image_CongOrIncong.item(values.order) == "Incong"){
 				values.Patch_Source = 3;
 			}
 
@@ -391,9 +506,9 @@
 			values.Patch_Position = 3;
 			values.patch_ID += 1;
 			values.Exist_Object = 0;
-			if(item.CongOrIncong.item(values.order) == "Cong"){
+			if(item.Image_CongOrIncong.item(values.order) == "Cong"){
 				values.Patch_Source = 2;
-			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+			}else if(item.Image_CongOrIncong.item(values.order) == "Incong"){
 				values.Patch_Source = 3;
 			}
 
@@ -405,9 +520,9 @@
 			values.Patch_Position = 4;
 			values.patch_ID += 1;
 			values.Exist_Object = 0;
-			if(item.CongOrIncong.item(values.order) == "Cong"){
+			if(item.Image_CongOrIncong.item(values.order) == "Cong"){
 				values.Patch_Source = 2;
-			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+			}else if(item.Image_CongOrIncong.item(values.order) == "Incong"){
 				values.Patch_Source = 3;
 			}
 		}else if (item.Present_1_position.item(values.order) == "5"){
@@ -417,9 +532,9 @@
 			values.Patch_Position = 5;
 			values.patch_ID += 1;
 			values.Exist_Object = 0;
-			if(item.CongOrIncong.item(values.order) == "Cong"){
+			if(item.Image_CongOrIncong.item(values.order) == "Cong"){
 				values.Patch_Source = 2;
-			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+			}else if(item.Image_CongOrIncong.item(values.order) == "Incong"){
 				values.Patch_Source = 3;
 			}
 		}else if (item.Present_1_position.item(values.order) == "6"){
@@ -430,9 +545,9 @@
 			values.Patch_Position = 6;
 			values.patch_ID += 1;
 			values.Exist_Object = 0;
-			if(item.CongOrIncong.item(values.order) == "Cong"){
+			if(item.Image_CongOrIncong.item(values.order) == "Cong"){
 				values.Patch_Source = 2;
-			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+			}else if(item.Image_CongOrIncong.item(values.order) == "Incong"){
 				values.Patch_Source = 3;
 			}
 			
@@ -444,9 +559,9 @@
 			values.Patch_Position = 7;
 			values.patch_ID += 1;
 			values.Exist_Object = 0;
-			if(item.CongOrIncong.item(values.order) == "Cong"){
+			if(item.Image_CongOrIncong.item(values.order) == "Cong"){
 				values.Patch_Source = 2;
-			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+			}else if(item.Image_CongOrIncong.item(values.order) == "Incong"){
 				values.Patch_Source = 3;
 			}
 		}else if (item.Present_1_position.item(values.order) == "8"){
@@ -457,9 +572,9 @@
 			values.Patch_Position = 8;
 			values.patch_ID += 1;
 			values.Exist_Object = 0;
-			if(item.CongOrIncong.item(values.order) == "Cong"){
+			if(item.Image_CongOrIncong.item(values.order) == "Cong"){
 				values.Patch_Source = 2;
-			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+			}else if(item.Image_CongOrIncong.item(values.order) == "Incong"){
 				values.Patch_Source = 3;
 			}
 			
@@ -471,9 +586,9 @@
 			values.Patch_Position = 9;
 			values.patch_ID += 1;
 			values.Exist_Object = 0;
-			if(item.CongOrIncong.item(values.order) == "Cong"){
+			if(item.Image_CongOrIncong.item(values.order) == "Cong"){
 				values.Patch_Source = 2;
-			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+			}else if(item.Image_CongOrIncong.item(values.order) == "Incong"){
 				values.Patch_Source = 3;
 			}
 		}
@@ -488,9 +603,9 @@
 			values.Patch_Position = 1;
 			values.patch_ID += 1;
 			values.Exist_Object = 0;
-			if(item.CongOrIncong.item(values.order) == "Cong"){
+			if(item.Image_CongOrIncong.item(values.order) == "Cong"){
 				values.Patch_Source = 2;
-			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+			}else if(item.Image_CongOrIncong.item(values.order) == "Incong"){
 				values.Patch_Source = 3;
 			}
 			
@@ -502,9 +617,9 @@
 			values.Patch_Position = 2;
 			values.patch_ID += 1;
 			values.Exist_Object = 0;
-			if(item.CongOrIncong.item(values.order) == "Cong"){
+			if(item.Image_CongOrIncong.item(values.order) == "Cong"){
 				values.Patch_Source = 2;
-			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+			}else if(item.Image_CongOrIncong.item(values.order) == "Incong"){
 				values.Patch_Source = 3;
 			}
 			
@@ -517,9 +632,9 @@
 			values.patch_ID += 1;
 			values.Exist_Object = 0;
 			values.null_index = 0;
-			if(item.CongOrIncong.item(values.order) == "Cong"){
+			if(item.Image_CongOrIncong.item(values.order) == "Cong"){
 				values.Patch_Source = 2;
-			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+			}else if(item.Image_CongOrIncong.item(values.order) == "Incong"){
 				values.Patch_Source = 3;
 			}
 			
@@ -531,9 +646,9 @@
 			values.Patch_Position = 4;
 			values.patch_ID += 1;
 			values.Exist_Object = 0;
-			if(item.CongOrIncong.item(values.order) == "Cong"){
+			if(item.Image_CongOrIncong.item(values.order) == "Cong"){
 				values.Patch_Source = 2;
-			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+			}else if(item.Image_CongOrIncong.item(values.order) == "Incong"){
 				values.Patch_Source = 3;
 			}
 			
@@ -544,9 +659,9 @@
 			values.Patch_Position = 5;
 			values.patch_ID += 1;
 			values.Exist_Object = 0;
-			if(item.CongOrIncong.item(values.order) == "Cong"){
+			if(item.Image_CongOrIncong.item(values.order) == "Cong"){
 				values.Patch_Source = 2;
-			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+			}else if(item.Image_CongOrIncong.item(values.order) == "Incong"){
 				values.Patch_Source = 3;
 			}
 			
@@ -558,9 +673,9 @@
 			values.Patch_Position = 6;
 			values.patch_ID += 1;
 			values.Exist_Object = 0;
-			if(item.CongOrIncong.item(values.order) == "Cong"){
+			if(item.Image_CongOrIncong.item(values.order) == "Cong"){
 				values.Patch_Source = 2;
-			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+			}else if(item.Image_CongOrIncong.item(values.order) == "Incong"){
 				values.Patch_Source = 3;
 			}
 			
@@ -572,9 +687,9 @@
 			values.Patch_Position = 7;
 			values.patch_ID += 1;
 			values.Exist_Object = 0;
-			if(item.CongOrIncong.item(values.order) == "Cong"){
+			if(item.Image_CongOrIncong.item(values.order) == "Cong"){
 				values.Patch_Source = 2;
-			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+			}else if(item.Image_CongOrIncong.item(values.order) == "Incong"){
 				values.Patch_Source = 3;
 			}
 			
@@ -586,9 +701,9 @@
 			values.Patch_Position = 8;
 			values.patch_ID += 1;
 			values.Exist_Object = 0;
-			if(item.CongOrIncong.item(values.order) == "Cong"){
+			if(item.Image_CongOrIncong.item(values.order) == "Cong"){
 				values.Patch_Source = 2;
-			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+			}else if(item.Image_CongOrIncong.item(values.order) == "Incong"){
 				values.Patch_Source = 3;
 			}
 			
@@ -600,113 +715,42 @@
 			values.Patch_Position = 9;
 			values.patch_ID += 1;
 			values.Exist_Object = 0;
-			if(item.CongOrIncong.item(values.order) == "Cong"){
+			if(item.Image_CongOrIncong.item(values.order) == "Cong"){
 				values.Patch_Source = 2;
-			}else if(item.CongOrIncong.item(values.order) == "Incong"){
+			}else if(item.Image_CongOrIncong.item(values.order) == "Incong"){
 				values.Patch_Source = 3;
 			}
 			
 		}
 	}else{
-		if(counter.patch_of_random.selectedvalue == 1){
-			trial.Patch_present.insertstimulusframe(text.cross, 1);
-			trial.Patch_present.insertstimulusframe(picture.nPatch_locate_1_resource, 2);
-			values.x_coordinate = values.location_horizontal_1;
-			values.y_coordinate = values.location_vertical_1;
-			values.patch_ID += 1;
-			values.Patch_Source = 1;
-			values.Exist_Object = 0;
+		values.null_order += 1;
+		picture.null_patch_present.insertitem(picture.null_patch_source.item(values.null_order),1);
+		trial.Patch_present.insertstimulusframe(text.cross, 1);
+		trial.Patch_present.insertstimulusframe(picture.null_patch_present, 2);
+		values.x_coordinate = item.Null_x_coordinates.item(values.order);
+		values.y_coordinate = item.Null_y_coordinates.item(values.order);
+		values.patch_ID += 1;
+		values.Patch_Source = 1;
+		values.Exist_Object = 1;
+		
+		if(item.Null_x_coordinates.item(values.null_order) == "33.3%" && item.Null_y_coordinates.item(values.null_order) == "25%"){
 			values.Patch_Position = 1;
-			values.null_loc_1 += 1;
-			values.null_index = values.null_loc_1;
-		}else if(counter.patch_of_random.selectedvalue == 2){
-			trial.Patch_present.insertstimulusframe(text.cross, 1);
-			trial.Patch_present.insertstimulusframe(picture.nPatch_locate_2_resource, 2);
-			values.x_coordinate = values.location_horizontal_2;
-			values.y_coordinate = values.location_vertical_1;
-			values.patch_ID += 1;
-			values.Patch_Source = 1;
-			values.Exist_Object = 0;
-			values.Patch_Position = 2;	
-			values.null_loc_2 += 1;
-			values.null_index = values.null_loc_2;
-		}else if(counter.patch_of_random.selectedvalue == 3){
-			trial.Patch_present.insertstimulusframe(text.cross, 1);
-			trial.Patch_present.insertstimulusframe(picture.nPatch_locate_3_resource, 2);
-			values.x_coordinate = values.location_horizontal_3;
-			values.y_coordinate = values.location_vertical_1;
-			values.patch_ID += 1;
-			values.Patch_Source = 1;
-			values.Exist_Object = 0;
+		}else if(item.Null_x_coordinates.item(values.null_order) == "50%" && item.Null_y_coordinates.item(values.null_order == "25%"){
+			values.Patch_Position = 2;
+		}else if(item.Null_x_coordinates.item(values.null_order) == "66.7%" && item.Null_y_coordinates.item(values.null_order) == "25%"){
 			values.Patch_Position = 3;
-			values.null_loc_3 += 1;
-			values.null_index = values.null_loc_3;			
-		}else if(counter.patch_of_random.selectedvalue == 4){
-			trial.Patch_present.insertstimulusframe(text.cross, 1);
-			trial.Patch_present.insertstimulusframe(picture.nPatch_locate_4_resource, 2);
-			values.x_coordinate = values.location_horizontal_1;
-			values.y_coordinate = values.location_vertical_2;
-			values.patch_ID += 1;
-			values.Patch_Source = 1;
-			values.Exist_Object = 0;
+		}else if(item.Null_x_coordinates.item(values.null_order) == "33.3%" && item.Null_y_coordinates.item(values.null_order) == "50%"){
 			values.Patch_Position = 4;
-			values.null_loc_4 += 1;
-			values.null_index = values.null_loc_4;			
-		}else if(counter.patch_of_random.selectedvalue == 5){
-			trial.Patch_present.insertstimulusframe(text.cross, 1);
-			trial.Patch_present.insertstimulusframe(picture.nPatch_locate_5_resource, 2);
-			values.x_coordinate = values.location_horizontal_2;
-			values.y_coordinate = values.location_vertical_2;
-			values.patch_ID += 1;
-			values.Patch_Source = 1;
-			values.Exist_Object = 0;
+		}else if(item.Null_x_coordinates.item(values.null_order) == "50%" && item.Null_y_coordinates.item(values.null_order) == "50%"){
 			values.Patch_Position = 5;
-			values.null_loc_5 += 1;
-			values.null_index = values.null_loc_5;			
-		}else if(counter.patch_of_random.selectedvalue == 6){
-			trial.Patch_present.insertstimulusframe(text.cross, 1);
-			trial.Patch_present.insertstimulusframe(picture.nPatch_locate_6_resource, 2);
-			values.x_coordinate = values.location_horizontal_3;
-			values.y_coordinate = values.location_vertical_2;
-			values.patch_ID += 1;
-			values.Patch_Source = 1;
-			values.Exist_Object = 0;
+		}else if(item.Null_x_coordinates.item(values.null_order) == "66.7%" && item.Null_y_coordinates.item(values.null_order) == "50%"){
 			values.Patch_Position = 6;
-			values.null_loc_6 += 1;
-			values.null_index = values.null_loc_6;			
-		}else if(counter.patch_of_random.selectedvalue == 7){
-			trial.Patch_present.insertstimulusframe(text.cross, 1);
-			trial.Patch_present.insertstimulusframe(picture.nPatch_locate_7_resource, 2);
-			values.x_coordinate = values.location_horizontal_1;
-			values.y_coordinate = values.location_vertical_3;
-			values.patch_ID += 1;
-			values.Patch_Source = 1;
-			values.Exist_Object = 0;
+		}else if(item.Null_x_coordinates.item(values.null_order) == "33.3%" && item.Null_y_coordinates.item(values.null_order) == "75%"){
 			values.Patch_Position = 7;
-			values.null_loc_7 += 1;
-			values.null_index = values.null_loc_7;			
-		}else if(counter.patch_of_random.selectedvalue == 8){
-			trial.Patch_present.insertstimulusframe(text.cross, 1);
-			trial.Patch_present.insertstimulusframe(picture.nPatch_locate_8_resource, 2);
-			values.x_coordinate = values.location_horizontal_2;
-			values.y_coordinate = values.location_vertical_3;
-			values.patch_ID += 1;
-			values.Patch_Source = 1;
-			values.Exist_Object = 0;
+		}else if(item.Null_x_coordinates.item(values.null_order) == "50%" && item.Null_y_coordinates.item(values.null_order) == "75%"){
 			values.Patch_Position = 8;
-			values.null_loc_8 += 1;
-			values.null_index = values.null_loc_8;			
-		}else{
-			trial.Patch_present.insertstimulusframe(text.cross, 1);
-			trial.Patch_present.insertstimulusframe(picture.nPatch_locate_9_resource, 2);
-			values.x_coordinate = values.location_horizontal_3;
-			values.y_coordinate = values.location_vertical_3;
-			values.patch_ID += 1;
-			values.Patch_Source = 1;
-			values.Exist_Object = 0;
+		}else if(item.Null_x_coordinates.item(values.null_order) == "66.7%" && item.Null_y_coordinates.item(values.null_order) == "75%"){
 			values.Patch_Position = 9;
-			values.null_loc_9 += 1;
-			values.null_index = values.null_loc_9;			
 		}
 	}	
 ]
@@ -717,7 +761,7 @@
 	/ ontrialend = [
 	trial.Patch_present.clearstimulusframes();
 	picture.Present_image_patch_step.clearitems();
-	picture.CP_patch_present.clearitems();
+	picture.null_patch_present.clearitems();
 ]
 	/ branch = [
 		trial.mask_patch
@@ -799,14 +843,20 @@ lowC_instruction, highC_instruction,part_of_Image,Not_part_of_Image,centersquare
 	]
 </trial>
 
-<trial catch_present_trial>
-/ ontrialbegin = [values.catch_question = round(rand(1, 4));
+<counter catch_present_select>
+/ select = replace(1-4)
+</counter>
 
+<counter catch_absent_select>
+/ select = replace(1-4)
+</counter>
+
+<trial catch_present_trial>
+/ ontrialbegin = [values.catch_question = counter.catch_present_select.selectedvalue;
 ]
 / stimulusframes = [
 	1 = response1d, response2d, response3d, response4d, response5d, response6d, response7d, response8d, response_blank,
 lowC_instruction, highC_instruction,part_of_Image,Not_part_of_Image,catch_response_instructions;
-	2 = list.catch_present_words;
 	]
 / inputdevice = mouse
 / validresponse = (response_blank, response1d, response2d, response3d, response4d, response5d, response6d, response7d, response8d)
@@ -814,7 +864,7 @@ lowC_instruction, highC_instruction,part_of_Image,Not_part_of_Image,catch_respon
 expressions.validresponse_disks
 ]
 / ontrialend = [values.Exist_Object = values.catch_question;
-				values.Patch_Source = 0;
+				values.Patch_Source = 1;
 				values.Image_ID = 0;
 				values.Patch_Position = 0;
 				values.null_index = 0;
@@ -827,13 +877,12 @@ expressions.validresponse_disks
 </trial>
 
 <trial catch_absent_trial>
-/ ontrialbegin = [ values.question = round(rand(1, 4))
+/ ontrialbegin = [ values.catch_question = counter.catch_absent_select.selectedvalue;
 	]
 
 / stimulusframes = [
 	1 = response1d, response2d, response3d, response4d, response5d, response6d, response7d, response8d, response_blank,
 lowC_instruction, highC_instruction,part_of_Image,Not_part_of_Image,catch_response_instructions;
-	2 = list.catch_absent_words;
 	]
 / inputdevice = mouse
 / validresponse = (response_blank, response1d, response2d, response3d, response4d, response5d, response6d, response7d, response8d)
@@ -842,7 +891,7 @@ expressions.validresponse_disks
 ]
 / ontrialend = [ 
 		values.Exist_Object = values.catch_question;
-		values.Patch_Source = 0;
+		values.Patch_Source = -1;
 		values.Image_ID = 0;
 		values.Patch_Position = 0;
 		values.null_index = 0;
@@ -898,9 +947,7 @@ expressions.validresponse_disks
 	if (values.Index == values.catch_trial_1 || values.Index == values.catch_trial_2 ||
 	values.Index == values.catch_trial_3 || values.Index == values.catch_trial_4 || 
 	values.Index == values.catch_trial_5 ||values.Index == values.catch_trial_6 ||
-	values.Index == values.catch_trial_7 || values.Index == values.catch_trial_8 ||
-	values.Index == values.catch_trial_9 || values.Index == values.catch_trial_10 || 
-	values.Index == values.catch_trial_11 ||values.Index == values.catch_trial_12){
+	values.Index == values.catch_trial_7 || values.Index == values.catch_trial_8 ||){
 		2;
 	}
 	else {
@@ -923,14 +970,12 @@ expressions.validresponse_disks
 10 = catch;
 11 = attention3;
 12-63 = list.test_select;
-64 = schizotypy_survey;
-65 = demographics;]
+]
 </expt>
 
 <data>
 / columns=[subject,values.Index,values.patch_ID,values.CongOrIncong,values.Patch_Source,values.Exist_Object,values.Patch_Position,
-			values.response,values.p_confidence,latency,values.Image_ID,values.null_index, values.OLIFE_subscale_1_score,
-			values.OLIFE_subscale_2_score,values.OLIFE_subscale_3_score,values.OLIFE_subscale_4_score, response,
+			values.response,values.p_confidence,latency,values.Image_ID,
 			 expressions.ratio_pxpermm, values.screen_size_x, values.screen_size_y, values.viewer_distance,
 			values.line_size,values.calibration_image_size,list.viewing_distance.currentvalue,
 			values.screen_x_threshold,values.distance_threshold]

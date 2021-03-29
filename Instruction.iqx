@@ -277,8 +277,15 @@ When you are ready, press 'SPACEBAR' to begin the actual experiment.")
 </trial>
 
 // Catch response instructions for catch trials
-<text catch_response_instructions>
-/ items = ("ATTENTION: Please click on the response as specified at the center of the screen.")
+<text catch_present_response_instructions>
+/ items = ("ATTENTION: Please choose <%list.catch_present_words%> on the response screen.")
+/ fontstyle = ("Arial", 4%, true)
+/ txbgcolor = (127,127,127)
+/ position = (50,80)
+</text>
+
+<text catch_absent_response_instructions>
+/ items = ("ATTENTION: Please choose <%list.catch_absent_words%> on the response screen.")
 / fontstyle = ("Arial", 4%, true)
 / txbgcolor = (127,127,127)
 / position = (50,80)

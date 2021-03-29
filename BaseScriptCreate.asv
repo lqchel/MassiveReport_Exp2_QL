@@ -76,16 +76,7 @@ for batch = 1:Number_of_Batch
         end
         IP_position(presentation_order) = find(temp_array == 'p'); %%Find the CP position of the image
     end
-          
- %% Copy all selected image pairs to folder
-    for presentation_number = 1:Total_Trial_number
-        % copy image
-        string_order = num2str(order_list(presentation_number).','%03d');
-        cong_img_name = sprintf('%s%s%s.jpg',file_path_CongruentCropped,'SquareCongruent_',string_order); 
-        incong_img_name = sprintf('%s%s%s.jpg',file_path_InCongruentCropped,'SquareIncongruent_',string_order); 
-        copyfile(cong_img_name,DST_PATH_t);
-        copyfile(incong_img_name,DST_PATH_t);        
-    end     
+
 
 %% Select Null Patches for current group
     % select unique set of null patches for each group 
@@ -168,10 +159,31 @@ for batch = 1:Number_of_Batch
 
          
 %% Write CP patch
-          
+            fprintf(fid,'<item CP_patch>\n');
+            for presentation_number = 1:Total_Trial_number
+                if PresentArray(presentation_number) == "Cong"
+                   item_content = sprintf('incong_%d_%d_p.jpg',order_list(presentation_number),IP_position(presentation_number));
+                   fprintf(fid,'/%d = "%s"\n',presentation_number,item_content);
+                elseif PresentArray(presentation_number) == "INcong"
+                   item_content = sprintf('cong_%d_%d_p.jpg',order_list(presentation_number),IP_position(presentation_number));
+                   fprintf(fid,'/%d = "%s"\n',presentation_number,item_content);
+                end
+            end
+            fprintf(fid,'</item>\n\n');            
 
 %% Write coordinates for CP positions
 
+            fprintf(fid,'<item CP_x_coordinates>\n');
+            for presentation_number = 1:Total_Trial_number
+                fprintf(fid,'/%d = "%s%%"\n',presentation_number,CP_x_coordinates(presentation_number));
+            end
+            fprintf(fid,'</item>\n\n');
+
+            fprintf(fid,'<item CP_y_coordinates>\n');
+            for presentation_number = 1:Total_Trial_number
+                fprintf(fid,'/%d = "%s%%"\n',presentation_number,CP_y_coordinates(presentation_number));
+            end
+            fprintf(fid,'</item>\n\n');
 
 %% Create group of position 1
             fprintf(fid,'<picture Patch_locate_1_present>\n');
@@ -351,7 +363,7 @@ for batch = 1:Number_of_Batch
             end
             fprintf(fid,'</item>\n\n');
 
-%% The list of location of the CP patches
+%% The list of location of the object patches
             fprintf(fid,'<item Object_Patch>\n');
             for presentation_order = 1:length(order_list)
                 fprintf(fid,'/%d = "%d"\n',presentation_order,IP_position(presentation_order));

@@ -294,8 +294,8 @@ for batch = 1:Number_of_Batch
             % print select null patch file names
             fprintf(fid,'<item null_patch>\n');           
             for n_patch_list = 1:length(subject_null_sequence)
-                string_order = num2str(subject_null_sequence(n_patch_list).','%07d');
-                fprintf(fid,'/%d = "patch%s.jpg",\n',n_patch_list,string_order);
+                string_order = num2str(subject_null_sequence(n_patch_list),'%07d');
+                fprintf(fid,'/%d = "patch%s.jpg"\n',n_patch_list,string_order);
             end
             fprintf(fid,'</item>\n\n');
             

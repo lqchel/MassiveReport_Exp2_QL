@@ -5,7 +5,7 @@ dirOutput=dir(fullfile(fileFolder,'*'));%??????????????*?????????????????'.'????
 fileNames={dirOutput.name}';
 for batch = 1:4
     for group = 1:4
-        DesDir = sprintf('Batch_%d_Group_%d_',batch,group);
+        DesDir = sprintf('Batch_%d_Group_%d',batch,group);
         DST_PATH_t = ['WebVersion\',DesDir];%??????
                 %     Copy Commom Scripts
         file_1 = 'GIFSource\FixAndPresent.gif';

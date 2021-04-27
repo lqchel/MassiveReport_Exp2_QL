@@ -67,11 +67,11 @@
 	values.Index += 1;
 	
 	if (values.Index == 1){
-		values.presentation_time = 2000
+		values.presentation_time = 500
 	}else if (values.Index == 2){
-		values.presentation_time = 2000
+		values.presentation_time = 250
 	}else{
-		values.presentation_time = 2000
+		values.presentation_time = 133
 	}
 ]
 	/ stimulusframes = []
@@ -266,9 +266,10 @@
 				}else{
 					picture.Present_image_patch_step.insertitem(picture.SquareCounterpart.item(values.order),1);
 				}
+				trial.Patch_present.insertstimulusframe(text.cross,1);
 				trial.Patch_present.insertstimulusframe(picture.Present_image_patch_step,1);
 				trial.Patch_present.insertstimulusframe(picture.Patch_locate_5_present,1);
-				trial.Patch_present.insertstimulusframe(text.cross,1);
+
 				
 				values.patch_ID += 1;
 				values.x_coordinate = values.location_horizontal_2;
@@ -395,6 +396,7 @@
 				values.x_coordinate = values.location_horizontal_3;
 				values.y_coordinate = values.location_vertical_3;
 				values.Exist_Object = 1;
+				
 				if(item.Patch_OriginalOrModified.item(values.order)=="Original"){
 					if(item.Image_CongOrIncong.item(values.order) == "Cong"){
 						values.Patch_Source = 2;
@@ -491,9 +493,10 @@
 				values.Patch_Position = 4;
 			}else if(item.Present_1_position.item(values.order)=="5"){
 				picture.Present_image_patch_step.insertitem(picture.SquarePresent.item(values.order),1);
+				trial.Patch_present.insertstimulusframe(text.cross,1);
 				trial.Patch_present.insertstimulusframe(picture.Present_image_patch_step,1);
 				trial.Patch_present.insertstimulusframe(picture.Patch_locate_5_present,1);
-				trial.Patch_present.insertstimulusframe(text.cross,1);
+				
 				
 				values.patch_ID += 1;
 				values.x_coordinate = values.location_horizontal_2;
@@ -657,9 +660,9 @@
 				values.Patch_Position = 4;
 			}else if(item.Present_2_position.item(values.order)=="5"){
 				picture.Present_image_patch_step.insertitem(picture.SquarePresent.item(values.order),1);
+				trial.Patch_present.insertstimulusframe(text.cross,1);
 				trial.Patch_present.insertstimulusframe(picture.Present_image_patch_step,1);
 				trial.Patch_present.insertstimulusframe(picture.Patch_locate_5_present,1);
-				trial.Patch_present.insertstimulusframe(text.cross,1);
 				
 				values.patch_ID += 1;
 				values.x_coordinate = values.location_horizontal_2;
@@ -851,7 +854,6 @@ lowC_instruction, highC_instruction,part_of_Image,Not_part_of_Image,centersquare
 																CATCH TRIAL
 ******************************************************************************************************************************************************************************************************
 
-
 <trial Catch_fixation>
 	/ stimulusframes = [1 = cross]
 	/ timeout = 500
@@ -959,7 +961,7 @@ expressions.validresponse_disks
 	if (values.Index == values.catch_trial_1 || values.Index == values.catch_trial_2 ||
 	values.Index == values.catch_trial_3 || values.Index == values.catch_trial_4 || 
 	values.Index == values.catch_trial_5 ||values.Index == values.catch_trial_6 ||
-	values.Index == values.catch_trial_7 || values.Index == values.catch_trial_8 ||){
+	values.Index == values.catch_trial_7 || values.Index == values.catch_trial_8){
 		2;
 	}
 	else {

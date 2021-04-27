@@ -26,8 +26,8 @@ Number_of_Masking = 20;
 Number_of_Null = 117; % number of null patches per group
 Null_per_trial = 3; % number of null patches each trial
 Number_of_Batch = 1;
-Number_of_Group = 1;
-Number_of_Subjects = 5; % number of subjects per group
+Number_of_Group = 2;
+Number_of_Subjects = 3; % number of subjects per group
 Total_Null_Number = Number_of_Null*Number_of_Batch*Number_of_Group;
 
 %% Prepare Null Patch Stimuli for All Batches 
@@ -99,7 +99,7 @@ for batch = 1:Number_of_Batch
         file_name = sprintf('%spatch%s.jpg',file_path_N_patches,string_order);
         copyfile(file_name,DST_PATH_t);%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%COPY
     end
-    
+%     group_null_sequence = zeros(Number_of_Null,Number_of_Subjects);
 %% Copy List of Masking and the masking for patches
             for Masking_group = 1:5
                 for content = 1:(Number_of_Masking/5)
@@ -288,13 +288,20 @@ for batch = 1:Number_of_Batch
             else
                 end_point_from_beginning = sequence_end_point-Number_of_Null;
                 subject_null_sequence = [group_null_patch(sequence_start_point:end) group_null_patch(1:end_point_from_beginning)];
-            end
+            end            
+           %%% group_null_sequence(:,subject) = subject_null_sequence;
             
             % print select null patch file names
             fprintf(fid,'<item null_patch>\n');           
             for n_patch_list = 1:length(subject_null_sequence)
                 string_order = num2str(subject_null_sequence(n_patch_list).','%07d');
-                fprintf(fid,'"patch%s.jpg",\n',string_order);
+                fprintf(fid,'/%d = "patch%s.jpg",\n',n_patch_list,string_order);
+            end
+            fprintf(fid,'</item>\n\n');
+            
+            fprintf(fid,'<item null_number>\n');           
+            for n_patch_list = 1:length(subject_null_sequence)
+                fprintf(fid,'/%d = "%s" \n',n_patch_list,num2str(subject_null_sequence(n_patch_list)));
             end
             fprintf(fid,'</item>\n\n');
             
@@ -417,7 +424,8 @@ for batch = 1:Number_of_Batch
             fprintf(fid,'</item>\n\n');
 
         end
-
+%         null_sequence_name = sprintf('NPatchList_B%d_G%d.mat',batch,group);
+%         save(null_sequence_name,group_null_sequence,'mat');
     end
  
 end

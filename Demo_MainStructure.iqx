@@ -753,8 +753,8 @@
 		picture.null_patch_present.insertitem(picture.null_patch_source.item(values.null_order),1);
 		trial.Patch_present.insertstimulusframe(text.cross, 1);
 		trial.Patch_present.insertstimulusframe(picture.null_patch_present, 2);
-		values.x_coordinate = item.Null_x_coordinates.item(values.order);
-		values.y_coordinate = item.Null_y_coordinates.item(values.order);
+		values.x_coordinate = item.Null_x_coordinates.item(values.null_order);
+		values.y_coordinate = item.Null_y_coordinates.item(values.null_order);
 		values.patch_ID += 1;
 		values.Patch_Source = 1;
 		values.Exist_Object = 0;

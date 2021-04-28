@@ -188,8 +188,9 @@ and how confident you are.")
 ***************************************************************************************************
 ***************************************************************************************************
 <text interval>
-/items = ("If you are ready, press SPACE BUTTON and move to next trial
-You have finished <%values.Index - values.num_prac_trials%> of <%values.num_trials + values.num_catch_trials%> trials")
+/items = ("You have finished <%values.Index - values.num_prac_trials%> of <%values.num_trials + values.num_catch_trials%> trials.
+If you are ready, press SPACE BUTTON and move to next trial.
+")
 / position = (50%,50%)
 / fontstyle = ("Arial", 3%, true)
 / txbgcolor = (127,127,127)
@@ -207,18 +208,6 @@ You have finished <%values.Index - values.num_prac_trials%> of <%values.num_tria
 
 // Catch (absent and present) text for use in catch trial responses
 // Words are selected using a randomly assigned value of 1-4 determined in trial.catch_presentation_present/trial.catch_presentation_absent
-
-<list catch_present_words>
-/ items = ("Yes 1","Yes 2","Yes 3","Yes 4")
-/ selectionrate = always
-/ selectionmode = values.catch_question
-</list>
-
-<list catch_absent_words>
-/ items = ("No 1","No 2","No 3","No 4")
-/ selectionrate = always
-/ selectionmode = values.catch_question
-</list>
 
 <text catch_interval>
 /items = ("press SPACEBAR to begin the next trial.")

@@ -278,17 +278,25 @@ When you are ready, press 'SPACEBAR' to begin the actual experiment.")
 
 // Catch response instructions for catch trials
 <text catch_present_response_instructions>
-/ items = ("ATTENTION: Please choose <%list.catch_present_words%> on the response screen.")
+/ items = ("ATTENTION: Please choose Yes 1 on the response screen.",
+			"ATTENTION: Please choose Yes 2 on the response screen.",
+			"ATTENTION: Please choose Yes 3 on the response screen.",
+			"ATTENTION: Please choose Yes 4 on the response screen.")
 / fontstyle = ("Arial", 4%, true)
 / txbgcolor = (127,127,127)
 / position = (50,80)
+/ select = values.catch_question
 </text>
 
 <text catch_absent_response_instructions>
-/ items = ("ATTENTION: Please choose <%list.catch_absent_words%> on the response screen.")
+/ items = ("ATTENTION: Please choose No 1 on the response screen.",
+			"ATTENTION: Please choose No 2 on the response screen.",
+			"ATTENTION: Please choose No 3 on the response screen.",
+			"ATTENTION: Please choose No 4 on the response screen.")
 / fontstyle = ("Arial", 4%, true)
 / txbgcolor = (127,127,127)
 / position = (50,80)
+/ select = values.catch_question
 </text>
 
 ***********************************************************************************************

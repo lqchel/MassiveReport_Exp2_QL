@@ -48,10 +48,10 @@ for batch = 1:Number_of_Batch
     % 1, it's cong-incong, then in combination 2, it's image-patch can
     % be cong-cong, incong-cong, or incong-incong. here,generate 4 groups, 
     % each with unique image-patch combination for each image pair
-    combination_sequence = zeros(Total_Trial_number,4);
-    combination_sequence(1:3,:) = [1 2 4 3; 2 3 1 4; 3 4 1 2];
+    combination_ordered_sequence = zeros(Total_Trial_number,4);
+    combination_ordered_sequence(1:3,:) = [1 2 4 3; 2 3 1 4; 3 4 1 2];
     for t = 1:Total_Trial
-        combination_sequence(t+3,:) = randperm(4,4); 
+        combination_ordered_sequence(t+3,:) = randperm(4,4); 
     end
       
     
@@ -63,6 +63,7 @@ for batch = 1:Number_of_Batch
     mkdir('WebVersion\',DesDir);
     DST_PATH_t = ['WebVersion\',DesDir];
     order_list_Masking = randperm(140,Number_of_Masking);
+    
 
     %% Specify where the CP located for the selected images
     IP_position = ones(1,length(order_list));
@@ -121,7 +122,16 @@ for batch = 1:Number_of_Batch
   
         for subject = 1:Number_of_Subjects
             filename = sprintf('BaseScript_B%d_G%d_S%d.iqx',batch,group,subject); 
-            fid = fopen(filename,'w');
+            fid = fopen(filename,'w');         
+            % randomize image presentation sequence, and sort the
+            % corresponding present patch, combination sequence, null patch
+            % sequence
+            rng shuffle
+            rand_seed = rng;
+            r_order = [1 2 3 randperm(Total_Trial)+3];
+            subject_order_list = order_list(r_order);
+            combination_sequence = combination_ordered_sequence(reshape(r_order,[length(r_order),1]),:);
+            
             
 %% Write List of Image file names in Base Script 
 %Need to mix the congruent and Incongruent images throughout the experiment
@@ -131,14 +141,14 @@ for batch = 1:Number_of_Batch
             for presentation_number = 1:Total_Trial_number
                 if combination_sequence(presentation_number,group) == 1 || combination_sequence(presentation_number,group) == 2
                     PresentArray(presentation_number) = 'Cong';
-                    string_order = num2str(order_list(presentation_number).','%03d');
+                    string_order = num2str(subject_order_list(presentation_number).','%03d');
                     address = sprintf('"%s%s.jpg"','SquareCongruent_',string_order);
                     fprintf(fid,'/%d = ',presentation_number);
                     fprintf(fid,'%s\n',address);
                 elseif combination_sequence(presentation_number,group) == 3 || combination_sequence(presentation_number,group) == 4
                     %Here to create part of Incongruent images
                     PresentArray(presentation_number) = 'INcong';
-                    string_order = num2str(order_list(presentation_number).','%03d');
+                    string_order = num2str(subject_order_list(presentation_number).','%03d');
                     address = sprintf('"%s%s.jpg"','SquareIncongruent_',string_order);
                     fprintf(fid,'/%d = ',presentation_number);
                     fprintf(fid,'%s\n',address);
@@ -151,13 +161,13 @@ for batch = 1:Number_of_Batch
             % copy file names
             for presentation_number = 1:Total_Trial_number
                 if combination_sequence(presentation_number,group) == 1 || combination_sequence(presentation_number,group) == 2
-                    string_order = num2str(order_list(presentation_number).','%03d');
+                    string_order = num2str(subject_order_list(presentation_number).','%03d');
                     address = sprintf('"%s%s.jpg"','SquareIncongruent_',string_order);
                     fprintf(fid,'/%d = ',presentation_number);
                     fprintf(fid,'%s\n',address);
                 elseif combination_sequence(presentation_number,group) == 3 || combination_sequence(presentation_number,group) == 4
                     %Here to create part of Incongruent images
-                    string_order = num2str(order_list(presentation_number).','%03d');
+                    string_order = num2str(subject_order_list(presentation_number).','%03d');
                     address = sprintf('"%s%s.jpg"','SquareCongruent_',string_order);
                     fprintf(fid,'/%d = ',presentation_number);
                     fprintf(fid,'%s\n',address);
@@ -170,7 +180,7 @@ for batch = 1:Number_of_Batch
                 string_title_number = num2str(Masking_group.','%01d');
                 fprintf(fid,'<item Masking_item_%s>\n',string_title_number);
                 for content = 1:(Number_of_Masking/5)
-                    string_order = num2str(order_list_Masking(content+(Number_of_Masking/5)*(Masking_group-1)).','%03d');
+                    string_order = num2str(subject_order_list_Masking(content+(Number_of_Masking/5)*(Masking_group-1)).','%03d');
                     fprintf(fid,'/%d = "mask_%s.jpg"\n',content,string_order);
                 end
                 fprintf(fid,'</item>\n\n');
@@ -180,7 +190,7 @@ for batch = 1:Number_of_Batch
                 string_title_number = num2str(Masking_group_patch.','%01d');
                 fprintf(fid,'<item Masking_patch_item_%s>\n',string_title_number);
                 for content = 1:(Number_of_Masking/5)
-                    string_order = num2str(order_list_Masking(content+(Number_of_Masking/5)*(Masking_group_patch-1)).','%03d');
+                    string_order = num2str(subject_order_list_Masking(content+(Number_of_Masking/5)*(Masking_group_patch-1)).','%03d');
                     fprintf(fid,'/%d = "maskCrop_%s.jpg"\n',content,string_order);
                 end
                 fprintf(fid,'</item>\n\n');
@@ -284,12 +294,17 @@ for batch = 1:Number_of_Batch
             sequence_start_point = 1+(subject-1)*Null_per_trial; % shifts for every subject
             sequence_end_point = sequence_start_point + Total_Trial_number*Null_per_trial-1;           
             if sequence_end_point <= Number_of_Null
-                subject_null_sequence = group_null_patch(sequence_start_point:sequence_end_point);
+                subject_null_patch = group_null_patch(sequence_start_point:sequence_end_point);
             else
                 end_point_from_beginning = sequence_end_point-Number_of_Null;
-                subject_null_sequence = [group_null_patch(sequence_start_point:end) group_null_patch(1:end_point_from_beginning)];
-            end            
-           %%% group_null_sequence(:,subject) = subject_null_sequence;
+                subject_null_patch = [group_null_patch(sequence_start_point:end) group_null_patch(1:end_point_from_beginning)];
+            end 
+            
+            % order null patch sequence to be consistent with image
+            % presentation order
+            n = reshape(subject_null_patch,[Null_per_trial, Total_Trial_number]); % reshape the [1,117] sequence into a matrix with columns representing image, rows representing null patches for each image
+            n_sorted = n(:,r_order); % sort the columns based on image presentation order
+            subject_null_sequence = reshape(n_sorted,[1,length(subject_null_patch)]);  % reshape the matrix back into a single column
             
             % print select null patch file names
             fprintf(fid,'<item null_patch>\n');           
@@ -354,7 +369,7 @@ for batch = 1:Number_of_Batch
             
 %% List to define the image and object patch whether a Cong or Incong
             fprintf(fid,'<item Image_CongOrIncong>\n');
-            for presentation_order = 1:length(order_list)
+            for presentation_order = 1:length(subject_order_list)
                 if PresentArray(presentation_order) == "Cong"
                     fprintf(fid,'/%d = "Cong" \n',presentation_order);
                 elseif PresentArray(presentation_order) == "INcong"
@@ -364,7 +379,7 @@ for batch = 1:Number_of_Batch
             fprintf(fid,'</item>\n\n');
             
             fprintf(fid,'<item Patch_OriginalOrModified>\n');
-            for presentation_order = 1:length(order_list)
+            for presentation_order = 1:length(subject_order_list)
                 if combination_sequence(presentation_order,group) == 1 || combination_sequence(presentation_order,group) == 4
                     fprintf(fid,'/%d = "Original" \n',presentation_order);
                 elseif combination_sequence(presentation_order,group) == 2 || combination_sequence(presentation_order,group) == 3
@@ -375,18 +390,18 @@ for batch = 1:Number_of_Batch
 
 %% The list of location of the CP patches
             fprintf(fid,'<item Object_Patch>\n');
-            for presentation_order = 1:length(order_list)
+            for presentation_order = 1:length(subject_order_list)
                 fprintf(fid,'/%d = "%d"\n',presentation_order,IP_position(presentation_order));
             end
             fprintf(fid,'</item>\n\n');
             
 %% Here used to specify where positions of the other two present patches
-            Present_patch_1 = ones(1,length(order_list));
-            Present_patch_2 = ones(1,length(order_list));
+            Present_patch_1 = ones(1,length(subject_order_list));
+            Present_patch_2 = ones(1,length(subject_order_list));
             Odd_position = [1 3 5 7 9];
             Even_position = [2 4 6 8];
 
-            for presentation_order = 1:length(order_list)
+            for presentation_order = 1:length(subject_order_list)
 
                 if mod(IP_position(presentation_order),2) == 0
                     selection_index = randperm(3,2);
@@ -405,21 +420,21 @@ for batch = 1:Number_of_Batch
 %% Create list of present patch positions
 
             fprintf(fid,'<item Present_1_position>\n'); % present patch 1
-            for presentation_order = 1:length(order_list)
+            for presentation_order = 1:length(subject_order_list)
                     fprintf(fid,'/%d = "%s" \n',presentation_order,num2str(Present_patch_1(presentation_order)));
             end
             fprintf(fid,'</item>\n\n');
 
             fprintf(fid,'<item Present_2_position>\n'); % present patch 2
-            for presentation_order = 1:length(order_list)
+            for presentation_order = 1:length(subject_order_list)
                     fprintf(fid,'/%d = "%s" \n',presentation_order,num2str(Present_patch_2(presentation_order)));
             end
             fprintf(fid,'</item>\n\n');
 
 %% List of Image ID
             fprintf(fid,'<item Image_ID>\n');
-            for presentation_order = 1:length(order_list)
-                fprintf(fid,'/%d = "%d"\n',presentation_order,order_list(presentation_order));
+            for presentation_order = 1:length(subject_order_list)
+                fprintf(fid,'/%d = "%d"\n',presentation_order,subject_order_list(presentation_order));
             end
             fprintf(fid,'</item>\n\n');
 

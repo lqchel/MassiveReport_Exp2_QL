@@ -7,6 +7,8 @@
 	/num_trials = 37
 	/num_catch_trials = 8
 	/num_prac_trials = 3
+	/num_prac_catch = 1
+	/number_of_patch = 6	
 	/Index = 0
 	/test = 0
 	/size = 20%
@@ -24,7 +26,7 @@
 	/Patch_Position = 0
 	/Image_ID = 0
 	/order_question = 0
-	/number_of_patch = 0
+
 	/question_choose = 0
 	/null_index = 0 
 	/presentation_time = 0
@@ -982,7 +984,7 @@ expressions.validresponse_disks
 7 = attention2;
 8 = catch;
 9 = attention3;
-10-61 = list.test_select;
+10-51 = list.test_select;
 ]
 </expt>
 

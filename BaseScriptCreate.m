@@ -66,7 +66,7 @@ for batch = 1:Number_of_Batch
     
 
     %% Specify where the CP located for the selected images
-    IP_position = ones(1,length(order_list));
+    IP_position_ordered = ones(1,length(order_list));
     for presentation_order = 1:length(order_list)
         Presentation_image_patch_name = sprintf('cong_%d_*.jpg',order_list(presentation_order));
         img_path_list = dir(strcat(file_path_Congruent_Patch,Presentation_image_patch_name));
@@ -75,7 +75,7 @@ for batch = 1:Number_of_Batch
         for kk = 1:num_img
             temp_array(kk) = img_path_list(kk).name(length(img_path_list(kk).name)-4);
         end
-        IP_position(presentation_order) = find(temp_array == 'p'); %%Find the CP position of the image
+        IP_position_ordered(presentation_order) = find(temp_array == 'p'); %%Find the CP position of the image
     end
           
  %% Copy all selected image pairs to folder
@@ -131,7 +131,7 @@ for batch = 1:Number_of_Batch
             r_order = [1 2 3 randperm(Total_Trial)+3];
             subject_order_list = order_list(r_order);
             combination_sequence = combination_ordered_sequence(reshape(r_order,[length(r_order),1]),:);
-            
+            IP_position = IP_position_ordered(r_order);
             
 %% Write List of Image file names in Base Script 
 %Need to mix the congruent and Incongruent images throughout the experiment
@@ -180,7 +180,7 @@ for batch = 1:Number_of_Batch
                 string_title_number = num2str(Masking_group.','%01d');
                 fprintf(fid,'<item Masking_item_%s>\n',string_title_number);
                 for content = 1:(Number_of_Masking/5)
-                    string_order = num2str(subject_order_list_Masking(content+(Number_of_Masking/5)*(Masking_group-1)).','%03d');
+                    string_order = num2str(order_list_Masking(content+(Number_of_Masking/5)*(Masking_group-1)).','%03d');
                     fprintf(fid,'/%d = "mask_%s.jpg"\n',content,string_order);
                 end
                 fprintf(fid,'</item>\n\n');
@@ -190,7 +190,7 @@ for batch = 1:Number_of_Batch
                 string_title_number = num2str(Masking_group_patch.','%01d');
                 fprintf(fid,'<item Masking_patch_item_%s>\n',string_title_number);
                 for content = 1:(Number_of_Masking/5)
-                    string_order = num2str(subject_order_list_Masking(content+(Number_of_Masking/5)*(Masking_group_patch-1)).','%03d');
+                    string_order = num2str(order_list_Masking(content+(Number_of_Masking/5)*(Masking_group_patch-1)).','%03d');
                     fprintf(fid,'/%d = "maskCrop_%s.jpg"\n',content,string_order);
                 end
                 fprintf(fid,'</item>\n\n');

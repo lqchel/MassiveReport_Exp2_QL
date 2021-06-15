@@ -134,7 +134,7 @@ followed by the confidence ratings. ")
 In a catch trial, instead of an image, you will see the word 'catch' flashed briefly on the screen. 
 
 Then, a response screen appears, and you are asked to give the same response as the instruction
- shown in the middle of the screen (e.g. YES 4).")
+ shown in the bottom of the screen (e.g. YES 4).")
 / hposition = 50%
 / vposition = 50%
 / fontstyle = ("Arial", 3%, true)
@@ -144,10 +144,9 @@ Then, a response screen appears, and you are asked to give the same response as 
 </text>
 
 <text Instruction_Page_6>
-/ items = ("After finishing all the image-patch trials, you are asked to complete a short survey
- about your everyday visual experience.
- 
-The experiment will take approximately 30 mins(Including download time) to complete.")
+/ items = ("The experiment will take approximately 30 mins(Including download time) to complete.
+
+When you are ready, press Space to start the practice trials.")
 / hposition = 50%
 / vposition = 50%
 / fontstyle = ("Arial", 3%, true)

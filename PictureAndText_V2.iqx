@@ -188,7 +188,8 @@ and how confident you are.")
 ***************************************************************************************************
 ***************************************************************************************************
 <text interval>
-/items = ("You have finished <%values.Index - values.num_prac_trials - values.num_prac_catch%> of <%values.num_trials + values.num_catch_trials%> trials.
+/items = ("You have finished <%values.Index - values.num_prac_trials - values.num_prac_catch%> of <%values.num_trials + 
+	values.num_catch_trials%> trials.
 If you are ready, press SPACE BUTTON and move to next trial.
 ")
 / position = (50%,50%)

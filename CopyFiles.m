@@ -69,7 +69,7 @@ for batch = 1:4
             copyfile(file_name,DST_PATH_t);
         end
         
-        for subject = 1:4
+        for subject = 1:15
             file_name = sprintf('BaseScript_B%d_G%d_S%d.iqx',batch,group,subject);
             copyfile(file_name,DST_PATH_t);
             file_name = sprintf('Script_B%d_G%d_S%d.iqx',batch,group,subject);

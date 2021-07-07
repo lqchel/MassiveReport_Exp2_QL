@@ -23,11 +23,11 @@ Total_Trial = 34; %% Define how many images are used to presentation
 Total_Trial_practice = 3;
 Total_Trial_number = Total_Trial + Total_Trial_practice;
 Number_of_Masking = 20;
-Number_of_Null = 117; % number of null patches per group
+Number_of_Null = 120; % number of null patches per group
 Null_per_trial = 3; % number of null patches each trial
-Number_of_Batch = 1;
-Number_of_Group = 2;
-Number_of_Subjects = 3; % number of subjects per group
+Number_of_Batch = 4;
+Number_of_Group = 4;
+Number_of_Subjects = 15; % number of subjects per group
 Total_Null_Number = Number_of_Null*Number_of_Batch*Number_of_Group;
 
 %% Prepare Null Patch Stimuli for All Batches 
@@ -125,7 +125,7 @@ for batch = 1:Number_of_Batch
             fid = fopen(filename,'w');         
             % randomize image presentation sequence, and sort the
             % corresponding present patch, combination sequence, null patch
-            % sequence
+            % sequence, and critical object location sequence
             rng shuffle
             rand_seed = rng;
             r_order = [1 2 3 randperm(Total_Trial)+3];
